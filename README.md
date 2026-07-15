@@ -13,6 +13,7 @@ For coding agents that use repository instructions, start with [AGENTS.md](AGENT
 
 ## What is here
 
+<!--
 | Folder or file | Use it for |
 | --- | --- | --- |
 | [workshop/](workshop/) | A numbered five-state journey, working templates, copyable prompts and challenge examples. |
@@ -20,6 +21,39 @@ For coding agents that use repository instructions, start with [AGENTS.md](AGENT
 | [tool-setup/](tool-setup/) | Copyable instructions for chat tools, VS Code and coding agents. |
 | [references/](references/) | Optional links to related external work. |
 | [AGENTS.md](AGENTS.md) | Instructions for an AI agent working in this repository. |
+
+-->
+
+<table>
+	<thead>
+		<tr>
+			<th align="left">Folder or file</th>
+			<th align="left">Use it for</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td><a href="workshop/">workshop/</a></td>
+			<td>A numbered five-state journey, working templates, copyable prompts and challenge examples.</td>
+		</tr>
+		<tr>
+			<td><a href="skills/">skills/</a></td>
+			<td>Reusable <code>SKILL.md</code> instructions that an AI agent can load or that you can paste into an AI conversation.</td>
+		</tr>
+		<tr>
+			<td><a href="tool-setup/">tool-setup/</a></td>
+			<td>Copyable instructions for chat tools, VS Code and coding agents.</td>
+		</tr>
+		<tr>
+			<td><a href="references/">references/</a></td>
+			<td>Optional links to related external work.</td>
+		</tr>
+		<tr>
+			<td><a href="AGENTS.md">AGENTS.md</a></td>
+			<td>Instructions for an AI agent working in this repository.</td>
+		</tr>
+	</tbody>
+</table>
 
 ## Working principles
 
