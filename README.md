@@ -66,3 +66,7 @@ For coding agents that use repository instructions, start with [AGENTS.md](AGENT
 ## Reuse
 
 The repository is available under the [MIT License](LICENSE). Keep the license notice with substantial reuse.
+
+## Agent Skill Discovery
+
+The canonical skill library is [skills/](skills/). The `.agents/skills`, `.claude/skills` and `.github/skills` paths are relative symlinks to that same library for tools that scan those conventional locations. Do not edit through a compatibility path. GitHub Copilot also reads the root [AGENTS.md](AGENTS.md).
