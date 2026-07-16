@@ -32,6 +32,6 @@ Use the other skills when the challenge makes permission, transparency or recove
 
 ## Using skills with AI tools
 
-Some tools can read a `SKILL.md` file directly. For other tools, open the file, give it the task and relevant workshop artifact, then ask the tool to follow the guidance. [tool-setup/](../tool-setup/) gives a copyable route for chat tools, VS Code and coding agents.
+Some tools can read a `SKILL.md` file directly. When you open a local copy of this repository in a compatible coding agent, it may discover these same skills automatically. The compatibility paths point back to this folder; they do not make a second skill library. For other tools, open the file, give it the task and relevant workshop artifact, then ask the tool to follow the guidance. [tool-setup/](../tool-setup/) gives a copyable route for chat tools, VS Code and coding agents.
 
 For optional background on related Owl work, read [references/](../references/).
