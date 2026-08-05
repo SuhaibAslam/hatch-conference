@@ -11,6 +11,10 @@ Use this repository to work on one real AI-supported workflow. Make the agreemen
 
 For coding agents that use repository instructions, start with [AGENTS.md](AGENTS.md).
 
+## Workshop website
+
+This repository also deploys a navigable workshop companion through GitHub Pages. The website displays the same source files from this repository; use the repository itself when you need to copy, edit or give a file to an AI tool.
+
 ## What is here
 
 <!--
