@@ -1,20 +1,149 @@
-const repositoryUrl='https://github.com/SuhaibAslam/hatch-conference';
-const routes={
-  setup:{accent:'#7693bd',soft:'#dce5f1',title:'Connect the repository to your AI tool',intro:'Choose the lightest route your tool supports. You do not need a terminal or a special installation.',result:'A new AI conversation that knows the workshop context and your current moment.',steps:[['01','Share the repository','Give your tool the public GitHub repository URL when it can open web links.'],['02','Name the moment','Tell it whether you are preparing, creating a portable skill, or running the Outcomes trial.'],['03','Add only useful context','Provide the current task, authorised material, and the relevant workshop artifact.']],tools:[['copy-quickstart','Copy quick-start prompt','primary'],['resource','Open complete setup guide','tool-setup/README.md']]},
-  create:{accent:'#4f9a90',soft:'#cde4e1',title:'Create the team’s portable skill',intro:'Bring the decisions already made on Team Canvas 5. The repository helps turn them into clear, reusable guidance; it does not replace the team discussion.',result:'A portable skill ready for the controlled comparison.',steps:[['01','Bring the judgment','Name the workflow, person affected, design judgment, allowed context and human checkpoint.'],['02','Draft the guidance','Use the template directly or ask an AI tool to help after the team’s boundaries are clear.'],['03','Challenge before testing','Check the procedure, priorities, uncertainty response, evaluation criterion and one important edge case.']],tools:[['resource','Open portable skill template','workshop/04-action/template--portable-skill.md'],['copy-code','Copy AI drafting prompt','workshop/04-action/prompt--draft-guidance.md'],['resource','Get help structuring constraints','skills/constraint-specification/SKILL.md']]},
-  trial:{accent:'#777772',soft:'#d9d9d4',title:'Run and review the skill trial',intro:'The agent prepares named baseline and guided outputs. The team keeps authority over the evidence, scoring and revision decision.',result:'One evidenced improvement, one cost, and one next revision.',steps:[['01','Start clean','Use a fresh agent conversation when possible and hold the task, material, tool and output format steady.'],['02','Run both conditions','Give the agent the Trial Runner, target portable skill, task and authorised input material.'],['03','Review as a team','Keep both outputs visible, cite evidence, and decide what to change. The Comparison Desk is optional.']],tools:[['copy-trial','Copy Trial Runner handoff','primary'],['resource','Read the Trial Runner','skills/run-skill-trial/SKILL.md'],['desk','Open Comparison Desk','workshop/05-outcomes/comparison-desk.html'],['resource','Open Outcomes guide','workshop/05-outcomes/00-start-here.md']]}
-};
-const routeDetail=document.querySelector('#route-detail');const dialog=document.querySelector('#resource-dialog');const resourceContent=document.querySelector('#resource-content');const toast=document.querySelector('#toast');let activeResource='';
-function escapeHtml(value=''){return value.replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;')}
-function humanize(label){if(!/\.(md|html)$/i.test(label))return label;return label.split('/').pop().replace(/\.(md|html)$/i,'').replace(/^SKILL$/i,'Full instructions').replace(/^(guidance|template|prompt|examples)--/i,'$1: ').replaceAll('--',': ').replaceAll('-',' ')}
-function inlineMarkdown(value){return escapeHtml(value).replace(/`([^`]+)`/g,'<code>$1</code>').replace(/\*\*([^*]+)\*\*/g,'<strong>$1</strong>').replace(/\*([^*]+)\*/g,'<em>$1</em>').replace(/\[([^\]]+)\]\(([^\s)]+)\)/g,(_,label,href)=>`<a href="${href}">${humanize(label)}</a>`)}
-function renderMarkdown(markdown){const clean=markdown.replace(/^---\n[\s\S]*?\n---\n/,'').replace(/\r/g,'');let html='',list='',code=false,table=false;const closeList=()=>{if(list){html+=`</${list}>`;list=''}};const closeTable=()=>{if(table){html+='</tbody></table>';table=false}};for(const line of clean.split('\n')){if(line.startsWith('```')){closeList();closeTable();code=!code;html+=code?'<pre><code>':'</code></pre>';continue}if(code){html+=`${escapeHtml(line)}\n`;continue}if(/^\|/.test(line)&&/\|$/.test(line)){closeList();const cells=line.slice(1,-1).split('|').map(cell=>cell.trim());if(cells.every(cell=>/^:?-{3,}:?$/.test(cell)))continue;if(!table){html+='<table><tbody>';table=true}html+=`<tr>${cells.map(cell=>`<td>${inlineMarkdown(cell)}</td>`).join('')}</tr>`;continue}closeTable();if(!line.trim()){closeList();continue}const heading=line.match(/^(#{1,3})\s+(.+)$/);if(heading){closeList();const level=heading[1].length;html+=`<h${level}>${inlineMarkdown(heading[2])}</h${level}>`;continue}const item=line.match(/^[-*]\s+(.+)$/),ordered=line.match(/^\d+\.\s+(.+)$/);if(item||ordered){const type=ordered?'ol':'ul';if(list!==type){closeList();list=type;html+=`<${type}>`}html+=`<li>${inlineMarkdown((item||ordered)[1])}</li>`;continue}closeList();html+=`<p>${inlineMarkdown(line)}</p>`}closeList();closeTable();return html}
-function showToast(message){toast.textContent=message;toast.classList.add('show');setTimeout(()=>toast.classList.remove('show'),1800)}
-async function copyText(text,message){try{await navigator.clipboard.writeText(text)}catch{const area=document.createElement('textarea');area.value=text;document.body.append(area);area.select();document.execCommand('copy');area.remove()}showToast(message)}
-function codeBlock(path){return window.WORKSHOP_CONTENT?.[path]?.match(/```(?:text)?\n([\s\S]*?)\n```/)?.[1]||window.WORKSHOP_CONTENT?.[path]||''}
-function quickStart(){return `Read this workshop repository before helping us:\n${repositoryUrl}\n\nWe are working on one AI-supported workflow. Ask concise questions, use the relevant workshop file and design skill, and keep confirmed evidence, assumptions and open questions separate. Make human authority, intervention and recovery explicit.\n\nOur current workshop moment is:\n[preparing / creating a portable skill / running the Outcomes trial]\n\nOur workflow or challenge is:\n[add]`}
-function trialHandoff(){const runner=window.WORKSHOP_CONTENT?.['skills/run-skill-trial/SKILL.md']||'';return `${runner}\n\n---\n\nFollow the Trial Runner above.\n\nTarget portable skill:\n[paste or attach]\n\nTask and authorised input material:\n[add]\n\nRequired output format:\n[add]\n\nRun the baseline before reading the target portable skill. Return clearly named baseline and guided outputs for our team’s evidence review.`}
-function renderRoute(key){const route=routes[key];document.querySelectorAll('[data-route]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.route===key)));routeDetail.style.setProperty('--route-accent',route.accent);routeDetail.style.setProperty('--route-soft',route.soft);routeDetail.innerHTML=`<header class="route-detail-head"><div class="route-detail-title"><p class="eyebrow">Selected route</p><h3>${route.title}</h3><p>${route.intro}</p></div><div class="route-detail-result"><div><span>Leave with</span><strong>${route.result}</strong></div></div></header><div class="route-steps">${route.steps.map(step=>`<article class="route-step"><span>${step[0]}</span><h4>${step[1]}</h4><p>${step[2]}</p></article>`).join('')}</div><div class="route-tools">${route.tools.map(tool=>toolButton(tool)).join('')}</div>`;routeDetail.classList.add('open');routeDetail.scrollIntoView({behavior:'smooth',block:'nearest'})}
-function toolButton(tool){const[type,label,target]=tool;if(type==='desk'){const href=location.protocol==='file:'?`../${target}`:`content/${target}`;return`<a class="tool-button secondary" href="${href}">${label}</a>`}if(type==='resource')return`<button class="tool-button secondary" type="button" data-resource="${target}">${label}</button>`;return`<button class="tool-button ${target==='primary'?'':'secondary'}" type="button" data-tool-action="${type}"${type==='copy-code'?` data-path="${target}"`:''}>${label}</button>`}
-function openResource(path){const markdown=window.WORKSHOP_CONTENT?.[path];if(!markdown){showToast('This guidance is not available in the site bundle.');return}activeResource=path;const title=markdown.replace(/^---\n[\s\S]*?\n---\n/,'').match(/^#\s+(.+)$/m)?.[1]||'Workshop guidance';document.querySelector('#resource-title').textContent=title;document.querySelector('#resource-kind').textContent=path.includes('/SKILL.md')?'Design skill guidance':'Workshop guidance';document.querySelector('#resource-source').href=`${repositoryUrl}/blob/main/${path}`;resourceContent.innerHTML=renderMarkdown(markdown);resourceContent.querySelectorAll('a[href]').forEach(link=>{const href=link.getAttribute('href');if(/^(https?:|mailto:|#)/.test(href))return;const target=new URL(href,`https://workshop.local/${path}`).pathname.slice(1);const bundled=window.WORKSHOP_CONTENT?.[target]?target:`${target.replace(/\/$/,'')}/README.md`;if(window.WORKSHOP_CONTENT?.[bundled]){link.href='#';link.addEventListener('click',event=>{event.preventDefault();openResource(bundled)})}else link.href=`content/${target}`});dialog.showModal()}
-document.addEventListener('click',event=>{const route=event.target.closest('[data-route]');if(route)renderRoute(route.dataset.route);const resource=event.target.closest('[data-resource]');if(resource)openResource(resource.dataset.resource);if(event.target.closest('[data-close]'))dialog.close();if(event.target.closest('[data-copy-resource]')&&activeResource)copyText(window.WORKSHOP_CONTENT[activeResource], 'Full guidance copied.');const action=event.target.closest('[data-tool-action]');if(action?.dataset.toolAction==='copy-quickstart')copyText(quickStart(),'Quick-start prompt copied.');if(action?.dataset.toolAction==='copy-code')copyText(codeBlock(action.dataset.path),'Drafting prompt copied.');if(action?.dataset.toolAction==='copy-trial')copyText(trialHandoff(),'Trial Runner handoff copied.')});dialog.addEventListener('click',event=>{if(event.target===dialog)dialog.close()});
+const repositoryUrl = 'https://github.com/SuhaibAslam/hatch-conference';
+const dialog = document.querySelector('#resource-dialog');
+const resourceContent = document.querySelector('#resource-content');
+const toast = document.querySelector('#toast');
+let activeResource = '';
+
+function escapeHtml(value = '') {
+  return value.replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;').replaceAll('"', '&quot;');
+}
+
+function humanize(label) {
+  if (!/\.(md|html)$/i.test(label)) return label;
+  return label.split('/').pop().replace(/\.(md|html)$/i, '').replace(/^SKILL$/i, 'Full instructions').replace(/^(guidance|template|prompt|examples)--/i, '$1: ').replaceAll('--', ': ').replaceAll('-', ' ');
+}
+
+function inlineMarkdown(value) {
+  return escapeHtml(value).replace(/`([^`]+)`/g, '<code>$1</code>').replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>').replace(/\*([^*]+)\*/g, '<em>$1</em>').replace(/\[([^\]]+)\]\(([^\s)]+)\)/g, (_, label, href) => `<a href="${href}">${humanize(label)}</a>`);
+}
+
+function renderMarkdown(markdown) {
+  const clean = markdown.replace(/^---\n[\s\S]*?\n---\n/, '').replace(/\r/g, '');
+  let html = '', list = '', code = false, table = false;
+  const closeList = () => { if (list) html += `</${list}>`; list = ''; };
+  const closeTable = () => { if (table) html += '</tbody></table>'; table = false; };
+  for (const line of clean.split('\n')) {
+    if (line.startsWith('```')) { closeList(); closeTable(); code = !code; html += code ? '<pre><code>' : '</code></pre>'; continue; }
+    if (code) { html += `${escapeHtml(line)}\n`; continue; }
+    if (/^\|/.test(line) && /\|$/.test(line)) {
+      closeList();
+      const cells = line.slice(1, -1).split('|').map(cell => cell.trim());
+      if (cells.every(cell => /^:?-{3,}:?$/.test(cell))) continue;
+      if (!table) html += '<table><tbody>';
+      table = true;
+      html += `<tr>${cells.map(cell => `<td>${inlineMarkdown(cell)}</td>`).join('')}</tr>`;
+      continue;
+    }
+    closeTable();
+    if (!line.trim()) { closeList(); continue; }
+    const heading = line.match(/^(#{1,3})\s+(.+)$/);
+    if (heading) { closeList(); const level = heading[1].length; html += `<h${level}>${inlineMarkdown(heading[2])}</h${level}>`; continue; }
+    const item = line.match(/^[-*]\s+(.+)$/), ordered = line.match(/^\d+\.\s+(.+)$/);
+    if (item || ordered) {
+      const type = ordered ? 'ol' : 'ul';
+      if (list !== type) { closeList(); list = type; html += `<${type}>`; }
+      html += `<li>${inlineMarkdown((item || ordered)[1])}</li>`;
+      continue;
+    }
+    closeList();
+    html += `<p>${inlineMarkdown(line)}</p>`;
+  }
+  closeList(); closeTable();
+  return html;
+}
+
+function showToast(message) {
+  toast.textContent = message;
+  toast.classList.add('show');
+  window.setTimeout(() => toast.classList.remove('show'), 2600);
+}
+
+async function copyText(text, message) {
+  try { await navigator.clipboard.writeText(text); }
+  catch {
+    const area = document.createElement('textarea');
+    area.value = text;
+    document.body.append(area);
+    area.select();
+    document.execCommand('copy');
+    area.remove();
+  }
+  showToast(message);
+}
+
+function codeBlock(path) {
+  const source = window.WORKSHOP_CONTENT?.[path] || '';
+  return source.match(/```(?:text)?\n([\s\S]*?)\n```/)?.[1] || '';
+}
+
+function workshopContext() {
+  return `Use this workshop repository as our source:\n${repositoryUrl}\n\nWe are participants in Design Skills for the Agentic Era. We are carrying one real AI-supported workflow through five stages:\n1. Intent: choose the work and consequence.\n2. Possibility: decide how people and AI share agency.\n3. Definition: agree purpose, context, control and recovery.\n4. Action: turn one human design judgment into a portable skill.\n5. Outcomes: compare the same task without and with the skill, then revise from evidence.\n\nAsk only for context you need. Keep confirmed evidence, assumptions and open questions separate. Make human authority, intervention and recovery explicit. Use only material we are authorised to share.\n\nOur current stage is:\n[Intent / Possibility / Definition / Action / Outcomes]\n\nOur workflow or challenge is:\n[add]`;
+}
+
+function trialInstructions() {
+  const runner = window.WORKSHOP_CONTENT?.['skills/run-skill-trial/SKILL.md'] || '';
+  return `${runner}\n\n---\n\nRun the controlled trial described above.\n\nPortable skill to test:\n[paste or attach]\n\nTask and authorised input material:\n[add]\n\nRequired output format:\n[add]\n\nRun the baseline before reading the portable skill. Then run the same task with the skill applied. Return clearly named baseline and guided outputs. Do not score them; our team will review the evidence and decide what to revise.`;
+}
+
+function openResource(path) {
+  const markdown = window.WORKSHOP_CONTENT?.[path];
+  if (!markdown) { showToast('This guidance is not available in the workshop bundle.'); return; }
+  activeResource = path;
+  const clean = markdown.replace(/^---\n[\s\S]*?\n---\n/, '');
+  const title = clean.match(/^#\s+(.+)$/m)?.[1] || 'Workshop guidance';
+  document.querySelector('#resource-title').textContent = title;
+  document.querySelector('#resource-kind').textContent = path.includes('/SKILL.md') ? 'Design guidance' : 'Workshop material';
+  document.querySelector('#resource-source').href = `${repositoryUrl}/blob/main/${path}`;
+  resourceContent.innerHTML = renderMarkdown(markdown);
+  resourceContent.querySelectorAll('a[href]').forEach(link => {
+    const href = link.getAttribute('href');
+    if (/^(https?:|mailto:|#)/.test(href)) return;
+    const target = new URL(href, `https://workshop.local/${path}`).pathname.slice(1);
+    const bundled = window.WORKSHOP_CONTENT?.[target] ? target : `${target.replace(/\/$/, '')}/README.md`;
+    if (window.WORKSHOP_CONTENT?.[bundled]) {
+      link.href = '#';
+      link.addEventListener('click', event => { event.preventDefault(); openResource(bundled); });
+    } else link.href = `content/${target}`;
+  });
+  dialog.showModal();
+}
+
+function setActiveStage(id) {
+  document.querySelectorAll('.journey-link').forEach(link => {
+    const active = link.hash === `#${id}`;
+    link.classList.toggle('active', active);
+    if (active) link.setAttribute('aria-current', 'step');
+    else link.removeAttribute('aria-current');
+  });
+}
+
+document.addEventListener('click', event => {
+  const resource = event.target.closest('[data-resource]');
+  if (resource) openResource(resource.dataset.resource);
+  if (event.target.closest('[data-close]')) dialog.close();
+  if (event.target.closest('[data-copy-resource]') && activeResource) copyText(window.WORKSHOP_CONTENT[activeResource], 'Guidance copied. Paste it into your AI tool or shared workspace.');
+  const copyAction = event.target.closest('[data-copy-action]')?.dataset.copyAction;
+  if (copyAction === 'quickstart') copyText(workshopContext(), 'Workshop context copied. Paste it into a new AI conversation.');
+  if (copyAction === 'draft') {
+    const prompt = codeBlock('workshop/04-action/prompt--draft-guidance.md');
+    if (prompt) copyText(prompt, 'Drafting prompt copied. Add your team decisions before sending it.');
+    else showToast('The drafting prompt is unavailable. Open the GitHub repository instead.');
+  }
+  if (copyAction === 'trial') {
+    const runner = window.WORKSHOP_CONTENT?.['skills/run-skill-trial/SKILL.md'];
+    if (runner) copyText(trialInstructions(), 'Controlled-trial instructions copied. Paste them into a fresh AI conversation.');
+    else showToast('The controlled-trial instructions are unavailable. Open the GitHub repository instead.');
+  }
+});
+
+dialog.addEventListener('click', event => { if (event.target === dialog) dialog.close(); });
+
+const deskLink = document.querySelector('[data-desk]');
+deskLink.href = location.protocol === 'file:' ? '../workshop/05-outcomes/comparison-desk.html' : 'content/workshop/05-outcomes/comparison-desk.html';
+
+const observer = new IntersectionObserver(entries => {
+  const visible = entries.filter(entry => entry.isIntersecting).sort((first, second) => second.intersectionRatio - first.intersectionRatio)[0];
+  if (visible) setActiveStage(visible.target.id);
+}, { rootMargin: '-20% 0px -60%', threshold: [0, 0.2, 0.5] });
+
+document.querySelectorAll('.stage').forEach(stage => observer.observe(stage));

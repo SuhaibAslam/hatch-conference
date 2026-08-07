@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="The AI companion for the Design Skills for the Agentic Era workshop.">
+  <meta name="description" content="A participant companion for the Design Skills for the Agentic Era workshop.">
   <title>Design Skills for the Agentic Era</title>
   <link rel="stylesheet" href="styles.css">
   <script src="content.generated.js" defer></script>
@@ -13,8 +13,11 @@
   <header class="masthead">
     <a class="brand" href="#top"><span>Hatch Conference</span><strong>Design Skills for the Agentic Era</strong></a>
     <nav aria-label="Primary navigation">
-      <a href="#start">Use with an AI tool</a>
-      <a href="#skills">Design skill library</a>
+      <a href="#intent">Intent</a>
+      <a href="#possibility">Possibility</a>
+      <a href="#definition">Definition</a>
+      <a href="#action">Action</a>
+      <a href="#outcomes">Outcomes</a>
       <a href="https://github.com/SuhaibAslam/hatch-conference">GitHub repository</a>
     </nav>
   </header>
@@ -22,76 +25,197 @@
   <main id="top">
     <section class="hero shell">
       <div class="hero-title">
-        <p class="eyebrow">Hatch Conference | Workshop companion</p>
+        <p class="eyebrow">Hatch Conference | Workshop</p>
         <h1>Design Skills <span>for the Agentic Era</span></h1>
       </div>
       <div class="hero-intro">
-        <p>This companion supports the moments when your team works with an AI tool: setting up the repository, turning design judgment into a portable skill, and testing whether that skill improves the work.</p>
-        <a class="primary-link" href="#start">Choose what you need</a>
+        <p>Carry one real AI-supported workflow from a human judgment to guidance your team can test, compare and improve.</p>
+        <a class="primary-link" href="#intent">Begin with Intent</a>
       </div>
-      <div class="state-rule" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
     </section>
 
-    <section class="start shell" id="start" aria-labelledby="start-title">
-      <header class="section-head">
-        <div><p class="eyebrow">Start here</p><h2 id="start-title">What do you need from the repository?</h2></div>
-        <p>Choose one route. Each gives you the minimum context, files and copyable handoff needed for that moment.</p>
-      </header>
-      <div class="route-cards" role="list">
-        <button class="route-card route-setup" type="button" data-route="setup" role="listitem">
-          <span class="route-number">01</span><span class="route-label">Before or during the workshop</span>
-          <strong>Connect your AI tool</strong><small>Use the public repository, a downloaded copy, or paste-ready guidance.</small><span class="route-action">Open setup route</span>
-        </button>
-        <button class="route-card route-action" type="button" data-route="create" role="listitem">
-          <span class="route-number">02</span><span class="route-label">Action | Core laptop lab</span>
-          <strong>Create a portable skill</strong><small>Turn one agreed design judgment into guidance your team can test.</small><span class="route-action">Open creation route</span>
-        </button>
-        <button class="route-card route-outcomes" type="button" data-route="trial" role="listitem">
-          <span class="route-number">03</span><span class="route-label">Outcomes | Core laptop lab</span>
-          <strong>Run and review a trial</strong><small>Prepare baseline and guided outputs, then make the revision decision.</small><span class="route-action">Open trial route</span>
-        </button>
-      </div>
-      <section class="route-detail" id="route-detail" aria-live="polite" aria-label="Selected repository route"></section>
-    </section>
-
-    <section class="workshop-map">
-      <div class="shell map-grid">
-        <div class="map-intro">
-          <p class="eyebrow">Where this fits</p>
-          <h2>The paper workshop leads. The repository joins where it helps.</h2>
-          <p>Use optional guidance when a team needs it. Use the repository directly for the two AI lab moments.</p>
+    <section class="tool-onramp">
+      <div class="shell onramp-grid">
+        <div>
+          <p class="eyebrow">Working with an AI tool today?</p>
+          <h2>Give it the workshop context once.</h2>
         </div>
-        <ol class="state-map">
-          <li><span>Intent</span><strong>Optional challenge guidance</strong><button type="button" data-resource="workshop/01-intent/guidance--choose-a-challenge.md">Open guidance</button></li>
-          <li><span>Possibility</span><strong>Optional agency guidance</strong><button type="button" data-resource="workshop/02-possibility/guidance--agency-and-control.md">Open guidance</button></li>
-          <li><span>Definition</span><strong>Optional operating-agreement support</strong><button type="button" data-resource="workshop/03-definition/template--operating-agreement.md">Open support</button></li>
-          <li class="core action"><span>Action</span><strong>Create the portable skill</strong><em>Core repository moment</em></li>
-          <li class="core outcomes"><span>Outcomes</span><strong>Run the trial and review evidence</strong><em>Core repository moment</em></li>
-        </ol>
+        <p>Start a new conversation, share only material your team is authorised to use, and tell the tool which workshop stage you are in.</p>
+        <div class="onramp-actions">
+          <button class="button button-dark" type="button" data-copy-action="quickstart">Copy workshop context</button>
+          <button class="text-link" type="button" data-resource="tool-setup/README.md">Open setup instructions</button>
+        </div>
       </div>
     </section>
 
-    <section class="skills shell" id="skills" aria-labelledby="skills-title">
-      <header class="section-head">
-        <div><p class="eyebrow">Design skill library</p><h2 id="skills-title">What does the team need to make clearer?</h2></div>
-        <p>Choose the design question in front of you. Open the guidance, give it the relevant workflow and artifact, and adapt it to your team’s situation.</p>
-      </header>
-      <div class="skill-grid">
-        <button class="skill-card" type="button" data-resource="skills/constraint-specification/SKILL.md"><span>Guidance quality</span><strong>Inputs, outputs or limits?</strong><small>Structure vague requirements into reviewable guidance.</small></button>
-        <button class="skill-card" type="button" data-resource="skills/mixed-initiative-flow/SKILL.md"><span>Agency</span><strong>Who leads, and when?</strong><small>Make initiative, handoffs and intervention explicit.</small></button>
-        <button class="skill-card" type="button" data-resource="skills/consent-and-agency/SKILL.md"><span>Authority</span><strong>What needs permission?</strong><small>Design approval, refusal, override and withdrawal.</small></button>
-        <button class="skill-card" type="button" data-resource="skills/transparency-patterns/SKILL.md"><span>Legibility</span><strong>What must people understand?</strong><small>Show sources, state, limits, uncertainty and next steps.</small></button>
-        <button class="skill-card" type="button" data-resource="skills/failure-recovery/SKILL.md"><span>Recovery</span><strong>What happens when it fails?</strong><small>Choose retry, fallback, escalation or graceful degradation.</small></button>
-        <button class="skill-card" type="button" data-resource="skills/comparative-evaluation/SKILL.md"><span>Evidence</span><strong>Did the guidance help?</strong><small>Compare outputs fairly and decide what to revise.</small></button>
+    <nav class="journey-nav shell" id="journey" aria-label="Workshop stages">
+      <a class="journey-link intent" href="#intent"><span>01</span><strong>Intent</strong><small>Choose the work</small></a>
+      <a class="journey-link possibility" href="#possibility"><span>02</span><strong>Possibility</strong><small>Share agency</small></a>
+      <a class="journey-link definition" href="#definition"><span>03</span><strong>Definition</strong><small>Make the agreement</small></a>
+      <a class="journey-link action" href="#action"><span>04</span><strong>Action</strong><small>Create the skill</small><em>Laptop lab</em></a>
+      <a class="journey-link outcomes" href="#outcomes"><span>05</span><strong>Outcomes</strong><small>Test and improve</small><em>Laptop lab</em></a>
+    </nav>
+
+    <section class="stage stage-intent" id="intent">
+      <div class="shell stage-grid">
+        <header class="stage-heading">
+          <p class="stage-number">01 <span>Intent</span></p>
+          <h2>What real work will we improve?</h2>
+          <p>Choose one workflow where a weak AI-supported outcome would matter to a real person or team.</p>
+        </header>
+        <div class="stage-body">
+          <h3>Choose together</h3>
+          <ul class="decision-list">
+            <li><span>Person</span>Name who is affected by the work.</li>
+            <li><span>Consequence</span>State what becomes harder, riskier or less trustworthy when the outcome is weak.</li>
+            <li><span>Test material</span>Confirm that you have enough authorised material for a small trial today.</li>
+          </ul>
+          <div class="stage-output"><span>Move on with</span><strong>One challenge your team can state in a sentence and test with real or de-identified material.</strong></div>
+          <div class="stage-actions">
+            <button class="button" type="button" data-resource="workshop/01-intent/guidance--choose-a-challenge.md">Help us choose a challenge</button>
+            <button class="text-link" type="button" data-resource="workshop/01-intent/examples--starting-challenges/README.md">Use a practice challenge</button>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section class="continue-band">
-      <div class="shell continue-grid">
-        <div><p class="eyebrow">Continue the work</p><h2>Keep a useful skill useful.</h2><p>Test more cases, watch for regression, and revise from evidence rather than preference.</p></div>
-        <div class="continue-links">
+    <section class="stage stage-possibility" id="possibility">
+      <div class="shell stage-grid">
+        <header class="stage-heading">
+          <p class="stage-number">02 <span>Possibility</span></p>
+          <h2>How should people and AI share the work?</h2>
+          <p>Decide where the tool may take initiative and where a person must stay informed, intervene or decide.</p>
+        </header>
+        <div class="stage-body">
+          <div class="agency-grid">
+            <article><span>Person leads</span><p>Use human judgment when consequences, context or accountability cannot be delegated.</p></article>
+            <article><span>AI leads</span><p>Let the tool prepare or act when the work is bounded, observable and easy to correct.</p></article>
+            <article><span>Work together</span><p>Make handoffs, checkpoints and changes in authority explicit.</p></article>
+          </div>
+          <div class="stage-output"><span>Move on with</span><strong>A clear answer for who leads each important step, what changes that choice, and how authority returns to a person.</strong></div>
+          <div class="stage-actions">
+            <button class="button" type="button" data-resource="workshop/02-possibility/guidance--agency-and-control.md">Work through agency and control</button>
+            <button class="text-link" type="button" data-resource="skills/mixed-initiative-flow/SKILL.md">Clarify handoffs</button>
+            <button class="text-link" type="button" data-resource="skills/consent-and-agency/SKILL.md">Clarify permission and override</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="stage stage-definition" id="definition">
+      <div class="shell stage-grid">
+        <header class="stage-heading">
+          <p class="stage-number">03 <span>Definition</span></p>
+          <h2>What agreement will govern the workflow?</h2>
+          <p>Make the conditions visible before you ask an AI tool to perform the work.</p>
+        </header>
+        <div class="stage-body">
+          <div class="agreement-grid">
+            <article><span>Purpose</span><strong>What starts this, what good looks like, and who is accountable?</strong></article>
+            <article><span>Context</span><strong>What may the system use, and what must remain outside it?</strong></article>
+            <article><span>Control</span><strong>What may it do, what requires approval, and how can someone intervene?</strong></article>
+            <article><span>Recovery</span><strong>What happens when information is weak, the system is wrong, or the work must stop?</strong></article>
+          </div>
+          <div class="stage-output"><span>Move on with</span><strong>An operating agreement the whole team can explain, challenge and use to map the workflow.</strong></div>
+          <div class="stage-actions">
+            <button class="button" type="button" data-resource="workshop/03-definition/template--operating-agreement.md">Open the operating agreement</button>
+            <button class="text-link" type="button" data-resource="skills/transparency-patterns/SKILL.md">Make system state understandable</button>
+            <button class="text-link" type="button" data-resource="skills/failure-recovery/SKILL.md">Plan recovery</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="stage stage-action lab-stage" id="action">
+      <div class="shell">
+        <header class="lab-heading">
+          <div>
+            <p class="stage-number">04 <span>Action</span> <em>Core laptop lab</em></p>
+            <h2>Turn one design judgment into a portable skill.</h2>
+          </div>
+          <p>A portable skill is a set of reusable instructions that tells an AI tool how to apply one human design judgment consistently. Your team decides the judgment; the tool can help make the instructions clear.</p>
+        </header>
+
+        <div class="lab-steps">
+          <article class="lab-step">
+            <span class="step-number">01</span>
+            <h3>Bring the team’s decision</h3>
+            <p>Use Team Canvas 5 to name the workflow, the judgment worth protecting, allowed context, the human checkpoint and what a good output must demonstrate.</p>
+          </article>
+          <article class="lab-step">
+            <span class="step-number">02</span>
+            <h3>Structure the skill</h3>
+            <p>Write when the guidance applies, what it needs, the procedure, constraints, checkpoint, output format, evaluation criterion and response to uncertainty.</p>
+            <button class="button" type="button" data-resource="workshop/04-action/template--portable-skill.md">Open the portable skill template</button>
+          </article>
+          <article class="lab-step lab-step-ai">
+            <span class="step-number">03</span>
+            <h3>Draft with your AI tool</h3>
+            <p>After the team’s boundaries are clear, paste a structured request into your AI tool. Add your decisions where the prompt asks for them, then review every instruction together.</p>
+            <button class="button button-dark" type="button" data-copy-action="draft">Copy the skill-drafting prompt</button>
+            <button class="text-link" type="button" data-resource="skills/constraint-specification/SKILL.md">Get help making the guidance precise</button>
+          </article>
+        </div>
+        <div class="lab-output"><span>Leave Action with</span><strong>One portable skill your team believes can improve the chosen task.</strong><small>Do not trust the draft yet. Outcomes is where you test whether it works.</small></div>
+      </div>
+    </section>
+
+    <section class="stage stage-outcomes lab-stage" id="outcomes">
+      <div class="shell">
+        <header class="lab-heading outcomes-heading">
+          <div>
+            <p class="stage-number">05 <span>Outcomes</span> <em>Core laptop lab</em></p>
+            <h2>Does the skill improve the work?</h2>
+          </div>
+          <p>Run the same task twice. The first output shows what the AI tool does without your skill. The second shows what changes when the skill is applied. Your team decides whether those differences matter.</p>
+        </header>
+
+        <div class="comparison-pair" aria-label="Controlled comparison">
+          <article><span>Baseline output</span><strong>The task completed without your portable skill.</strong><p>This is the starting point. Keep the task, input material and output format unchanged.</p></article>
+          <div aria-hidden="true">then</div>
+          <article><span>Guided output</span><strong>The same task completed with your portable skill.</strong><p>Only the skill changes. That makes the comparison useful.</p></article>
+        </div>
+
+        <div class="outcome-steps">
+          <article>
+            <span class="step-number">01</span>
+            <h3>Prepare one fair task</h3>
+            <p>Have your portable skill, task, authorised input material and required output format ready. Start a fresh AI conversation when possible.</p>
+          </article>
+          <article>
+            <span class="step-number">02</span>
+            <h3>Ask the AI tool to run both versions</h3>
+            <p>The copied instructions run the baseline first, then apply your skill to the same task and return two clearly named outputs. They leave the scoring to your team.</p>
+            <button class="button button-dark" type="button" data-copy-action="trial">Copy the controlled-trial instructions</button>
+            <button class="text-link" type="button" data-resource="skills/run-skill-trial/SKILL.md">Read how the controlled trial works</button>
+          </article>
+          <article>
+            <span class="step-number">03</span>
+            <h3>Review evidence together</h3>
+            <p>Keep both outputs visible. Cite the exact phrase, behaviour or omission behind each score, then record one improvement, one cost or regression, and one revision.</p>
+            <button class="text-link" type="button" data-resource="skills/comparative-evaluation/SKILL.md">Get help comparing evidence</button>
+          </article>
+        </div>
+
+        <div class="desk-callout">
+          <div>
+            <p class="eyebrow">Optional review workspace</p>
+            <h3>Use the Comparison Desk when side-by-side scoring will help.</h3>
+            <p>It keeps both outputs, criteria, cited evidence and your revision decision together. You can complete the same review on Team Canvas 6 or in your shared workspace.</p>
+          </div>
+          <a class="button" data-desk href="../workshop/05-outcomes/comparison-desk.html">Open the Comparison Desk</a>
+        </div>
+
+        <div class="lab-output"><span>Leave Outcomes with</span><strong>One evidenced improvement, one cost or regression, and one next revision.</strong><button class="text-link" type="button" data-resource="workshop/05-outcomes/00-start-here.md">Open the complete Outcomes guide</button></div>
+      </div>
+    </section>
+
+    <section class="after-workshop">
+      <div class="shell after-grid">
+        <div><p class="eyebrow">After the workshop</p><h2>Keep testing the judgment, not just the wording.</h2><p>Try the skill on more cases, watch for regression, and revise when the evidence changes.</p></div>
+        <div class="after-links">
+          <button type="button" data-resource="workshop/05-outcomes/template--skill-evaluation-plan.md">Plan the next evaluation</button>
           <button type="button" data-resource="skills/create-and-improve-skills/SKILL.md">Improve a skill over time</button>
-          <button type="button" data-resource="references/README.md">Read the background</button>
           <a href="https://github.com/SuhaibAslam/hatch-conference">Browse the GitHub repository</a>
         </div>
       </div>
@@ -105,7 +229,7 @@
   <dialog class="resource-dialog" id="resource-dialog" aria-labelledby="resource-title">
     <header class="dialog-head"><div><p class="eyebrow" id="resource-kind">Workshop guidance</p><h2 id="resource-title">Resource</h2></div><button type="button" data-close aria-label="Close guidance">Close</button></header>
     <article class="dialog-content" id="resource-content"></article>
-    <footer class="dialog-foot"><button class="copy-resource" type="button" data-copy-resource>Copy full guidance</button><a id="resource-source" href="https://github.com/SuhaibAslam/hatch-conference">View in GitHub repository</a></footer>
+    <footer class="dialog-foot"><button class="copy-resource" type="button" data-copy-resource>Copy this guidance</button><a id="resource-source" href="https://github.com/SuhaibAslam/hatch-conference">View in GitHub repository</a></footer>
   </dialog>
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 </body>
