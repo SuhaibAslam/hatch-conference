@@ -1,6 +1,6 @@
-# Use This Repository With an AI Tool
+# Work With Your AI Tool
 
-Use any AI tool your team can access. The quickest route is to share the public repository link with a new AI conversation. The tool needs the relevant task, material, workshop file and skill; it does not need a special installation.
+Use any AI tool your team can access. Start with the workshop context, then choose the lightest setup your tool supports. The tool needs the relevant task, material, workshop guidance and skill; it does not need a special installation.
 
 ## Quick Start
 

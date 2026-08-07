@@ -108,15 +108,6 @@ function openResource(path) {
   dialog.showModal();
 }
 
-function setActiveStage(id) {
-  document.querySelectorAll('.journey-link').forEach(link => {
-    const active = link.hash === `#${id}`;
-    link.classList.toggle('active', active);
-    if (active) link.setAttribute('aria-current', 'step');
-    else link.removeAttribute('aria-current');
-  });
-}
-
 document.addEventListener('click', event => {
   const resource = event.target.closest('[data-resource]');
   if (resource) openResource(resource.dataset.resource);
@@ -140,10 +131,3 @@ dialog.addEventListener('click', event => { if (event.target === dialog) dialog.
 
 const deskLink = document.querySelector('[data-desk]');
 deskLink.href = location.protocol === 'file:' ? '../workshop/05-outcomes/comparison-desk.html' : 'content/workshop/05-outcomes/comparison-desk.html';
-
-const observer = new IntersectionObserver(entries => {
-  const visible = entries.filter(entry => entry.isIntersecting).sort((first, second) => second.intersectionRatio - first.intersectionRatio)[0];
-  if (visible) setActiveStage(visible.target.id);
-}, { rootMargin: '-20% 0px -60%', threshold: [0, 0.2, 0.5] });
-
-document.querySelectorAll('.stage').forEach(stage => observer.observe(stage));
