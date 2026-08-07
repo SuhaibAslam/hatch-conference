@@ -3,326 +3,71 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="A practical workshop for designing AI-supported workflows with clear agency, reusable judgment and evidence.">
+  <meta name="description" content="A participant companion for the Design Skills for the Agentic Era workshop.">
   <title>Design Skills for the Agentic Era</title>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap');
-
-    :root {
-      --ink: #1a1a1a;
-      --paper: #f5f5f3;
-      --canvas: #fbfbf9;
-      --muted: #777772;
-      --line: #d8d8d2;
-      --intent: #d77b67;
-      --intent-soft: #ead0c5;
-      --possibility: #c99a20;
-      --possibility-soft: #f0e3bd;
-      --definition: #7693bd;
-      --definition-soft: #dce5f1;
-      --action: #4f9a90;
-      --action-soft: #cde4e1;
-      --outcomes: #777772;
-      --outcomes-soft: #d9d9d4;
-    }
-
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body { margin: 0; background: var(--paper); color: var(--ink); font: 400 16px/1.5 Inter, Arial, sans-serif; }
-    a { color: inherit; }
-    button { font: inherit; }
-    .shell { width: min(1200px, calc(100% - 48px)); margin: 0 auto; }
-    .masthead { border-bottom: 1px solid var(--line); background: rgba(245, 245, 243, .96); position: sticky; top: 0; z-index: 10; backdrop-filter: blur(10px); }
-    .masthead .shell { display: flex; min-height: 58px; align-items: center; justify-content: space-between; gap: 18px; }
-    .mark { font-size: 11px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; text-decoration: none; white-space: nowrap; }
-    .masthead nav { display: flex; align-items: center; gap: 18px; font-size: 13px; }
-    .masthead nav a { color: var(--muted); text-decoration: none; }
-    .masthead nav a:hover, .masthead nav a:focus-visible { color: var(--ink); text-decoration: underline; text-underline-offset: 4px; }
-    .hero { padding: 106px 0 66px; border-bottom: 1px solid var(--line); }
-    .eyebrow { margin: 0 0 18px; color: var(--muted); font-size: 12px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; }
-    h1, h2, h3, p { margin-top: 0; }
-    h1 { max-width: 880px; margin-bottom: 22px; font-size: clamp(46px, 7vw, 88px); font-weight: 500; letter-spacing: -.045em; line-height: .98; }
-    h1 span { color: #aaa9a4; font-weight: 400; }
-    .lede { max-width: 700px; margin-bottom: 32px; color: var(--muted); font-size: clamp(18px, 2vw, 23px); line-height: 1.45; }
-    .actions { display: flex; flex-wrap: wrap; gap: 10px; }
-    .button { display: inline-flex; align-items: center; min-height: 42px; padding: 10px 14px; border: 1px solid var(--ink); background: var(--ink); color: var(--paper); font-size: 14px; font-weight: 500; text-decoration: none; cursor: pointer; }
-    .button:hover, .button:focus-visible { background: var(--paper); color: var(--ink); outline: none; }
-    .button.quiet { border-color: var(--line); background: transparent; color: var(--ink); }
-    .button.quiet:hover, .button.quiet:focus-visible { border-color: var(--ink); }
-    .state-strip { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; margin-top: 70px; }
-    .state-strip a { min-height: 114px; padding: 15px; border: 1px solid var(--line); border-top: 6px solid var(--state); background: var(--canvas); color: var(--ink); text-decoration: none; }
-    .state-strip a:hover, .state-strip a:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
-    .state-strip strong { display: block; margin-bottom: 5px; font-size: 15px; }
-    .state-strip span { color: var(--muted); font-size: 13px; line-height: 1.35; }
-    .intent { --state: var(--intent); }
-    .possibility { --state: var(--possibility); }
-    .definition { --state: var(--definition); }
-    .action { --state: var(--action); }
-    .outcomes { --state: var(--outcomes); }
-    .section { padding: 76px 0; border-bottom: 1px solid var(--line); }
-    .section-head { display: grid; grid-template-columns: minmax(0, 1fr) 2fr; gap: 48px; align-items: start; margin-bottom: 32px; }
-    .section-head h2 { margin: 0; font-size: 31px; font-weight: 500; letter-spacing: -.025em; line-height: 1.1; }
-    .section-head p { max-width: 650px; margin: 0; color: var(--muted); }
-    .route { border-top: 1px solid var(--line); }
-    .route-item { display: grid; grid-template-columns: 100px minmax(180px, .8fr) minmax(0, 2fr) auto; gap: 24px; align-items: center; padding: 20px 0; border-bottom: 1px solid var(--line); }
-    .route-number { color: var(--muted); font: 500 12px/1 DM Mono, monospace; }
-    .route-item h3 { margin: 0; font-size: 18px; font-weight: 500; }
-    .route-item p { margin: 0; color: var(--muted); font-size: 14px; }
-    .read-link { padding: 7px 0; border: 0; background: none; color: var(--ink); font: 500 12px/1 DM Mono, monospace; text-decoration: underline; text-underline-offset: 4px; cursor: pointer; white-space: nowrap; }
-    .read-link:hover, .read-link:focus-visible { color: var(--muted); outline: none; }
-    .workbench { display: grid; grid-template-columns: 1.05fr .95fr; border: 1px solid var(--line); background: var(--canvas); }
-    .workbench-intro { padding: 34px; border-right: 1px solid var(--line); }
-    .workbench-intro h2 { margin-bottom: 12px; font-size: 28px; font-weight: 500; letter-spacing: -.025em; line-height: 1.1; }
-    .workbench-intro p { color: var(--muted); }
-    .workbench-list { display: grid; align-content: start; }
-    .workbench-list button { display: flex; justify-content: space-between; gap: 18px; padding: 18px 22px; border: 0; border-bottom: 1px solid var(--line); background: none; color: var(--ink); text-align: left; cursor: pointer; }
-    .workbench-list button:last-child { border-bottom: 0; }
-    .workbench-list button:hover, .workbench-list button:focus-visible { background: #efefea; outline: none; }
-    .workbench-list span { color: var(--muted); font-size: 13px; }
-    .skills-grid { display: grid; grid-template-columns: repeat(2, 1fr); border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
-    .skill { min-height: 116px; padding: 20px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); background: var(--canvas); text-align: left; cursor: pointer; }
-    .skill:hover, .skill:focus-visible { background: #efefea; outline: none; }
-    .skill b { display: block; margin-bottom: 8px; font-size: 15px; font-weight: 500; }
-    .skill span { display: block; color: var(--muted); font-size: 13px; line-height: 1.4; }
-    .reader { scroll-margin-top: 76px; padding: 76px 0; background: #ebeae5; }
-    .reader-grid { display: grid; grid-template-columns: minmax(0, 1fr) 220px; gap: 40px; }
-    .reader-shell { min-height: 360px; border: 1px solid var(--line); background: var(--canvas); }
-    .reader-meta { display: flex; justify-content: space-between; gap: 16px; padding: 14px 20px; border-bottom: 1px solid var(--line); color: var(--muted); font: 400 12px/1.35 DM Mono, monospace; }
-    .reader-content { padding: clamp(24px, 5vw, 56px); }
-    .reader-content h1 { max-width: none; margin: 0 0 24px; font-size: clamp(30px, 4vw, 48px); }
-    .reader-content h2 { margin: 36px 0 14px; font-size: 23px; font-weight: 500; letter-spacing: -.02em; }
-    .reader-content h3 { margin: 26px 0 10px; font-size: 17px; font-weight: 600; }
-    .reader-content p, .reader-content li { max-width: 760px; }
-    .reader-content p { margin-bottom: 15px; }
-    .reader-content ul, .reader-content ol { padding-left: 22px; }
-    .reader-content li { margin-bottom: 8px; }
-    .reader-content code { padding: 2px 4px; background: #ecece6; font: 12px/1.4 DM Mono, monospace; }
-    .reader-content pre { overflow: auto; padding: 16px; background: #1a1a1a; color: #f5f5f3; }
-    .reader-content pre code { padding: 0; background: none; color: inherit; }
-    .reader-content table { width: 100%; border-collapse: collapse; font-size: 14px; }
-    .reader-content th, .reader-content td { padding: 10px; border: 1px solid var(--line); text-align: left; vertical-align: top; }
-    .reader-content th { font-weight: 600; }
-    .reader-note { padding-top: 6px; color: var(--muted); font-size: 13px; }
-    .reader-note p { margin-bottom: 14px; }
-    .reader-note a { color: var(--ink); text-underline-offset: 3px; }
-    .footer { padding: 28px 0 40px; color: var(--muted); font-size: 13px; }
-    .footer .shell { display: flex; justify-content: space-between; gap: 16px; }
-    .footer a { color: inherit; }
-
-    @media (max-width: 780px) {
-      .shell { width: min(100% - 32px, 1200px); }
-      .masthead nav { gap: 12px; }
-      .masthead nav a:not(:last-child) { display: none; }
-      .hero { padding: 64px 0 46px; }
-      .state-strip { grid-template-columns: 1fr 1fr; margin-top: 42px; }
-      .state-strip a:last-child { grid-column: span 2; }
-      .section { padding: 54px 0; }
-      .section-head, .workbench, .reader-grid { grid-template-columns: 1fr; gap: 24px; }
-      .workbench-intro { border-right: 0; border-bottom: 1px solid var(--line); }
-      .route-item { grid-template-columns: 54px 1fr auto; gap: 12px; }
-      .route-item p { grid-column: 2 / -1; }
-      .skills-grid { grid-template-columns: 1fr; }
-      .reader-note { display: none; }
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css">
+  <script src="content.generated.js" defer></script>
+  <script src="app.js" defer></script>
 </head>
 <body>
   <header class="masthead">
-    <div class="shell">
-      <a class="mark" href="#top">Hatch Conference | Workshop</a>
-      <nav aria-label="Primary navigation">
-        <a href="#route">Workshop route</a>
-        <a href="#skills">Skills</a>
-        <a href="https://github.com/SuhaibAslam/hatch-conference">Repository</a>
-      </nav>
-    </div>
+    <a class="brand" href="#top"><span>Hatch Conference</span><strong>Design Skills for the Agentic Era</strong></a>
+    <nav aria-label="Site navigation">
+      <button class="text-button" type="button" data-open-resource="tool-setup/README.md">Using an AI tool</button>
+      <a href="https://github.com/SuhaibAslam/hatch-conference">Repository</a>
+    </nav>
   </header>
 
   <main id="top">
-    <section class="hero">
-      <div class="shell">
-        <p class="eyebrow">Design Skills for the Agentic Era</p>
-        <h1>Design skills <span>for the agentic era.</span></h1>
-        <p class="lede">A working session on agency, control, reusable judgment and evidence. Carry one real AI-supported workflow through five states, then decide what to improve.</p>
-        <div class="actions">
-          <a class="button" href="#route">Start the workshop</a>
-          <a class="button quiet" href="https://github.com/SuhaibAslam/hatch-conference">Open the repository</a>
-        </div>
-        <div class="state-strip" aria-label="Five workshop states">
-          <a class="intent" href="#intent"><strong>Intent</strong><span>What matters?</span></a>
-          <a class="possibility" href="#possibility"><strong>Possibility</strong><span>What could change?</span></a>
-          <a class="definition" href="#definition"><strong>Definition</strong><span>What must be specified?</span></a>
-          <a class="action" href="#action"><strong>Action</strong><span>What will happen?</span></a>
-          <a class="outcomes" href="#outcomes"><strong>Outcomes</strong><span>What did we learn?</span></a>
-        </div>
+    <section class="hero shell">
+      <div class="hero-copy">
+        <p class="eyebrow">Workshop companion</p>
+        <h1>Carry one real challenge <span>through five states.</span></h1>
+        <p class="lede">Make agency explicit, turn design judgment into reusable guidance, and use evidence to decide what changes.</p>
       </div>
+      <aside class="start-note" aria-label="How to begin">
+        <span class="note-index">Start</span>
+        <p>Choose the state your facilitator names. Your team can work here, on the printed canvases, or across both.</p>
+      </aside>
     </section>
 
-    <section class="section" id="route">
-      <div class="shell">
-        <div class="section-head">
-          <h2>One challenge.<br>Five states.</h2>
-          <p>Use this as a navigable companion to the printed materials and repository. Earlier files are available when they help; the core laptop-lab moments are Action, where you create a skill, and Outcomes, where you test it.</p>
-        </div>
-        <div class="route">
-          <article class="route-item intent" id="intent"><span class="route-number">01</span><h3>Intent</h3><p>Choose a real friction and the judgment it asks of people.</p><button class="read-link" type="button" data-read="workshop/01-intent/guidance--choose-a-challenge.md">Open guide</button></article>
-          <article class="route-item possibility" id="possibility"><span class="route-number">02</span><h3>Possibility</h3><p>Decide how agency, authority and recovery should work.</p><button class="read-link" type="button" data-read="workshop/02-possibility/guidance--agency-and-control.md">Open guide</button></article>
-          <article class="route-item definition" id="definition"><span class="route-number">03</span><h3>Definition</h3><p>Make the operating agreement and workflow visible.</p><button class="read-link" type="button" data-read="workshop/03-definition/template--operating-agreement.md">Open template</button></article>
-          <article class="route-item action" id="action"><span class="route-number">04</span><h3>Action</h3><p>Turn a repeated design judgment into guidance the team can test.</p><button class="read-link" type="button" data-read="workshop/04-action/template--portable-skill.md">Open template</button></article>
-          <article class="route-item outcomes" id="outcomes"><span class="route-number">05</span><h3>Outcomes</h3><p>Run both conditions, review evidence and choose the next revision.</p><button class="read-link" type="button" data-read="workshop/05-outcomes/00-start-here.md">Open Outcomes</button></article>
-        </div>
-      </div>
+    <section class="journey shell" aria-label="Workshop states">
+      <div class="state-tabs" role="tablist" aria-label="Choose a workshop state" id="state-tabs"></div>
+      <div class="state-workspace" id="state-workspace" role="tabpanel"></div>
     </section>
 
-    <section class="section" id="workbench">
-      <div class="shell">
-        <div class="workbench">
-          <div class="workbench-intro">
-            <p class="eyebrow">Use with an AI tool</p>
-            <h2>Let the agent help with the current state.</h2>
-            <p>Start the workshop route, then open the matching file. In the Outcomes state, the Trial Runner prepares the named baseline and guided outputs; the team decides the revision from cited evidence.</p>
-            <button class="read-link" type="button" data-read="tool-setup/README.md">Open setup guide</button>
-          </div>
-          <div class="workbench-list">
-            <button type="button" data-read="workshop/00-start-here.md"><strong>Start at the beginning</strong><span>workshop/00-start-here.md</span></button>
-            <button type="button" data-read="workshop/04-action/prompt--draft-guidance.md"><strong>Draft portable guidance</strong><span>Action prompt</span></button>
-            <button type="button" data-read="skills/run-skill-trial/SKILL.md"><strong>Run the trial</strong><span>Outcomes skill</span></button>
-            <button type="button" data-read="workshop/05-outcomes/template--skill-evaluation-plan.md"><strong>Keep improving</strong><span>Evaluation plan</span></button>
-          </div>
-        </div>
-      </div>
+    <section class="continuity shell" aria-labelledby="continuity-title">
+      <div><p class="eyebrow">Across the day</p><h2 id="continuity-title">One artifact becomes the input to the next.</h2></div>
+      <ol>
+        <li><span>01</span>Shared challenge</li><li><span>02</span>Agency choices</li><li><span>03</span>Operating agreement</li>
+        <li><span>04</span>Portable skill</li><li><span>05</span>Evidence and revision</li>
+      </ol>
     </section>
 
-    <section class="section" id="skills">
-      <div class="shell">
-        <div class="section-head">
-          <h2>Reference skills.<br>Use when useful.</h2>
-          <p>These are patterns and reusable resources, not a second set of workshop exercises. The team creates its own portable skill during Action; open a reference pattern only when it resolves a specific question.</p>
+    <section class="aftercare">
+      <div class="shell aftercare-grid">
+        <div><p class="eyebrow">After the workshop</p><h2>Keep the useful judgment alive.</h2><p>Run the skill against more cases, watch for drift and revise only when the evidence supports it.</p></div>
+        <div class="aftercare-actions">
+          <button class="line-button" type="button" data-open-resource="skills/create-and-improve-skills/SKILL.md">Continue improving a skill</button>
+          <button class="line-button" type="button" data-open-resource="references/README.md">Explore the background</button>
         </div>
-        <div class="skills-grid">
-          <button class="skill" type="button" data-read="skills/constraint-specification/SKILL.md"><b>Constraint specification</b><span>Turn a judgment into clear reusable guidance.</span></button>
-          <button class="skill" type="button" data-read="skills/mixed-initiative-flow/SKILL.md"><b>Mixed-initiative flow</b><span>Decide who leads, approves and takes control.</span></button>
-          <button class="skill" type="button" data-read="skills/consent-and-agency/SKILL.md"><b>Consent and agency</b><span>Make approval, override and opt-out practical.</span></button>
-          <button class="skill" type="button" data-read="skills/transparency-patterns/SKILL.md"><b>Transparency patterns</b><span>Show sources, limits, uncertainty and the next step.</span></button>
-          <button class="skill" type="button" data-read="skills/failure-recovery/SKILL.md"><b>Failure recovery</b><span>Plan what happens after a tool, input or handoff fails.</span></button>
-          <button class="skill" type="button" data-read="skills/comparative-evaluation/SKILL.md"><b>Comparative evaluation</b><span>Interpret evidence after the trial.</span></button>
-          <button class="skill" type="button" data-read="skills/run-skill-trial/SKILL.md"><b>Run skill trial</b><span>Prepare named outputs for Outcomes evidence review.</span></button>
-          <button class="skill" type="button" data-read="skills/create-and-improve-skills/SKILL.md"><b>Create and improve skills</b><span>Turn repeated judgment into better guidance over time.</span></button>
-        </div>
-      </div>
-    </section>
-
-    <section class="reader" id="reader" aria-live="polite">
-      <div class="shell reader-grid">
-        <div class="reader-shell">
-          <div class="reader-meta"><span id="reader-path">workshop/00-start-here.md</span><a id="source-link" href="content/workshop/00-start-here.md" target="_blank" rel="noreferrer">Open source</a></div>
-          <article class="reader-content" id="reader-content"><p>Choose a guide, template or skill above to read it here.</p></article>
-        </div>
-        <aside class="reader-note">
-          <p><strong>The source remains intact.</strong></p>
-          <p>This reader displays the published Markdown. Keep working in the repository when you need to copy, edit or give files to an agent.</p>
-          <p><a href="https://github.com/SuhaibAslam/hatch-conference">View repository on GitHub</a></p>
-        </aside>
       </div>
     </section>
   </main>
 
-  <footer class="footer"><div class="shell"><span>Design Skills for the Agentic Era</span><a href="https://github.com/SuhaibAslam/hatch-conference/blob/main/LICENSE">MIT License</a></div></footer>
+  <footer class="footer shell">
+    <span>Design Skills for the Agentic Era</span><span>Use material your team is authorised to place in the tools you choose.</span>
+    <a href="https://github.com/SuhaibAslam/hatch-conference/blob/main/LICENSE">MIT License</a>
+  </footer>
 
-  <script>
-    const reader = document.querySelector('#reader');
-    const content = document.querySelector('#reader-content');
-    const readerPath = document.querySelector('#reader-path');
-    const sourceLink = document.querySelector('#source-link');
-
-    function escapeHtml(value) {
-      return value.replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;').replaceAll('"', '&quot;');
-    }
-
-    function inlineMarkdown(value) {
-      return escapeHtml(value)
-        .replace(/`([^`]+)`/g, '<code>$1</code>')
-        .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
-        .replace(/\[([^\]]+)\]\(([^\s)]+)\)/g, '<a href="$2">$1</a>');
-    }
-
-    function renderMarkdown(markdown) {
-      const lines = markdown.replace(/\r/g, '').split('\n');
-      let html = '';
-      let list = null;
-      let code = false;
-      let table = false;
-
-      const closeList = () => { if (list) { html += `</${list}>`; list = null; } };
-      const closeTable = () => { if (table) { html += '</tbody></table>'; table = false; } };
-      for (let index = 0; index < lines.length; index += 1) {
-        const line = lines[index];
-        if (line.startsWith('```')) { closeList(); closeTable(); code = !code; html += code ? '<pre><code>' : '</code></pre>'; continue; }
-        if (code) { html += `${escapeHtml(line)}\n`; continue; }
-        if (/^\|/.test(line) && /\|$/.test(line)) {
-          closeList();
-          const cells = line.slice(1, -1).split('|').map(cell => cell.trim());
-          if (cells.every(cell => /^:?-{3,}:?$/.test(cell))) continue;
-          if (!table) { html += '<table><tbody>'; table = true; }
-          html += `<tr>${cells.map(cell => `<td>${inlineMarkdown(cell)}</td>`).join('')}</tr>`;
-          continue;
-        }
-        closeTable();
-        if (!line.trim()) { closeList(); continue; }
-        const heading = line.match(/^(#{1,3})\s+(.+)$/);
-        if (heading) { closeList(); const level = heading[1].length; html += `<h${level}>${inlineMarkdown(heading[2])}</h${level}>`; continue; }
-        const item = line.match(/^[-*]\s+(.+)$/);
-        const ordered = line.match(/^\d+\.\s+(.+)$/);
-        if (item || ordered) { const type = ordered ? 'ol' : 'ul'; if (list !== type) { closeList(); list = type; html += `<${type}>`; } html += `<li>${inlineMarkdown((item || ordered)[1])}</li>`; continue; }
-        closeList();
-        html += `<p>${inlineMarkdown(line)}</p>`;
-      }
-      closeList(); closeTable();
-      return html;
-    }
-
-    function wireReaderLinks(file) {
-      content.querySelectorAll('a[href]').forEach(link => {
-        const href = link.getAttribute('href');
-        if (/^(https?:|#|mailto:)/.test(href)) return;
-        const target = new URL(href, `https://reader.local/${file}`).pathname.slice(1);
-        if (target.endsWith('.md')) {
-          link.href = `?read=${encodeURIComponent(target)}#reader`;
-          link.addEventListener('click', event => {
-            event.preventDefault();
-            openFile(target);
-          });
-          return;
-        }
-        link.href = `content/${target}`;
-      });
-    }
-
-    async function openFile(file) {
-      const safeFile = file.replace(/^\/+/, '');
-      readerPath.textContent = safeFile;
-      sourceLink.href = `content/${safeFile}`;
-      content.innerHTML = '<p>Loading source…</p>';
-      history.replaceState(null, '', `?read=${encodeURIComponent(safeFile)}#reader`);
-      reader.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      try {
-        const response = await fetch(`content/${safeFile}`);
-        if (!response.ok) throw new Error('The source file could not be loaded.');
-        content.innerHTML = renderMarkdown(await response.text());
-        wireReaderLinks(safeFile);
-      } catch (error) {
-        content.innerHTML = `<h2>Unable to load this file</h2><p>${escapeHtml(error.message)} Open it directly from the repository instead.</p>`;
-      }
-    }
-
-    document.addEventListener('click', event => {
-      const target = event.target.closest('[data-read]');
-      if (!target) return;
-      openFile(target.dataset.read);
-    });
-
-    const requested = new URLSearchParams(window.location.search).get('read');
-    if (requested) openFile(requested);
-  </script>
+  <dialog class="resource-dialog" id="resource-dialog" aria-labelledby="resource-title">
+    <div class="dialog-head">
+      <div><p class="eyebrow" id="resource-kind">Workshop resource</p><h2 id="resource-title">Resource</h2></div>
+      <button class="close-button" type="button" data-close-dialog aria-label="Close resource">Close</button>
+    </div>
+    <div class="dialog-body" id="resource-content"></div>
+    <div class="dialog-foot"><span>Included from the workshop repository</span><a id="resource-source" href="https://github.com/SuhaibAslam/hatch-conference">View source on GitHub</a></div>
+  </dialog>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
 </body>
 </html>

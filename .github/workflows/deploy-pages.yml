@@ -26,6 +26,7 @@ concurrency:
 
 jobs:
   build:
+    if: github.event.repository.private == false
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository
@@ -33,11 +34,13 @@ jobs:
 
       - name: Build Pages artifact
         run: |
+          node site/build-content.js
           mkdir -p _site/content
-          cp site/index.html _site/index.html
+          cp site/index.html site/styles.css site/app.js site/content.generated.js _site/
           cp -R workshop skills tool-setup references _site/content/
           cp README.md AGENTS.md LICENSE _site/content/
           touch _site/.nojekyll
+          test -f _site/content.generated.js
           test -f _site/content/workshop/00-start-here.md
           test -f _site/content/skills/run-skill-trial/SKILL.md
 
