@@ -26,7 +26,7 @@ a { color: inherit; text-underline-offset: 3px; }
 .masthead { position: sticky; top: 0; z-index: 20; display: flex; min-height: 64px; padding: 0 max(24px, calc((100vw - 1180px) / 2)); align-items: center; justify-content: space-between; gap: 24px; border-bottom: 1px solid var(--line); background: rgba(245, 245, 243, .96); backdrop-filter: blur(12px); }
 .brand { display: flex; align-items: baseline; text-decoration: none; }
 .brand strong { font-size: 13px; font-weight: 600; }
-.masthead nav { display: flex; gap: 20px; font-size: 12px; }
+.masthead nav { display: flex; align-items: center; gap: 20px; font-size: 12px; }
 .masthead nav a { color: var(--muted); text-decoration: none; }
 .masthead nav a:hover, .masthead nav a:focus-visible { color: var(--ink); text-decoration: underline; }
 .masthead nav .github-link { display: inline-flex; min-height: 34px; padding: 7px 10px; align-items: center; gap: 7px; border: 1px solid var(--line); color: var(--ink); font-weight: 600; }
