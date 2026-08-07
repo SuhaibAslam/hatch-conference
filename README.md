@@ -13,7 +13,7 @@ For coding agents that use repository instructions, start with [AGENTS.md](AGENT
 
 ## Workshop website
 
-This repository also deploys a navigable workshop companion through GitHub Pages. The website displays the same source files from this repository; use the repository itself when you need to copy, edit or give a file to an AI tool.
+This repository also deploys a participant-facing AI companion through GitHub Pages. It provides self-service routes for connecting an AI tool, creating a portable skill, running the Outcomes trial and finding design guidance for a specific question. The files in this repository remain the canonical source; open GitHub when you want to browse, edit or download them directly.
 
 ## What is here
 

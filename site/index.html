@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="A participant companion for the Design Skills for the Agentic Era workshop.">
+  <meta name="description" content="The AI companion for the Design Skills for the Agentic Era workshop.">
   <title>Design Skills for the Agentic Era</title>
   <link rel="stylesheet" href="styles.css">
   <script src="content.generated.js" defer></script>
@@ -12,61 +12,100 @@
 <body>
   <header class="masthead">
     <a class="brand" href="#top"><span>Hatch Conference</span><strong>Design Skills for the Agentic Era</strong></a>
-    <nav aria-label="Site navigation">
-      <button class="text-button" type="button" data-open-resource="tool-setup/README.md">Using an AI tool</button>
-      <a href="https://github.com/SuhaibAslam/hatch-conference">Repository</a>
+    <nav aria-label="Primary navigation">
+      <a href="#start">Use with an AI tool</a>
+      <a href="#skills">Design skill library</a>
+      <a href="https://github.com/SuhaibAslam/hatch-conference">GitHub repository</a>
     </nav>
   </header>
 
   <main id="top">
     <section class="hero shell">
-      <div class="hero-copy">
-        <p class="eyebrow">Workshop companion</p>
-        <h1>Carry one real challenge <span>through five states.</span></h1>
-        <p class="lede">Make agency explicit, turn design judgment into reusable guidance, and use evidence to decide what changes.</p>
+      <div class="hero-title">
+        <p class="eyebrow">Hatch Conference | Workshop companion</p>
+        <h1>Design Skills <span>for the Agentic Era</span></h1>
       </div>
-      <aside class="start-note" aria-label="How to begin">
-        <span class="note-index">Start</span>
-        <p>Choose the state your facilitator names. Your team can work here, on the printed canvases, or across both.</p>
-      </aside>
+      <div class="hero-intro">
+        <p>This companion supports the moments when your team works with an AI tool: setting up the repository, turning design judgment into a portable skill, and testing whether that skill improves the work.</p>
+        <a class="primary-link" href="#start">Choose what you need</a>
+      </div>
+      <div class="state-rule" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
     </section>
 
-    <section class="journey shell" aria-label="Workshop states">
-      <div class="state-tabs" role="tablist" aria-label="Choose a workshop state" id="state-tabs"></div>
-      <div class="state-workspace" id="state-workspace" role="tabpanel"></div>
+    <section class="start shell" id="start" aria-labelledby="start-title">
+      <header class="section-head">
+        <div><p class="eyebrow">Start here</p><h2 id="start-title">What do you need from the repository?</h2></div>
+        <p>Choose one route. Each gives you the minimum context, files and copyable handoff needed for that moment.</p>
+      </header>
+      <div class="route-cards" role="list">
+        <button class="route-card route-setup" type="button" data-route="setup" role="listitem">
+          <span class="route-number">01</span><span class="route-label">Before or during the workshop</span>
+          <strong>Connect your AI tool</strong><small>Use the public repository, a downloaded copy, or paste-ready guidance.</small><span class="route-action">Open setup route</span>
+        </button>
+        <button class="route-card route-action" type="button" data-route="create" role="listitem">
+          <span class="route-number">02</span><span class="route-label">Action | Core laptop lab</span>
+          <strong>Create a portable skill</strong><small>Turn one agreed design judgment into guidance your team can test.</small><span class="route-action">Open creation route</span>
+        </button>
+        <button class="route-card route-outcomes" type="button" data-route="trial" role="listitem">
+          <span class="route-number">03</span><span class="route-label">Outcomes | Core laptop lab</span>
+          <strong>Run and review a trial</strong><small>Prepare baseline and guided outputs, then make the revision decision.</small><span class="route-action">Open trial route</span>
+        </button>
+      </div>
+      <section class="route-detail" id="route-detail" aria-live="polite" aria-label="Selected repository route"></section>
     </section>
 
-    <section class="continuity shell" aria-labelledby="continuity-title">
-      <div><p class="eyebrow">Across the day</p><h2 id="continuity-title">One artifact becomes the input to the next.</h2></div>
-      <ol>
-        <li><span>01</span>Shared challenge</li><li><span>02</span>Agency choices</li><li><span>03</span>Operating agreement</li>
-        <li><span>04</span>Portable skill</li><li><span>05</span>Evidence and revision</li>
-      </ol>
+    <section class="workshop-map">
+      <div class="shell map-grid">
+        <div class="map-intro">
+          <p class="eyebrow">Where this fits</p>
+          <h2>The paper workshop leads. The repository joins where it helps.</h2>
+          <p>Use optional guidance when a team needs it. Use the repository directly for the two AI lab moments.</p>
+        </div>
+        <ol class="state-map">
+          <li><span>Intent</span><strong>Optional challenge guidance</strong><button type="button" data-resource="workshop/01-intent/guidance--choose-a-challenge.md">Open guidance</button></li>
+          <li><span>Possibility</span><strong>Optional agency guidance</strong><button type="button" data-resource="workshop/02-possibility/guidance--agency-and-control.md">Open guidance</button></li>
+          <li><span>Definition</span><strong>Optional operating-agreement support</strong><button type="button" data-resource="workshop/03-definition/template--operating-agreement.md">Open support</button></li>
+          <li class="core action"><span>Action</span><strong>Create the portable skill</strong><em>Core repository moment</em></li>
+          <li class="core outcomes"><span>Outcomes</span><strong>Run the trial and review evidence</strong><em>Core repository moment</em></li>
+        </ol>
+      </div>
     </section>
 
-    <section class="aftercare">
-      <div class="shell aftercare-grid">
-        <div><p class="eyebrow">After the workshop</p><h2>Keep the useful judgment alive.</h2><p>Run the skill against more cases, watch for drift and revise only when the evidence supports it.</p></div>
-        <div class="aftercare-actions">
-          <button class="line-button" type="button" data-open-resource="skills/create-and-improve-skills/SKILL.md">Continue improving a skill</button>
-          <button class="line-button" type="button" data-open-resource="references/README.md">Explore the background</button>
+    <section class="skills shell" id="skills" aria-labelledby="skills-title">
+      <header class="section-head">
+        <div><p class="eyebrow">Design skill library</p><h2 id="skills-title">What does the team need to make clearer?</h2></div>
+        <p>Choose the design question in front of you. Open the guidance, give it the relevant workflow and artifact, and adapt it to your team’s situation.</p>
+      </header>
+      <div class="skill-grid">
+        <button class="skill-card" type="button" data-resource="skills/constraint-specification/SKILL.md"><span>Guidance quality</span><strong>Inputs, outputs or limits?</strong><small>Structure vague requirements into reviewable guidance.</small></button>
+        <button class="skill-card" type="button" data-resource="skills/mixed-initiative-flow/SKILL.md"><span>Agency</span><strong>Who leads, and when?</strong><small>Make initiative, handoffs and intervention explicit.</small></button>
+        <button class="skill-card" type="button" data-resource="skills/consent-and-agency/SKILL.md"><span>Authority</span><strong>What needs permission?</strong><small>Design approval, refusal, override and withdrawal.</small></button>
+        <button class="skill-card" type="button" data-resource="skills/transparency-patterns/SKILL.md"><span>Legibility</span><strong>What must people understand?</strong><small>Show sources, state, limits, uncertainty and next steps.</small></button>
+        <button class="skill-card" type="button" data-resource="skills/failure-recovery/SKILL.md"><span>Recovery</span><strong>What happens when it fails?</strong><small>Choose retry, fallback, escalation or graceful degradation.</small></button>
+        <button class="skill-card" type="button" data-resource="skills/comparative-evaluation/SKILL.md"><span>Evidence</span><strong>Did the guidance help?</strong><small>Compare outputs fairly and decide what to revise.</small></button>
+      </div>
+    </section>
+
+    <section class="continue-band">
+      <div class="shell continue-grid">
+        <div><p class="eyebrow">Continue the work</p><h2>Keep a useful skill useful.</h2><p>Test more cases, watch for regression, and revise from evidence rather than preference.</p></div>
+        <div class="continue-links">
+          <button type="button" data-resource="skills/create-and-improve-skills/SKILL.md">Improve a skill over time</button>
+          <button type="button" data-resource="references/README.md">Read the background</button>
+          <a href="https://github.com/SuhaibAslam/hatch-conference">Browse the GitHub repository</a>
         </div>
       </div>
     </section>
   </main>
 
   <footer class="footer shell">
-    <span>Design Skills for the Agentic Era</span><span>Use material your team is authorised to place in the tools you choose.</span>
-    <a href="https://github.com/SuhaibAslam/hatch-conference/blob/main/LICENSE">MIT License</a>
+    <span>Design Skills for the Agentic Era</span><span>Use only material your team is authorised to place in the tool you choose.</span><a href="https://github.com/SuhaibAslam/hatch-conference/blob/main/LICENSE">MIT License</a>
   </footer>
 
   <dialog class="resource-dialog" id="resource-dialog" aria-labelledby="resource-title">
-    <div class="dialog-head">
-      <div><p class="eyebrow" id="resource-kind">Workshop resource</p><h2 id="resource-title">Resource</h2></div>
-      <button class="close-button" type="button" data-close-dialog aria-label="Close resource">Close</button>
-    </div>
-    <div class="dialog-body" id="resource-content"></div>
-    <div class="dialog-foot"><span>Included from the workshop repository</span><a id="resource-source" href="https://github.com/SuhaibAslam/hatch-conference">View source on GitHub</a></div>
+    <header class="dialog-head"><div><p class="eyebrow" id="resource-kind">Workshop guidance</p><h2 id="resource-title">Resource</h2></div><button type="button" data-close aria-label="Close guidance">Close</button></header>
+    <article class="dialog-content" id="resource-content"></article>
+    <footer class="dialog-foot"><button class="copy-resource" type="button" data-copy-resource>Copy full guidance</button><a id="resource-source" href="https://github.com/SuhaibAslam/hatch-conference">View in GitHub repository</a></footer>
   </dialog>
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 </body>
