@@ -36,7 +36,7 @@ Confirm that a person can answer:
 
 ## Workshop use
 
-Use this with the operating agreement when completing “Who is accountable?”, “A person must decide when,” and “Permissions and approvals.” It is especially useful for the adaptive-onboarding starting challenge.
+Use this with the working specification when deciding which choices stay with people, which boundaries the AI must not cross, and how people can question, correct or stop the work. It is especially useful for the adaptive-onboarding starting challenge.
 
 ## Explore further
 

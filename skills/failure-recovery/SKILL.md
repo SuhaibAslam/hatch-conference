@@ -32,7 +32,7 @@ Confirm that the team can name the trigger, recovery step, escalation point, per
 
 ## Workshop use
 
-Use this when completing “If it goes wrong: recover and record,” “What could go wrong?” and “Recovery step to test.”
+Use this when completing how work resumes or recovers on Canvas 2, the critical-moment recovery route on Canvas 3, or the next case and evidence to watch on Canvas 6.
 
 ## Explore further
 

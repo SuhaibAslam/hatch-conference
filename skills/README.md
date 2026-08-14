@@ -1,6 +1,6 @@
 # Workshop Skills
 
-These skills are reference patterns and reusable resources, not a second set of workshop exercises. During Action, your team creates its own portable skill from its challenge and the template. Open a reference skill only when it helps you resolve a specific question, or keep it for later use. At Outcomes, use **Run skill trial** as the default operational skill.
+These skills are reference patterns and reusable resources, not a second set of workshop exercises. During Action, your team creates its own agent skill from the work it shaped and reviewed. Open a reference skill only when it helps you resolve a specific question, or keep it for later use. At Outcomes, use **Run skill trial** as the default operational skill.
 
 ## Reference patterns
 
@@ -13,7 +13,7 @@ Use the other skills when the challenge makes permission, transparency or recove
 
 | When you need to | Start with | Workshop moment |
 | --- | --- | --- |
-| Set clear inputs, boundaries and output expectations | [Constraint specification](constraint-specification/SKILL.md) | Drafting the portable skill |
+| Set clear inputs, boundaries and output expectations | [Constraint specification](constraint-specification/SKILL.md) | Drafting the agent skill |
 | Decide who leads at each step and how control moves | [Mixed-initiative flow](mixed-initiative-flow/SKILL.md) | Mapping agency and operating conditions |
 | Make permission, approval, override and opt-out practical | [Consent and agency](consent-and-agency/SKILL.md) | Setting authority and permissions |
 | Show the sources, limits, uncertainty and next step | [Transparency patterns](transparency-patterns/SKILL.md) | Making system state and control clear |

@@ -22,7 +22,7 @@ Return the output in the required format. Keep confirmed evidence, assumptions a
 ## Run 2: Guided
 
 ```text
-Complete the task below using the available material and the portable skill.
+Complete the task below using the available material and the agent skill.
 
 Task:
 [add]
@@ -33,10 +33,10 @@ Input material:
 Required output format:
 [add]
 
-Portable skill:
-[paste the full portable skill]
+Agent skill:
+[paste the full agent skill]
 
-Return the output in the required format. Apply the portable skill faithfully. Keep confirmed evidence, assumptions and open questions distinct.
+Return the output in the required format. Apply the agent skill faithfully. Keep confirmed evidence, assumptions and open questions distinct.
 ```
 
 ## Compare baseline and guided output
@@ -58,5 +58,5 @@ Baseline output:
 Guided output:
 [add]
 
-For each output, score each criterion from 1 to 4. Cite the exact phrase, behaviour or omission that supports every score. Identify one improvement, one regression or cost, and one revision to test next.
+For each output, score each criterion from 1 to 4. Cite the exact phrase, behaviour or omission that supports every score. Record what became meaningfully better, what became worse or stayed weak, and what you learned about the skill. Then decide what to keep, what to revise next, and the next case and evidence to watch.
 ```

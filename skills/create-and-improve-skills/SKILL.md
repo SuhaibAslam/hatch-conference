@@ -13,7 +13,7 @@ Do not create a skill for a one-off task. Create one when the guidance can help 
 
 ## Draft the first version
 
-Use the shared [template--portable-skill.md](../../workshop/04-action/template--portable-skill.md). Keep the guidance short and inspectable. Explain why a consequential instruction matters so the agent can apply it thoughtfully in a new situation.
+Use the shared [template--agent-skill.md](../../workshop/04-action/template--agent-skill.md). Keep the guidance short and inspectable. Explain why a consequential instruction matters so the agent can apply it thoughtfully in a new situation.
 
 Include:
 
@@ -37,7 +37,7 @@ Keep guidance that improves the agreed criterion. Remove wording that adds work 
 
 ## Use in this workshop
 
-Use this after the first controlled comparison when the team wants to keep developing its portable skill beyond the workshop.
+Use this after the first controlled comparison when the team wants to keep developing its agent skill beyond the workshop.
 
 ## Explore further
 

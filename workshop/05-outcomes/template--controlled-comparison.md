@@ -10,16 +10,16 @@ Share the work: one person can work in the tool while teammates challenge the ru
 - Input material:
 - Tool and model:
 - Required output format:
-- Portable skill:
+- Agent skill:
 - Shared workspace or screen:
 
 ## Run 1: Baseline
 
-Run the task without the portable skill. Save the actual output.
+Run the task without the agent skill. Save the actual output.
 
 ## Run 2: Guided
 
-Run the same task with the portable skill. Save the actual output beside the baseline.
+Run the same task with the agent skill. Save the actual output beside the baseline.
 
 ## Compare the evidence
 
@@ -27,14 +27,16 @@ View the baseline and guided outputs together. Score both with cited evidence be
 
 | Dimension | Baseline: score and cited evidence | Guided: score and cited evidence |
 | --- | --- | --- |
-| Solves the actual task |  |  |
-| Applies the intended design judgment |  |  |
-| Makes status, control and uncertainty clear |  |  |
-| Handles an important edge case |  |  |
+| Task value: solves the actual task for the people involved |  |  |
+| Method and judgment: follows the intended approach and makes consequential distinctions |  |  |
+| Clarity and agency: a person can understand, challenge and act on it |  |  |
+| Handling uncertainty: responds appropriately when information is missing, uncertain or difficult |  |  |
 
 ## Decide and revise
 
-- What improved?
-- What regressed?
-- What is the next revision?
-- What signal, owner and response should follow?
+- What became meaningfully better?
+- What became worse or stayed weak?
+- What did we learn about the skill?
+- What should we keep?
+- What should we revise next?
+- What is the next case and what evidence should we watch?

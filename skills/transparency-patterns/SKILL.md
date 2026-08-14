@@ -31,7 +31,7 @@ Confirm that a person can tell what the system knows, what it does not know, wha
 
 ## Workshop use
 
-Use this with the operating agreement and workflow map when completing “What the person needs to know” and “How a person can intervene.” It also strengthens the research-synthesis starting challenge where claims need traceable evidence.
+Use this with the working specification and workflow map when deciding what people need to see or understand and how they can question, correct or stop the work. It also strengthens the research-synthesis starting challenge where claims need traceable evidence.
 
 ## Explore further
 

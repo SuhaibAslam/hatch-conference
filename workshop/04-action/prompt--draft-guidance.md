@@ -1,32 +1,38 @@
 # Action: Draft Guidance With an AI Tool
 
-Use this only after the team has agreed the design judgment and started [template--portable-skill.md](template--portable-skill.md).
+Use this after the team has chosen a recurring task, decision or judgment and started [template--agent-skill.md](template--agent-skill.md).
 
 Copy this into an AI tool:
 
 ```text
-Help us draft the portable skill in template--portable-skill.md.
+Help us draft the agent skill in template--agent-skill.md.
 
-Workflow and decision:
+Skill name:
 [add]
 
-Person or team affected:
+When the skill should be used:
 [add]
 
-Design judgment to protect:
+Use a different approach when:
 [add]
 
-Available inputs and allowed context:
+What the skill needs:
 [add]
 
-Required output format:
+What the skill should produce:
 [add]
 
-Human checkpoint:
+Procedure, principles, constraints and decision rules:
 [add]
 
-Evaluation criterion:
+Human decision or review point:
 [add]
 
-Return concise reusable guidance with a purpose, use conditions, required inputs, ordered procedure, constraints, human checkpoint, expected output, evaluation criterion, and a response to weak or conflicting information. Keep confirmed evidence, assumptions and open questions separate.
+When information is missing, weak or conflicting:
+[add]
+
+Evidence the skill is helping:
+[add]
+
+Return a concise agent skill with clear use conditions, inputs, output, ordered procedure, principles, constraints, decision rules, a human review point, uncertainty behaviour and an evidence criterion. Keep confirmed evidence, assumptions and open questions separate.
 ```

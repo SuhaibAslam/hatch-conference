@@ -1,6 +1,6 @@
 ---
 name: run-skill-trial
-description: Run a portable AI-workflow skill against the same task with and without the skill, then prepare the named outputs for human evidence review. Offer an optional interactive Comparison Desk when the team wants one and the tool can create or open it. Use whenever a participant asks to test a skill, compare a draft skill with ordinary tool use, evaluate whether guidance helped, or populate the workshop Outcomes comparison without manually managing two runs.
+description: Run an agent skill against the same task with and without the skill, then prepare the named outputs for human evidence review. Offer an optional interactive Comparison Desk when the team wants one and the tool can create or open it. Use whenever a participant asks to test a skill, compare a draft skill with ordinary tool use, evaluate what the guidance changed, or populate the workshop Outcomes comparison without manually managing two runs.
 ---
 
 # Run a Skill Trial
@@ -13,7 +13,7 @@ Run the workshop's controlled comparison for the team. The team should not need 
 
 Ask only for anything not already available:
 
-- the target portable skill file or text;
+- the target agent skill file or text;
 - the task and input material;
 - the required output format;
 - the tool or model, when it matters to the result;
@@ -21,10 +21,10 @@ Ask only for anything not already available:
 
 Use the four workshop criteria unless the team has already agreed better ones:
 
-1. Solves the actual task.
-2. Applies the intended design judgment.
-3. Makes status, control and uncertainty clear.
-4. Handles an important edge case.
+1. **Task value:** solves the actual task for the people involved.
+2. **Method and judgment:** follows the intended approach and makes consequential distinctions.
+3. **Clarity and agency:** a person can understand, challenge and act on it.
+4. **Handling uncertainty:** responds appropriately when information is missing, uncertain or difficult.
 
 ## Run the trial
 
@@ -54,23 +54,26 @@ If the team says no, stop at the named outputs. If the team says yes:
 - use the bundled `workshop/05-outcomes/comparison-desk.html` when the team or tool can open that file; or
 - when the tool can create files but cannot open the bundled file, create a simple standalone `comparison-desk.html` in the team's working area.
 
-The standalone Desk must be dependency-free and keep the named outputs side by side, provide the four workshop criteria with score and evidence fields, provide improvement, regression and next-revision fields, and let the team retain the review as Markdown or plain text. Do not score or write evidence for the team. State where the file was created and how the team can open it.
+The standalone Desk must be dependency-free and keep the named outputs side by side, provide the four workshop criteria with score and evidence fields, capture what changed, and support the Keep, Revise next, and Next case decision. It must let the team retain the review as Markdown or plain text. Do not score or write evidence for the team. State where the file was created and how the team can open it.
 
 For either Desk, create a file named `comparison-desk-session.json` in the team's working folder. If the tool cannot create files, return the same JSON in one fenced `json` block after the labelled outputs. The JSON is an optional import format, not the only handoff.
 
 ```json
 {
-  "skillName": "Name of the portable skill",
+  "skillName": "Name of the agent skill",
   "task": "The task that both runs received",
   "tool": "Tool and model used, if known",
   "baseline": "Output created without the target skill",
   "guided": "Output created with the target skill",
-  "improvement": "",
-  "regression": "",
-  "revision": "",
+  "meaningfullyBetter": "",
+  "worseOrWeak": "",
+  "learning": "",
+  "keep": "",
+  "reviseNext": "",
+  "nextCase": "",
   "criteria": [
     {
-      "name": "Solves the actual task",
+      "name": "Task value",
       "baselineScore": "",
       "baselineEvidence": "",
       "guidedScore": "",
@@ -87,8 +90,9 @@ Include all four agreed criteria in `criteria`. Do not use `A`, `B`, hidden mapp
 Tell the team only what they need next:
 
 1. Keep the named outputs side by side in Team Canvas 6, the shared workspace or the conversation where they were returned.
-2. Cite evidence, score both outputs, and write the improvement, regression and next revision.
-3. When the team chose an interactive Desk, open the bundled `workshop/05-outcomes/comparison-desk.html` when available, or the standalone Desk you created. They can select **Open trial** for the session file or **Paste trial** for returned JSON.
+2. Cite evidence and score both outputs. Record what became better, what became worse or stayed weak, and what the team learned.
+3. Decide what to keep, what to revise next, and the next case and evidence to watch.
+4. When the team chose an interactive Desk, open the bundled `workshop/05-outcomes/comparison-desk.html` when available, or the standalone Desk you created. They can select **Open trial** for the session file or **Paste trial** for returned JSON.
 
 The Desk is a local review surface. Do not upload material or create a shared folder unless the team separately chooses to do so.
 

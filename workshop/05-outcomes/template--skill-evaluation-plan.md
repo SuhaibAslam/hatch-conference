@@ -1,6 +1,6 @@
 # Skill Evaluation Plan
 
-Use this after the workshop when a portable skill is worth keeping and improving. It is not needed to complete the live team comparison.
+Use this after the workshop when an agent skill is worth keeping and improving. It is not needed to complete the live team comparison.
 
 ## Skill under test
 
@@ -36,4 +36,4 @@ Use this after the workshop when a portable skill is worth keeping and improving
 
 ## Comparison record
 
-For each case, retain the baseline and guided output, review evidence, improvement, regression and revision decision. Use [00-start-here.md](00-start-here.md) and the trial runner for the default route. The agent can use the bundled Desk when it is reachable, or create a standalone Desk when an interactive review would help. Use [template--controlled-comparison.md](template--controlled-comparison.md) only when you need the manual route.
+For each case, retain the baseline and guided output, cited evidence, what changed and the skill improvement decision. Use [00-start-here.md](00-start-here.md) and the trial runner for the default route. The agent can use the bundled Desk when it is reachable, or create a standalone Desk when an interactive review would help. Use [template--controlled-comparison.md](template--controlled-comparison.md) only when you need the manual route.

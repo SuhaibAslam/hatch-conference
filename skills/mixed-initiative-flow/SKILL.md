@@ -7,7 +7,7 @@ description: Define how a person and an AI system share initiative, including wh
 
 ## Purpose
 
-Make agency an explicit operating agreement. A person and an AI system can both contribute to the work; the design needs to show who leads, when control shifts and how the person can intervene.
+Make agency explicit in the working specification and workflow. A person and an AI system can both contribute to the work; the design needs to show who leads, when control shifts and how the person can intervene.
 
 ## Map the work
 
@@ -30,7 +30,7 @@ Avoid rapid, unclear transfers of control. A person should be able to tell whose
 
 ## Workshop use
 
-Use this skill with Team Canvas 2 and Team Canvas 3. It supports the questions “A person must decide when,” “What the person needs to know,” “How a person can intervene,” and “If it goes wrong: recover and record.”
+Use this skill with Team Canvas 2 and Team Canvas 3. It supports the choices that stay with people, what people need to see, how they can question or stop the work, where authority changes, and how work resumes after a problem.
 
 ## Explore further
 

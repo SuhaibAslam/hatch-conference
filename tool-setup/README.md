@@ -58,14 +58,14 @@ Then use the same prompt above without the URL.
 
 ## Run the Outcomes trial
 
-For the default Outcomes route, start a fresh agent conversation when possible and give the agent [run-skill-trial](../skills/run-skill-trial/SKILL.md), the target portable skill, the task and its input material. The agent runs the baseline before reading the target skill, runs the guided version, then returns the named outputs for review in Team Canvas 6, your shared workspace or the conversation itself. It then asks whether your team wants an interactive Comparison Desk. When you do, it can use [comparison-desk.html](../workshop/05-outcomes/comparison-desk.html) whenever that file is reachable, or create a standalone Desk in its working area when it can make files.
+For the default Outcomes route, start a fresh agent conversation when possible and give the agent [run-skill-trial](../skills/run-skill-trial/SKILL.md), the target agent skill, the task and its input material. The agent runs the baseline before reading the target skill, runs the guided version, then returns the named outputs for review in Team Canvas 6, your shared workspace or the conversation itself. It then asks whether your team wants an interactive Comparison Desk. When you do, it can use [comparison-desk.html](../workshop/05-outcomes/comparison-desk.html) whenever that file is reachable, or create a standalone Desk in its working area when it can make files.
 
-When your tool cannot load `SKILL.md` files, paste this with the target portable skill and task:
+When your tool cannot load `SKILL.md` files, paste this with the target agent skill and task:
 
 ```text
 Read and follow skills/run-skill-trial/SKILL.md.
 
-Target portable skill:
+Target agent skill:
 [paste or attach the skill]
 
 Task and input material:
@@ -74,7 +74,7 @@ Task and input material:
 Required output format:
 [add]
 
-Run the baseline before reading the target portable skill. Then run the guided version and return the baseline and guided outputs with clear labels for our evidence review. Ask whether we want an interactive Comparison Desk. If we do, use workshop/05-outcomes/comparison-desk.html when reachable, or create a simple standalone comparison-desk.html that keeps both outputs side by side, lets us score the four criteria with evidence, and records improvement, regression and next revision. Do not make the Desk or JSON the only handoff.
+Run the baseline before reading the target agent skill. Then run the guided version and return the baseline and guided outputs with clear labels for our evidence review. Ask whether we want an interactive Comparison Desk. If we do, use workshop/05-outcomes/comparison-desk.html when reachable, or create a simple standalone comparison-desk.html that keeps both outputs side by side, lets us score the four criteria with evidence, and records what changed plus the skill improvement decision. Do not make the Desk or JSON the only handoff.
 ```
 
 Keep the task, input material, tool and output format the same. Change only the guidance. A clean baseline requires a conversation where the target skill has not already been loaded; otherwise label it as context-exposed.

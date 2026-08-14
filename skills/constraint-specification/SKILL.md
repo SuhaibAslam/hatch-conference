@@ -1,6 +1,6 @@
 ---
 name: constraint-specification
-description: Turn a repeated design judgment into a reusable instruction with clear inputs, output expectations, priorities, boundaries and human checkpoints. Use when drafting or revising a portable skill, system guidance, prompt template, or AI-assisted workflow where vague requirements produce inconsistent results.
+description: Turn a repeated design judgment into a reusable instruction with clear inputs, output expectations, priorities, boundaries and human checkpoints. Use when drafting or revising an agent skill, system guidance, prompt template, or AI-assisted workflow where vague requirements produce inconsistent results.
 ---
 
 # Constraint Specification
@@ -24,7 +24,7 @@ Keep confirmed evidence, assumptions and open questions distinct. That separatio
 
 ## Draft the guidance
 
-Use [template--portable-skill.md](../../workshop/04-action/template--portable-skill.md). Write:
+Use [template--agent-skill.md](../../workshop/04-action/template--agent-skill.md). Write:
 
 1. A purpose that names the design judgment the skill protects.
 2. Inputs and context that the system may use.
@@ -47,7 +47,7 @@ Check that another person could answer these questions from the skill alone:
 
 ## Workshop use
 
-Use this skill while completing Team Canvas 5. Then run the same task with and without the resulting portable skill, using [template--controlled-comparison.md](../../workshop/05-outcomes/template--controlled-comparison.md).
+Use this skill while completing Team Canvas 5. Then run the same task with and without the resulting agent skill, using [template--controlled-comparison.md](../../workshop/05-outcomes/template--controlled-comparison.md).
 
 ## Explore further
 

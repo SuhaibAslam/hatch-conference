@@ -1,6 +1,6 @@
 # Design Skills for the Agentic Era
 
-Use this repository to work on one real AI-supported workflow. Make the agreement clear, write useful guidance, test it against a baseline, and decide what to improve.
+Use this repository to work on one real AI-supported workflow. Shape a working specification, map the flow, build one agent skill, and use trial evidence to decide what to improve.
 
 ## Start here
 

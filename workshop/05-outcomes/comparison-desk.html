@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="icon" href="data:,">
   <title>Comparison Desk | Design Skills for the Agentic Era</title>
   <style>
     :root { --ink: #1a1a1a; --muted: #777772; --line: #d8d8d2; --paper: #f5f5f3; --surface: #fbfbf9; --outcomes: #777772; --alert: #b43f33; }
@@ -48,7 +49,8 @@
     .criterion select { background: var(--surface); font-size: 13px; }
     .head-row { display: grid; grid-template-columns: minmax(340px, 1.1fr) 110px 1.2fr 110px 1.2fr; color: var(--muted); font-size: 10px; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; }
     .head-row span { padding: 0 10px 5px; }
-    .decision { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 16px; }
+    .review-section { margin-top: 16px; border-top: 1px solid var(--line); padding-top: 16px; }
+    .decision { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 12px; }
     .decision .field { min-height: 160px; }
     .decision textarea { min-height: 100px; margin-top: 6px; padding: 0; font-size: 14px; }
     .footnote { margin: 20px 0 0; color: var(--muted); font-size: 12px; }
@@ -90,7 +92,7 @@
     </section>
 
     <section class="setup" aria-label="Comparison setup">
-      <div class="field"><label class="label" for="skill-name">Portable skill</label><input id="skill-name" data-field="skillName" placeholder="Name of the skill"></div>
+      <div class="field"><label class="label" for="skill-name">Agent skill</label><input id="skill-name" data-field="skillName" placeholder="Name of the skill"></div>
       <div class="field"><label class="label" for="task">Task</label><input id="task" data-field="task" placeholder="What are you asking the tool to do?"></div>
       <div class="field"><label class="label" for="tool">Tool and model</label><input id="tool" data-field="tool" placeholder="Tool or model used"></div>
     </section>
@@ -98,11 +100,11 @@
     <section class="outputs" aria-label="Outputs to compare">
       <article class="output baseline">
         <div class="output-head"><div><div class="output-name">Baseline</div><div class="output-note">Without the skill</div></div><span class="label">Run 1</span></div>
-        <textarea data-field="baseline" aria-label="Baseline output" placeholder="Paste the output from the run without the portable skill."></textarea>
+        <textarea data-field="baseline" aria-label="Baseline output" placeholder="Paste the output from the run without the agent skill."></textarea>
       </article>
       <article class="output guided">
         <div class="output-head"><div><div class="output-name">Guided</div><div class="output-note">With the skill</div></div><span class="label">Run 2</span></div>
-        <textarea data-field="guided" aria-label="Guided output" placeholder="Paste the output from the run with the portable skill."></textarea>
+        <textarea data-field="guided" aria-label="Guided output" placeholder="Paste the output from the run with the agent skill."></textarea>
       </article>
     </section>
 
@@ -112,10 +114,22 @@
       <div class="criteria" id="criteria"></div>
     </section>
 
-    <section class="decision" aria-label="Revision decision">
-      <div class="field"><label class="label" for="improvement">Improvement</label><textarea id="improvement" data-field="improvement" placeholder="What became better?"></textarea></div>
-      <div class="field"><label class="label" for="regression">Regression or cost</label><textarea id="regression" data-field="regression" placeholder="What became weaker, slower or less clear?"></textarea></div>
-      <div class="field"><label class="label" for="revision">Next revision</label><textarea id="revision" data-field="revision" placeholder="What will the team change next?"></textarea></div>
+    <section class="review-section" aria-labelledby="changed-title">
+      <h2 id="changed-title">What changed?</h2>
+      <div class="decision">
+        <div class="field"><label class="label" for="meaningfully-better">Meaningfully better</label><textarea id="meaningfully-better" data-field="meaningfullyBetter" placeholder="What became better in a way that matters?"></textarea></div>
+        <div class="field"><label class="label" for="worse-or-weak">Worse or still weak</label><textarea id="worse-or-weak" data-field="worseOrWeak" placeholder="What became worse or stayed weak?"></textarea></div>
+        <div class="field"><label class="label" for="learning">What we learned about the skill</label><textarea id="learning" data-field="learning" placeholder="What does the evidence tell you about the skill?"></textarea></div>
+      </div>
+    </section>
+
+    <section class="review-section" aria-labelledby="decision-title">
+      <h2 id="decision-title">Skill improvement decision</h2>
+      <div class="decision">
+        <div class="field"><label class="label" for="keep">Keep</label><textarea id="keep" data-field="keep" placeholder="What should stay as it is?"></textarea></div>
+        <div class="field"><label class="label" for="revise-next">Revise next</label><textarea id="revise-next" data-field="reviseNext" placeholder="What should change first?"></textarea></div>
+        <div class="field"><label class="label" for="next-case">Next case and what to watch</label><textarea id="next-case" data-field="nextCase" placeholder="Where will you try it next, and what evidence will you watch?"></textarea></div>
+      </div>
     </section>
 
     <p class="footnote">This desk is an optional review workspace. It stores only in this browser until you export a session or Markdown record. Use authorised material only.</p>
@@ -124,16 +138,25 @@
   <script>
     const storageKey = 'design-skills-comparison-desk-v1';
     const defaultCriteria = [
-      'Solves the actual task',
-      'Applies the intended design judgment',
-      'Makes status, control and uncertainty clear',
-      'Handles an important edge case'
+      'Task value',
+      'Method and judgment',
+      'Clarity and agency',
+      'Handling uncertainty'
     ];
-    const blankState = () => ({ skillName: '', task: '', tool: '', baseline: '', guided: '', improvement: '', regression: '', revision: '', criteria: defaultCriteria.map(name => ({ name, baselineScore: '', baselineEvidence: '', guidedScore: '', guidedEvidence: '' })) });
+    const blankState = () => ({ skillName: '', task: '', tool: '', baseline: '', guided: '', meaningfullyBetter: '', worseOrWeak: '', learning: '', keep: '', reviseNext: '', nextCase: '', criteria: defaultCriteria.map(name => ({ name, baselineScore: '', baselineEvidence: '', guidedScore: '', guidedEvidence: '' })) });
     let state = loadState();
 
+    function normalizeState(saved = {}) {
+      return {
+        ...blankState(),
+        ...saved,
+        meaningfullyBetter: saved.meaningfullyBetter || saved.improvement || '',
+        worseOrWeak: saved.worseOrWeak || saved.regression || '',
+        reviseNext: saved.reviseNext || saved.revision || ''
+      };
+    }
     function loadState() {
-      try { return { ...blankState(), ...JSON.parse(localStorage.getItem(storageKey)) }; } catch { return blankState(); }
+      try { return normalizeState(JSON.parse(localStorage.getItem(storageKey))); } catch { return blankState(); }
     }
     function saveState() {
       localStorage.setItem(storageKey, JSON.stringify(state));
@@ -157,7 +180,7 @@
     }
     function escapeHtml(value) { return String(value || '').replace(/[&<>'"]/g, character => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' })[character]); }
     function loadTrial(text) {
-      state = { ...blankState(), ...JSON.parse(text) };
+      state = normalizeState(JSON.parse(text));
       render();
       saveState();
     }
@@ -186,7 +209,7 @@
     }
     function markdown() {
       const rows = state.criteria.map(item => `| ${escapeMarkdown(item.name)} | ${escapeMarkdown(item.baselineScore)} - ${escapeMarkdown(item.baselineEvidence)} | ${escapeMarkdown(item.guidedScore)} - ${escapeMarkdown(item.guidedEvidence)} |`).join('\n');
-      return `# Skill Comparison\n\n## Setup\n\n- Portable skill: ${escapeMarkdown(state.skillName)}\n- Task: ${escapeMarkdown(state.task)}\n- Tool and model: ${escapeMarkdown(state.tool)}\n\n## Baseline\n\n${escapeMarkdown(state.baseline)}\n\n## Guided\n\n${escapeMarkdown(state.guided)}\n\n## Evidence\n\n| Dimension | Baseline: score and evidence | Guided: score and evidence |\n| --- | --- | --- |\n${rows}\n\n## Decide and revise\n\n- Improvement: ${escapeMarkdown(state.improvement)}\n- Regression or cost: ${escapeMarkdown(state.regression)}\n- Next revision: ${escapeMarkdown(state.revision)}\n`;
+      return `# Skill Comparison\n\n## Setup\n\n- Agent skill: ${escapeMarkdown(state.skillName)}\n- Task: ${escapeMarkdown(state.task)}\n- Tool and model: ${escapeMarkdown(state.tool)}\n\n## Baseline\n\n${escapeMarkdown(state.baseline)}\n\n## Guided\n\n${escapeMarkdown(state.guided)}\n\n## Evidence\n\n| Dimension | Baseline: score and evidence | Guided: score and evidence |\n| --- | --- | --- |\n${rows}\n\n## What changed?\n\n- Meaningfully better: ${escapeMarkdown(state.meaningfullyBetter)}\n- Worse or still weak: ${escapeMarkdown(state.worseOrWeak)}\n- What we learned about the skill: ${escapeMarkdown(state.learning)}\n\n## Skill improvement decision\n\n- Keep: ${escapeMarkdown(state.keep)}\n- Revise next: ${escapeMarkdown(state.reviseNext)}\n- Next case and what to watch: ${escapeMarkdown(state.nextCase)}\n`;
     }
     document.addEventListener('input', event => {
       const element = event.target;

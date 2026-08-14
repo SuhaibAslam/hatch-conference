@@ -77,12 +77,12 @@ function codeBlock(path) {
 }
 
 function workshopContext() {
-  return `Use this workshop repository as our source:\n${repositoryUrl}\n\nWe are participants in Design Skills for the Agentic Era. We are carrying one real AI-supported workflow through five stages:\n1. Intent: choose the work and consequence.\n2. Possibility: decide how people and AI share agency.\n3. Definition: agree purpose, context, control and recovery.\n4. Action: turn one human design judgment into a portable skill.\n5. Outcomes: compare the same task without and with the skill, then revise from evidence.\n\nAsk only for context you need. Keep confirmed evidence, assumptions and open questions separate. Make human authority, intervention and recovery explicit. Use only material we are authorised to share.\n\nOur current stage is:\n[Intent / Possibility / Definition / Action / Outcomes]\n\nOur workflow or challenge is:\n[add]`;
+  return `Use this workshop repository as our source:\n${repositoryUrl}\n\nWe are participants in Design Skills for the Agentic Era. We are carrying one real AI-supported workflow through five stages:\n1. Intent: choose the work and consequence.\n2. Possibility: decide how people and AI share agency.\n3. Definition: shape a working specification and workflow.\n4. Action: shape one recurring task, decision or judgment into an agent skill.\n5. Outcomes: compare the same task without and with the skill, then decide what to improve.\n\nAsk only for context you need. Keep confirmed evidence, assumptions and open questions separate. Make human authority, intervention and recovery explicit. Use only material we are authorised to share.\n\nOur current stage is:\n[Intent / Possibility / Definition / Action / Outcomes]\n\nOur workflow or challenge is:\n[add]`;
 }
 
 function trialInstructions() {
   const runner = window.WORKSHOP_CONTENT?.['skills/run-skill-trial/SKILL.md'] || '';
-  return `${runner}\n\n---\n\nRun the controlled trial described above.\n\nPortable skill to test:\n[paste or attach]\n\nTask and authorised input material:\n[add]\n\nRequired output format:\n[add]\n\nRun the baseline before reading the portable skill. Then run the same task with the skill applied. Return clearly named baseline and guided outputs. Do not score them; our team will review the evidence and decide what to revise.`;
+  return `${runner}\n\n---\n\nRun the controlled trial described above.\n\nAgent skill to test:\n[paste or attach]\n\nTask and authorised input material:\n[add]\n\nRequired output format:\n[add]\n\nRun the baseline before reading the agent skill. Then run the same task with the skill applied. Return clearly named baseline and guided outputs. Do not score them; our team will review the evidence and make the skill improvement decision.`;
 }
 
 function openResource(path) {
