@@ -2,9 +2,9 @@
 
 Use this folder in order. Its numbered folders follow the five states used throughout the workshop: Intent, Possibility, Definition, Action and Outcomes.
 
-This repository is a support route, not another workbook to complete. The facilitator will flag the two core laptop-lab moments: **Action** for creating a skill and **Outcomes** for testing it. Use the earlier folders only when they help your team move forward.
+This repository supports the 2 core laptop labs: **Action** for creating a skill and **Outcomes** for testing it. Use the earlier folders only when they help your team move forward; the printed workbook and canvases carry the main workshop route.
 
-The printed materials and these files work together, but they are not a one-to-one set:
+The printed materials and these files play different roles:
 
 - The **Personal Workbook** supports individual reflection, critique and agency choices.
 - The **six Team Canvases** hold the team challenge, working specification, workflow map, peer review, agent skill and comparison evidence.

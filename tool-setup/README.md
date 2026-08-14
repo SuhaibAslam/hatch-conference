@@ -29,7 +29,7 @@ A skill is a `SKILL.md` instruction for an AI agent. When your tool can load ski
 
 ### Download a copy
 
-You do not need to use a terminal.
+Use this route without a terminal.
 
 1. Open [github.com/SuhaibAslam/hatch-conference](https://github.com/SuhaibAslam/hatch-conference).
 2. Select the green **Code** button, then choose **Download ZIP**.
@@ -77,4 +77,4 @@ Required output format:
 Run the baseline before reading the target agent skill. Then run the guided version and return the baseline and guided outputs with clear labels for our evidence review. Ask whether we want an interactive Comparison Desk. If we do, use workshop/05-outcomes/comparison-desk.html when reachable, or create a simple standalone comparison-desk.html that keeps both outputs side by side, lets us score the four criteria with evidence, and records what changed plus the skill improvement decision. Do not make the Desk or JSON the only handoff.
 ```
 
-Keep the task, input material, tool and output format the same. Change only the guidance. A clean baseline requires a conversation where the target skill has not already been loaded; otherwise label it as context-exposed.
+Keep the task, input material, tool and output format the same. Change only the guidance. A clean baseline requires a fresh conversation where the target skill has not been loaded. Label any other baseline as context-exposed.

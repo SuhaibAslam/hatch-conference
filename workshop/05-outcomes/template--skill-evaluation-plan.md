@@ -1,6 +1,6 @@
 # Skill Evaluation Plan
 
-Use this after the workshop when an agent skill is worth keeping and improving. It is not needed to complete the live team comparison.
+Use this after the workshop when an agent skill is worth keeping and improving. Keep the live team comparison on Canvas 6.
 
 ## Skill under test
 

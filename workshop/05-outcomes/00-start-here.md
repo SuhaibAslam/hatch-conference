@@ -16,7 +16,7 @@ The agent runs the baseline before reading the agent skill, then runs the guided
 
 Use Team Canvas 6 and your shared workspace or AI conversation to keep the baseline and guided outputs visible side by side. Cite the phrase, behaviour or omission that supports each score.
 
-After the agent returns both outputs, it can ask whether the team wants an interactive Comparison Desk. Choose it only when it will help the review and your tool can create or open a file. The agent can use the bundled [comparison-desk.html](comparison-desk.html) whenever it is reachable, or create a standalone Desk in the team's working area. Select **Open trial** when the agent created `comparison-desk-session.json`, or **Paste trial** when it returned the JSON in chat. You do not need the Desk to complete the workshop.
+After the agent returns both outputs, it can ask whether the team wants an interactive Comparison Desk. Choose it only when it will help the review and your tool can create or open a file. The agent can use the bundled [comparison-desk.html](comparison-desk.html) whenever it is reachable, or create a standalone Desk in the team's working area. Select **Open trial** when the agent created `comparison-desk-session.json`, or **Paste trial** when it returned the JSON in chat. Team Canvas 6 and the named outputs are sufficient for the workshop; the Desk is optional.
 
 ### 3. Decide the revision
 

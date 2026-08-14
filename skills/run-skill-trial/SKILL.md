@@ -7,7 +7,7 @@ description: Run an agent skill against the same task with and without the skill
 
 ## Purpose
 
-Run the workshop's controlled comparison for the team. The team should not need to know how to stage two runs. You handle the mechanics; the team reviews the evidence in Team Canvas 6 or its chosen shared workspace and decides what to revise. An interactive Comparison Desk is an optional convenience, not a requirement.
+Run the workshop's controlled comparison for the team. Handle the two-run mechanics so the team can review evidence in Team Canvas 6 or its chosen shared workspace and decide what to revise. Offer the interactive Comparison Desk only when it will help.
 
 ## Collect the minimum information
 
@@ -45,7 +45,7 @@ Read the target skill. Run exactly the same task, input material and required ou
 
 ### 3. Prepare the review
 
-Present the baseline and guided outputs to the team with clear labels, in the working folder or conversation they can already use. Leave scores and evidence blank: people, not the agent, make the workshop's evaluation decision.
+Present the baseline and guided outputs to the team with clear labels, in the working folder or conversation they can already use. Leave scores and evidence blank for the team to complete.
 
 After returning the named outputs, ask one concise question: **“Would you like an interactive Comparison Desk for the evidence review? It can take a little longer and needs a file or workspace that your team can open.”**
 
@@ -56,7 +56,7 @@ If the team says no, stop at the named outputs. If the team says yes:
 
 The standalone Desk must be dependency-free and keep the named outputs side by side, provide the four workshop criteria with score and evidence fields, capture what changed, and support the Keep, Revise next, and Next case decision. It must let the team retain the review as Markdown or plain text. Do not score or write evidence for the team. State where the file was created and how the team can open it.
 
-For either Desk, create a file named `comparison-desk-session.json` in the team's working folder. If the tool cannot create files, return the same JSON in one fenced `json` block after the labelled outputs. The JSON is an optional import format, not the only handoff.
+For either Desk, create a file named `comparison-desk-session.json` in the team's working folder. If the tool cannot create files, return the same JSON in one fenced `json` block after the labelled outputs. Always return the named outputs directly; the JSON is an optional import format.
 
 ```json
 {
