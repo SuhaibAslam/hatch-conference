@@ -18,6 +18,8 @@ Name:
 
 Use [mixed-initiative flow](../../skills/mixed-initiative-flow/SKILL.md) when control and handoff are the main question. Use [consent and agency](../../skills/consent-and-agency/SKILL.md) when permission, opt-out or override are central.
 
-## Check before moving on
+Open [prompt--thinking-partner.md](prompt--thinking-partner.md) when another perspective would help the team test an authority choice or surface an assumption.
 
-Can the team explain who leads each important step, what makes that appropriate, and how authority returns to a person?
+## Leave Coordinate with
+
+One authority choice and the condition or assumption behind it. Before leaving the state, check that the team can explain who leads each important step, what makes that appropriate, and how authority returns to a person.

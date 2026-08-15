@@ -1,87 +1,59 @@
-# Work With Your AI Tool
+# Set Up Your AI Tool for the Workshop
 
-Use any AI tool your team can access. Start with the workshop context, then choose the lightest setup your tool supports. The tool needs the relevant task, material, workshop guidance and skill; it does not need a special installation.
+Use any AI tool your team can access. The companion provides a workshop-context prompt and focused prompts for each state. Start with the lightest route that works in your tool.
 
-## Quick Start
+## Fastest route
 
-Open the public repository: [github.com/SuhaibAslam/hatch-conference](https://github.com/SuhaibAslam/hatch-conference). If your AI tool can open web links, copy this into a new conversation:
+1. Open the participant companion.
+2. Select **Copy workshop context** and paste it into a new AI conversation. The canonical copyable text is also available in [prompt--workshop-context.md](prompt--workshop-context.md).
+3. Add your current state and challenge or workflow.
+4. Return to the companion when you want the focused prompt for the state you are working in.
 
-```text
-Read this workshop repository before helping us:
-https://github.com/SuhaibAslam/hatch-conference
+The copied context is self-contained. A tool that can open the public repository can read the linked guidance. A tool that cannot open links can still help from the pasted context and the material you add.
 
-We are working on one AI-supported workflow. Help us follow workshop/00-start-here.md. Ask concise questions, use the relevant workshop file and skill, and keep confirmed evidence, assumptions and open questions separate. Make human authority, intervention and recovery explicit.
+## What to share
 
-Our current state is:
-[choose: Orient / Coordinate / Specify / Encode / Evaluate]
+Give the tool only what the current activity needs:
 
-Our workflow or challenge is:
-[add]
-```
+- your current workshop state;
+- the relevant workbook or canvas notes;
+- the task, example or authorised input material;
+- the question on which you want another perspective.
 
-The agent will tell you which workshop file and skill to use next. You only need another setup route when your tool cannot open the link or needs files in a working folder.
+Keep confirmed evidence, assumptions and open questions separate. Share only material your team is authorised to place in the selected tool.
 
-## What is a skill?
+## Optional repository access
 
-A skill is a `SKILL.md` instruction for an AI agent. When your tool can load skills, give it the relevant skill file. When it cannot, paste the file with the task and workshop template; the instruction still works.
+Use one of these routes when direct access to the workshop files will help.
 
-## Other setup routes
+### Share the public link
 
-### Download a copy
+Give the tool [github.com/SuhaibAslam/hatch-conference](https://github.com/SuhaibAslam/hatch-conference) and ask it to read `AGENTS.md` plus the guide for the current state.
 
-Use this route without a terminal.
+### Download or upload the files
 
-1. Open [github.com/SuhaibAslam/hatch-conference](https://github.com/SuhaibAslam/hatch-conference).
-2. Select the green **Code** button, then choose **Download ZIP**.
-3. Open the downloaded ZIP file to unpack it.
-4. Open the unpacked folder in your file browser, VS Code, or the AI tool that you are using.
+Open the repository, select the green **Code** button and choose **Download ZIP**. Unpack the folder for a coding agent, or upload the ZIP or relevant files to a chat tool.
 
-### When the tool cannot open a repository link
+When the tool cannot read the whole repository, provide only:
 
-Upload a ZIP or the relevant files, or paste the contents of these files into the conversation:
+1. `AGENTS.md`;
+2. `workshop/00-start-here.md`;
+3. the guide or prompt for the current state;
+4. the reference skill only when it answers a specific question.
 
-1. `AGENTS.md`
-2. `workshop/00-start-here.md`
-3. The workshop file for your current state
-4. The skill you want to use from `skills/`
+## Prompts and agent skills
 
-Then use the same prompt above without the URL.
+A prompt helps with one workshop move. An agent skill is a reusable `SKILL.md` file that can travel with a recurring task, decision or judgment. Some tools load a `SKILL.md` file directly. In other tools, paste the full skill with the task and input material.
 
-### Tool-specific starting points
+During Encode, the team creates its own skill. The files under [skills/](../skills/) are optional patterns, not required exercises.
 
-| Tool or setup | Start here |
-| --- | --- |
-| ChatGPT, Claude, Gemini or another chat tool | Share the public repository URL when supported. Otherwise upload the repository or paste the files listed above, then use the copyable prompt. |
-| VS Code with GitHub Copilot | Open the unpacked repository folder in VS Code. Start a chat and ask the agent to read `AGENTS.md` and `workshop/00-start-here.md`, then name the current state. |
-| Codex, Claude Code, Gemini CLI or another coding agent | Open the unpacked repository as the working folder. Ask the agent to read `AGENTS.md` and `workshop/00-start-here.md` before helping with the current state. |
-| Any tool that does not load `SKILL.md` automatically | Open the relevant `SKILL.md`, paste it with the task and workshop file, and ask the tool to follow it. |
-
-## Run the Evaluate trial
+## Evaluate with a clean comparison
 
 The default route uses 2 fresh AI conversations so the target skill cannot influence the baseline:
 
-1. Open [prompt--run-and-review.md](../workshop/05-evaluate/prompt--run-and-review.md).
-2. Run the baseline prompt in a fresh conversation that has never received the target skill.
-3. Run the guided prompt in a second fresh conversation with the target skill attached or pasted.
-4. Keep the 2 complete outputs visible and review them on Team Canvas 6.
+1. Copy the baseline prompt from the companion and run it in a fresh conversation that has never received the target skill.
+2. Copy the guided prompt and run it in a second fresh conversation with the target skill attached or pasted.
+3. Keep the task, input material, tool and required output format the same.
+4. Save both complete outputs and review them on Team Canvas 6.
 
-An agent that can create genuinely isolated contexts may use [run-skill-trial](../skills/run-skill-trial/SKILL.md) to handle both runs. A new child agent is suitable only when it does not inherit the target skill or current conversation. When isolation is unavailable, the skill returns the same 2-conversation route.
-
-When your agent can create genuinely isolated contexts, paste this with the target agent skill and task:
-
-```text
-Read and follow skills/run-skill-trial/SKILL.md.
-
-Target agent skill:
-[paste or attach the skill]
-
-Task and input material:
-[add]
-
-Required output format:
-[add]
-
-Use 2 isolated contexts that do not inherit each other's instructions. Give the baseline context only the task, input material and required output format. Give the guided context the same material plus the target skill. Return both complete outputs with clear labels for our evidence review. If isolated execution is unavailable, return 2 ready-to-paste prompts for us to run in separate fresh conversations. Do not claim a clean baseline from a context that has seen the target skill.
-```
-
-Keep the task, input material, tool and output format the same. Change only whether the skill is present. Label any baseline influenced by the target skill as context-exposed.
+An agent that can create genuinely isolated contexts may follow [run-skill-trial](../skills/run-skill-trial/SKILL.md). When isolation is unavailable, use the 2 fresh-conversation route. Label any baseline influenced by the target skill as context-exposed.

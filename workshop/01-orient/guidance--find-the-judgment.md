@@ -20,6 +20,8 @@ Mark the response when that is convenient. Notes in the workbook are enough when
 
 State the consequence you see, then turn the critique into a rule a capable tool or teammate could follow. Keep the rule specific enough to guide another attempt.
 
-## Move on with
+Open [prompt--thinking-partner.md](prompt--thinking-partner.md) only when another perspective would help the team inspect the response or sharpen the rule.
+
+## Leave Orient with
 
 A recognisable situation, one consequence and one judgment rule.

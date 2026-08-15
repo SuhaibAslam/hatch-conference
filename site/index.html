@@ -13,53 +13,56 @@
   <header class="masthead">
     <a class="brand" href="#top"><strong>Design Skills for the Agentic Era</strong></a>
     <nav aria-label="Primary navigation">
-      <a href="#orient">Orient</a>
-      <a href="#coordinate">Coordinate</a>
-      <a href="#specify">Specify</a>
-      <a href="#encode">Encode</a>
-      <a href="#evaluate">Evaluate</a>
+      <a class="state-link orient" href="#orient">Orient</a>
+      <a class="state-link coordinate" href="#coordinate">Coordinate</a>
+      <a class="state-link specify" href="#specify">Specify</a>
+      <a class="state-link encode" href="#encode">Encode</a>
+      <a class="state-link evaluate" href="#evaluate">Evaluate</a>
       <a class="github-link" href="https://github.com/SuhaibAslam/hatch-conference"><svg aria-hidden="true" viewBox="0 0 16 16"><path fill="currentColor" d="M8 0C3.58 0 0 3.64 0 8.13c0 3.59 2.29 6.64 5.47 7.71.4.08.55-.18.55-.39 0-.19-.01-.84-.01-1.53-2.01.38-2.53-.5-2.69-.96-.09-.23-.48-.96-.82-1.15-.28-.15-.68-.53-.01-.54.63-.01 1.08.59 1.23.83.72 1.23 1.87.88 2.33.67.07-.53.28-.88.51-1.08-1.78-.21-3.64-.91-3.64-4.02 0-.89.31-1.62.82-2.19-.08-.21-.36-1.04.08-2.16 0 0 .67-.22 2.2.84A7.5 7.5 0 0 1 8 3.9a7.5 7.5 0 0 1 2 .27c1.53-1.06 2.2-.84 2.2-.84.44 1.12.16 1.95.08 2.16.51.57.82 1.29.82 2.19 0 3.12-1.87 3.81-3.65 4.02.29.25.54.74.54 1.5 0 1.08-.01 1.95-.01 2.22 0 .22.15.47.55.39A8.13 8.13 0 0 0 16 8.13C16 3.64 12.42 0 8 0Z"/></svg><span>GitHub</span></a>
     </nav>
   </header>
 
   <main id="top">
     <section class="hero shell">
-      <div class="hero-title">
-        <p class="eyebrow">Workshop</p>
-        <h1>Design Skills <span>for the Agentic Era</span></h1>
+      <div class="hero-main">
+        <div class="hero-title">
+          <p class="eyebrow">Workshop</p>
+          <h1>Design Skills <span>for the Agentic Era</span></h1>
+          <p class="author">With <a href="https://www.suhaibaslam.com">Suhaib Aslam</a></p>
+        </div>
+        <div class="hero-intro">
+          <p>Carry one real AI-supported workflow from a human judgment to guidance your team can test, compare and improve. Use the printed workbook and canvases as your working surfaces.</p>
+          <a class="primary-link" href="#orient">Begin with Orient</a>
+        </div>
       </div>
-      <div class="hero-intro">
-        <p>Carry one real AI-supported workflow from a human judgment to guidance your team can test, compare and improve. Use the printed workbook and canvases as your working surfaces.</p>
-        <a class="primary-link" href="#orient">Begin with Orient</a>
+
+      <div class="framework" aria-label="The five workshop states">
+        <article class="orient"><span>01</span><strong>Orient</strong><small>Find the judgment</small></article>
+        <article class="coordinate"><span>02</span><strong>Coordinate</strong><small>Place authority</small></article>
+        <article class="specify"><span>03</span><strong>Specify</strong><small>Shape the shared work</small></article>
+        <article class="encode"><span>04</span><strong>Encode</strong><small>Create the skill</small><em>Laptop lab</em></article>
+        <article class="evaluate"><span>05</span><strong>Evaluate</strong><small>Test and improve</small><em>Laptop lab</em></article>
       </div>
     </section>
 
     <section class="tool-onramp">
       <div class="shell onramp-grid">
         <div>
-          <p class="eyebrow">For the laptop labs</p>
-          <h2>Give your AI tool the workshop context once.</h2>
+          <p class="eyebrow">Optional AI support</p>
+          <h2>Set up your AI tool for the workshop.</h2>
         </div>
-        <p>Save this setup for Encode and Evaluate. Start a new conversation, share only material your team is authorised to use, and tell the tool which workshop state you are in.</p>
+        <p>Start one conversation with the workshop context. Each state then offers a focused prompt when your team wants another perspective or needs help getting unstuck.</p>
         <div class="onramp-actions">
           <button class="button button-inverse" type="button" data-copy-action="quickstart">Copy workshop context</button>
-          <button class="text-link" type="button" data-resource="tool-setup/README.md">Choose how to work with your AI tool</button>
+          <button class="text-link" type="button" data-resource="tool-setup/README.md">Open setup options</button>
         </div>
       </div>
     </section>
 
-    <nav class="journey-nav shell" id="journey" aria-label="Workshop states">
-      <a class="journey-link orient" href="#orient"><span>01</span><strong>Orient</strong><small>Find the judgment</small></a>
-      <a class="journey-link coordinate" href="#coordinate"><span>02</span><strong>Coordinate</strong><small>Place authority</small></a>
-      <a class="journey-link specify" href="#specify"><span>03</span><strong>Specify</strong><small>Shape the shared work</small></a>
-      <a class="journey-link encode" href="#encode"><span>04</span><strong>Encode</strong><small>Create the skill</small><em>Laptop lab</em></a>
-      <a class="journey-link evaluate" href="#evaluate"><span>05</span><strong>Evaluate</strong><small>Test and improve</small><em>Laptop lab</em></a>
-    </nav>
-
     <section class="stage stage-orient" id="orient">
       <div class="shell stage-grid">
         <header class="stage-heading">
-          <p class="stage-number">01 <span>Orient</span></p>
+          <p class="stage-number"><span>01</span><strong>Orient</strong></p>
           <h2>What real situation and judgment need attention?</h2>
           <p>Locate a recognisable friction, inspect what a plausible AI response could flatten or miss, and sharpen the critique into a usable rule.</p>
         </header>
@@ -70,10 +73,11 @@
             <li><span>Consequence</span>Name which decision could become worse if a plausible response were trusted too quickly.</li>
             <li><span>Judgment rule</span>Turn the critique into guidance a capable tool or teammate could follow.</li>
           </ul>
-          <div class="stage-output"><span>Move on with</span><strong>A recognisable situation, one consequence and one judgment rule.</strong></div>
-          <div class="stage-actions">
+          <div class="stage-actions" aria-label="Orient support">
             <button class="button" type="button" data-resource="workshop/01-orient/guidance--find-the-judgment.md">Open the Orient guide</button>
+            <button class="button button-ai" type="button" data-copy-action="orient">Copy an Orient thinking prompt</button>
           </div>
+          <div class="stage-output"><span>Leave Orient with</span><strong>A recognisable situation, one consequence and one judgment rule.</strong></div>
         </div>
       </div>
     </section>
@@ -81,7 +85,7 @@
     <section class="stage stage-coordinate" id="coordinate">
       <div class="shell stage-grid">
         <header class="stage-heading">
-          <p class="stage-number">02 <span>Coordinate</span></p>
+          <p class="stage-number"><span>02</span><strong>Coordinate</strong></p>
           <h2>Who acts, who decides, and when should authority shift?</h2>
           <p>Map three moments in a workflow, choose an agency mode for each and name the condition that should change the mode.</p>
         </header>
@@ -91,12 +95,12 @@
             <article><span>AI leads</span><p>Let the tool prepare or act when the work is bounded, observable and easy to correct.</p></article>
             <article><span>Work together</span><p>Make handoffs, checkpoints and changes in authority explicit.</p></article>
           </div>
-          <div class="stage-output"><span>Move on with</span><strong>One authority choice and the condition or assumption behind it.</strong></div>
-          <div class="stage-actions">
-            <button class="button" type="button" data-resource="workshop/02-coordinate/guidance--agency-and-control.md">Work through agency and control</button>
-            <button class="text-link" type="button" data-resource="skills/mixed-initiative-flow/SKILL.md">Clarify handoffs</button>
-            <button class="text-link" type="button" data-resource="skills/consent-and-agency/SKILL.md">Clarify permission and override</button>
+          <div class="stage-actions" aria-label="Coordinate support">
+            <button class="button" type="button" data-resource="workshop/02-coordinate/guidance--agency-and-control.md">Open the Coordinate guide</button>
+            <button class="button button-ai" type="button" data-copy-action="coordinate">Copy a Coordinate thinking prompt</button>
+            <button class="text-link" type="button" data-resource="skills/mixed-initiative-flow/SKILL.md">Explore control and handoff patterns</button>
           </div>
+          <div class="stage-output"><span>Leave Coordinate with</span><strong>One authority choice and the condition or assumption behind it.</strong></div>
         </div>
       </div>
     </section>
@@ -104,7 +108,7 @@
     <section class="stage stage-specify" id="specify">
       <div class="shell stage-grid">
         <header class="stage-heading">
-          <p class="stage-number">03 <span>Specify</span></p>
+          <p class="stage-number"><span>03</span><strong>Specify</strong></p>
           <h2>What challenge and working relationship are we making inspectable?</h2>
           <p>Choose one shared challenge, describe how people and AI might address it, map the flow and review what still needs attention.</p>
         </header>
@@ -115,12 +119,12 @@
             <article><span>Flow</span><strong>Who or what acts, what is visible, where does control change, and how can work recover?</strong></article>
             <article><span>Team review</span><strong>What is clear, what is unresolved, and which recurring point should the team carry forward?</strong></article>
           </div>
-          <div class="stage-output"><span>Move on with</span><strong>One selected challenge, working specification, inspectable flow and recurring point to carry forward.</strong></div>
-          <div class="stage-actions">
+          <div class="stage-actions" aria-label="Specify support">
             <button class="button" type="button" data-resource="workshop/03-specify/00-start-here.md">Open the Specify guide</button>
-            <button class="text-link" type="button" data-resource="workshop/03-specify/examples--starting-challenges/README.md">Use a practice challenge</button>
-            <button class="text-link" type="button" data-resource="workshop/03-specify/template--working-specification.md">Keep a digital specification</button>
+            <button class="button button-ai" type="button" data-copy-action="specify">Copy a Specify thinking prompt</button>
+            <button class="text-link" type="button" data-resource="workshop/03-specify/examples--starting-challenges/README.md">Explore example challenges</button>
           </div>
+          <div class="stage-output"><span>Leave Specify with</span><strong>One selected challenge, working specification, inspectable flow and recurring point to carry forward.</strong></div>
         </div>
       </div>
     </section>
@@ -129,7 +133,7 @@
       <div class="shell">
         <header class="lab-heading">
           <div>
-            <p class="stage-number">04 <span>Encode</span> <em>Core laptop lab</em></p>
+            <p class="stage-number"><span>04</span><strong>Encode</strong><em>Core laptop lab</em></p>
             <h2>Shape a reusable agent skill.</h2>
           </div>
           <p>An agent skill is reusable guidance for a recurring task, decision or judgment. One shared laptop is enough: one person can operate the tool while teammates challenge the draft and keep the earlier decisions visible.</p>
@@ -145,15 +149,17 @@
             <span class="step-number">02</span>
             <h3>Structure the skill</h3>
             <p>Write when the skill applies, what it needs and produces, the procedure, principles, constraints, human review point, uncertainty behaviour and evidence criterion.</p>
-            <button class="button" type="button" data-resource="workshop/04-encode/template--agent-skill.md">Open the SKILL.md template</button>
           </article>
           <article class="lab-step">
             <span class="step-number">03</span>
             <h3>Draft, review and save</h3>
-            <p>Paste the structured request into your AI tool after the team decisions are clear. Review every instruction together, save the result as SKILL.md and agree one stable trial case.</p>
-            <button class="button button-primary" type="button" data-copy-action="draft">Copy the skill-drafting prompt</button>
-            <button class="text-link" type="button" data-resource="skills/constraint-specification/SKILL.md">Get help making the guidance precise</button>
+            <p>Use the team decisions to draft the file. Review every instruction together, save the result as SKILL.md and agree one stable trial case.</p>
           </article>
+        </div>
+        <div class="stage-actions lab-actions" aria-label="Encode support">
+          <button class="button" type="button" data-resource="workshop/04-encode/00-start-here.md">Open the Encode guide</button>
+          <button class="button button-ai" type="button" data-copy-action="draft">Copy the skill-drafting prompt</button>
+          <button class="text-link" type="button" data-resource="workshop/04-encode/template--agent-skill.md">Open the SKILL.md template</button>
         </div>
         <div class="lab-output"><span>Leave Encode with</span><strong>One retrievable SKILL.md file and a trial-ready case.</strong><small>Evaluate tests what changes and what the team should improve.</small></div>
       </div>
@@ -163,7 +169,7 @@
       <div class="shell">
         <header class="lab-heading evaluate-heading">
           <div>
-            <p class="stage-number">05 <span>Evaluate</span> <em>Core laptop lab</em></p>
+            <p class="stage-number"><span>05</span><strong>Evaluate</strong><em>Core laptop lab</em></p>
             <h2>Does the skill improve the work?</h2>
           </div>
           <p>Run the same task twice. The first output shows what the AI tool does without your skill. The second shows what changes when the skill is applied. Your team decides whether those differences matter.</p>
@@ -183,18 +189,21 @@
           </article>
           <article>
             <span class="step-number">02</span>
-            <h3>Run the baseline in a fresh conversation</h3>
-            <p>Give the tool only the task, authorised input and required output format. Keep the target skill out of this conversation, then save the complete result.</p>
-            <button class="button button-primary" type="button" data-copy-action="baseline">Copy the baseline prompt</button>
+            <h3>Run the baseline</h3>
+            <p>Give a fresh conversation only the task, authorised input and required output format. Keep the target skill out, then save the complete result.</p>
+            <button class="button button-ai" type="button" data-copy-action="baseline">Copy the baseline prompt</button>
           </article>
           <article>
             <span class="step-number">03</span>
             <h3>Run with the skill, then review</h3>
             <p>Use a second fresh conversation with the same task, input and format plus the skill. Keep both outputs visible, cite evidence for each score and decide what the skill needs next.</p>
-            <button class="button button-primary" type="button" data-copy-action="guided">Copy the guided prompt</button>
-            <button class="text-link" type="button" data-resource="skills/run-skill-trial/SKILL.md">Using an agent with isolated runs?</button>
-            <button class="text-link" type="button" data-resource="skills/comparative-evaluation/SKILL.md">Get help comparing evidence</button>
+            <button class="button button-ai" type="button" data-copy-action="guided">Copy the guided prompt</button>
           </article>
+        </div>
+
+        <div class="stage-actions lab-actions" aria-label="Evaluate support">
+          <button class="button" type="button" data-resource="workshop/05-evaluate/00-start-here.md">Open the Evaluate guide</button>
+          <button class="text-link" type="button" data-resource="skills/run-skill-trial/SKILL.md">Using an agent with isolated runs?</button>
         </div>
 
         <div class="desk-callout">
@@ -206,7 +215,7 @@
           <a class="button" data-desk href="../workshop/05-evaluate/comparison-desk.html">Open the Comparison Desk</a>
         </div>
 
-        <div class="lab-output"><span>Leave Evaluate with</span><strong>One evidenced improvement, one cost or regression, and one next revision.</strong><button class="text-link" type="button" data-resource="workshop/05-evaluate/00-start-here.md">Open the complete Evaluate guide</button></div>
+        <div class="lab-output"><span>Leave Evaluate with</span><strong>One evidenced improvement, one cost or regression, and one next revision.</strong><small>Keep both outputs and the evidence behind the decision.</small></div>
       </div>
     </section>
 
@@ -227,7 +236,11 @@
   </footer>
 
   <dialog class="resource-dialog" id="resource-dialog" aria-labelledby="resource-title">
-    <header class="dialog-head"><div><p class="eyebrow" id="resource-kind">Workshop guidance</p><h2 id="resource-title">Resource</h2></div><button type="button" data-close aria-label="Close guidance">Close</button></header>
+    <header class="dialog-head">
+      <button class="dialog-back" type="button" data-back hidden>Back</button>
+      <div class="dialog-title"><p class="eyebrow" id="resource-kind">Workshop guidance</p><h2 id="resource-title">Resource</h2></div>
+      <button class="dialog-close" type="button" data-close aria-label="Close guidance">Close</button>
+    </header>
     <article class="dialog-content" id="resource-content"></article>
     <footer class="dialog-foot"><button class="copy-resource" type="button" data-copy-resource>Copy this guidance</button><a id="resource-source" href="https://github.com/SuhaibAslam/hatch-conference">View in GitHub repository</a></footer>
   </dialog>

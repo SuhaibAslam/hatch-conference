@@ -5,7 +5,9 @@ Use this after the team has chosen a recurring task, decision or judgment and di
 Copy this into an AI tool:
 
 ```text
-Help us turn our team decisions into a complete agent skill.
+We are participants in the Design Skills for the Agentic Era workshop. We are in Encode, turning one recurring task, decision or judgment into reusable guidance.
+
+Help us turn our team decisions into a complete agent skill. Use only the material below. Keep confirmed evidence, assumptions and open questions separate. Do not invent missing team decisions.
 
 Skill name:
 [add]

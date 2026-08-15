@@ -13,7 +13,7 @@ For coding agents that use repository instructions, start with [AGENTS.md](AGENT
 
 ## Workshop website
 
-This repository also deploys a participant-facing workshop companion through GitHub Pages. It follows the full journey from Orient through Evaluate, places design guidance beside the decision it supports, and provides deeper step-by-step support for the Encode and Evaluate laptop labs. The files in this repository remain the canonical source; open GitHub when you want to browse, edit or download them directly.
+This repository also deploys a participant-facing workshop companion through GitHub Pages. It follows the full journey from Orient through Evaluate, places design guidance and optional AI thinking prompts beside the decision they support, and provides deeper step-by-step support for the Encode and Evaluate laptop labs. The files in this repository remain the canonical source; open GitHub when you want to browse, edit or download them directly.
 
 ## What is here
 
@@ -63,7 +63,7 @@ This repository also deploys a participant-facing workshop companion through Git
 
 - Keep one real workflow in view throughout the exercise.
 - Share the work: one person can operate the tool while teammates challenge the draft and keep evidence in view.
-- Use the shared workspace, AI tool or screen that suits the team.
+- Use the paper, AI tool, screen or digital working surface that suits the team.
 - Test guidance against a stable task and use cited evidence to decide what to revise.
 - Use material your team is authorised to put into an AI tool.
 

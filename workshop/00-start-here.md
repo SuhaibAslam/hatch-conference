@@ -21,27 +21,27 @@ The printed materials and these files play different roles:
 
 | Workshop moment | Printed work | Repository role |
 | --- | --- | --- |
-| Orient | Personal Workbook pages 1 and 2 | Optional guidance for locating a friction and sharpening a judgment rule. |
-| Coordinate | Personal Workbook page 3 and team discussion | Optional agency guidance when the team needs help deciding who leads and when authority shifts. |
-| Specify | Personal Workbook page 4 and Team Canvases 1 to 4 | Optional challenge examples and a digital working-specification template. |
+| Orient | Personal Workbook pages 1 and 2 | Optional guidance and a thinking-partner prompt for locating a friction and sharpening a judgment rule. |
+| Coordinate | Personal Workbook page 3 and team discussion | Optional agency guidance and a thinking-partner prompt for testing who leads and when authority shifts. |
+| Specify | Personal Workbook page 4 and Team Canvases 1 to 4 | Optional challenge examples, a digital working-specification template and a thinking-partner prompt. |
 | Encode: team laptop lab | Team Canvas 5 and a shared laptop or workspace | **Use the repository.** Complete the agent-skill template, then use the drafting prompt when useful. |
 | Evaluate: team laptop lab | Team Canvas 6 and 2 fresh AI conversations | **Use the repository.** Run the stable case without and with the skill, then use cited evidence to decide the next revision. |
 
 ## 01 Orient | Find the judgment
 
-Open [01-orient/guidance--find-the-judgment.md](01-orient/guidance--find-the-judgment.md) only when you need a concise reminder of how to move from a real friction to a usable judgment rule.
+Open [01-orient/guidance--find-the-judgment.md](01-orient/guidance--find-the-judgment.md) only when you need a concise reminder of how to move from a real friction to a usable judgment rule. Use its thinking-partner prompt only when another perspective will help.
 
 ## 02 Coordinate | Decide how agency works
 
-Open [02-coordinate/guidance--agency-and-control.md](02-coordinate/guidance--agency-and-control.md) with the Personal Workbook and team discussion. Decide who acts, who decides, what a person needs to know and when authority shifts.
+Open [02-coordinate/guidance--agency-and-control.md](02-coordinate/guidance--agency-and-control.md) with the Personal Workbook and team discussion. Decide who acts, who decides, what a person needs to know and when authority shifts. Use its thinking-partner prompt to test a choice, not to delegate it.
 
 ## 03 Specify | Shape the challenge and working relationship
 
-Open [03-specify/00-start-here.md](03-specify/00-start-here.md) for the complete state route. Challenge guidance and practice examples sit here because the team chooses its shared challenge during Specify. Use [template--working-specification.md](03-specify/template--working-specification.md) only when your team wants a digital copy of Canvas 2.
+Open [03-specify/00-start-here.md](03-specify/00-start-here.md) for the complete state route. Challenge guidance and practice examples sit here because the team chooses its shared challenge during Specify. Use [template--working-specification.md](03-specify/template--working-specification.md) only when your team wants a digital copy of Canvas 2. Use the thinking-partner prompt when the team wants help checking the coherence of its challenge, specification or flow.
 
 ## 04 Encode | Write reusable guidance
 
-Return to Canvases 2, 3 and 4, then complete [04-encode/template--agent-skill.md](04-encode/template--agent-skill.md) for one recurring task, decision or judgment. The [skills/](../skills/) folder is an optional reference library: open a pattern only when it helps answer a specific design question, or keep it for later use. Use [prompt--draft-guidance.md](04-encode/prompt--draft-guidance.md) when you want AI help turning the team's decisions into a valid `SKILL.md` file.
+Open [04-encode/00-start-here.md](04-encode/00-start-here.md). Return to Canvases 2, 3 and 4, then complete [04-encode/template--agent-skill.md](04-encode/template--agent-skill.md) for one recurring task, decision or judgment. The [skills/](../skills/) folder is an optional reference library: open a pattern only when it helps answer a specific design question, or keep it for later use. Use [prompt--draft-guidance.md](04-encode/prompt--draft-guidance.md) when you want AI help turning the team's decisions into a valid `SKILL.md` file.
 
 ## 05 Evaluate | Test and improve
 

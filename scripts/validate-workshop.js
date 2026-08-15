@@ -47,15 +47,20 @@ for (const file of sourceFiles.filter(file => file.endsWith('.md'))) {
 const requiredPaths = [
   'workshop/00-start-here.md',
   'workshop/01-orient/guidance--find-the-judgment.md',
+  'workshop/01-orient/prompt--thinking-partner.md',
   'workshop/02-coordinate/guidance--agency-and-control.md',
+  'workshop/02-coordinate/prompt--thinking-partner.md',
   'workshop/03-specify/00-start-here.md',
+  'workshop/03-specify/prompt--thinking-partner.md',
   'workshop/03-specify/template--working-specification.md',
+  'workshop/04-encode/00-start-here.md',
   'workshop/04-encode/template--agent-skill.md',
   'workshop/04-encode/prompt--draft-guidance.md',
   'workshop/05-evaluate/00-start-here.md',
   'workshop/05-evaluate/prompt--run-and-review.md',
   'workshop/05-evaluate/comparison-desk.html',
-  'skills/run-skill-trial/SKILL.md'
+  'skills/run-skill-trial/SKILL.md',
+  'tool-setup/prompt--workshop-context.md'
 ];
 for (const target of requiredPaths) if (!fs.existsSync(path.join(root, target))) fail(`Required path is missing: ${target}.`);
 
@@ -85,10 +90,28 @@ for (const target of [...index.matchAll(/href="#([^"]+)"/g)].map(match => match[
 if (!app.includes('content/workshop/05-evaluate/comparison-desk.html')) fail('The hosted Comparison Desk route is missing.');
 if (!app.includes('../workshop/05-evaluate/comparison-desk.html')) fail('The local Comparison Desk route is missing.');
 if (!app.includes('<table><thead><tr>')) fail('Resource tables are missing semantic header rows.');
+if (!index.includes('data-back')) fail('The resource dialog is missing a Back action.');
+if (!app.includes('resourceHistory')) fail('The resource dialog does not preserve nested-resource history.');
 
-for (const action of ['quickstart', 'draft', 'baseline', 'guided']) {
+for (const action of ['quickstart', 'orient', 'coordinate', 'specify', 'draft', 'baseline', 'guided']) {
   if (!index.includes(`data-copy-action="${action}"`)) fail(`Companion is missing the ${action} copy action.`);
-  if (!app.includes(`'${action}'`)) fail(`site/app.js does not handle the ${action} copy action.`);
+  if (!app.includes(action === 'quickstart' ? "action === 'quickstart'" : `${action}: {`)) fail(`site/app.js does not handle the ${action} copy action.`);
+}
+
+for (const promptPath of [
+  'tool-setup/prompt--workshop-context.md',
+  'workshop/01-orient/prompt--thinking-partner.md',
+  'workshop/02-coordinate/prompt--thinking-partner.md',
+  'workshop/03-specify/prompt--thinking-partner.md'
+]) {
+  const promptSource = fs.readFileSync(path.join(root, promptPath), 'utf8');
+  const blocks = [...promptSource.matchAll(/```text\n([\s\S]*?)\n```/g)].map(match => match[1]);
+  if (blocks.length !== 1) fail(`${promptPath} must contain one ready-to-paste text block.`);
+  const prompt = blocks[0] || '';
+  for (const marker of ['Design Skills for the Agentic Era', '[add]']) {
+    if (!prompt.includes(marker)) fail(`${promptPath} is missing self-contained prompt marker: ${marker}.`);
+  }
+  if (!/Use only (the )?material/.test(prompt)) fail(`${promptPath} does not protect the authorised material boundary.`);
 }
 
 const evaluatePrompts = fs.readFileSync(path.join(root, 'workshop/05-evaluate/prompt--run-and-review.md'), 'utf8');

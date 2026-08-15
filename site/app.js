@@ -1,8 +1,55 @@
 const repositoryUrl = 'https://github.com/SuhaibAslam/hatch-conference';
 const dialog = document.querySelector('#resource-dialog');
 const resourceContent = document.querySelector('#resource-content');
+const resourceTitle = document.querySelector('#resource-title');
+const resourceKind = document.querySelector('#resource-kind');
+const resourceSource = document.querySelector('#resource-source');
+const copyResourceButton = document.querySelector('[data-copy-resource]');
+const backButton = document.querySelector('[data-back]');
 const toast = document.querySelector('#toast');
-let activeResource = '';
+
+let activeContent = '';
+let activeCopyLabel = 'Guidance';
+let resourceHistory = [];
+
+const promptActions = {
+  orient: {
+    title: 'Orient thinking prompt',
+    path: 'workshop/01-orient/prompt--thinking-partner.md',
+    index: 0,
+    message: 'Orient prompt copied. Paste it into your AI tool and add your material.'
+  },
+  coordinate: {
+    title: 'Coordinate thinking prompt',
+    path: 'workshop/02-coordinate/prompt--thinking-partner.md',
+    index: 0,
+    message: 'Coordinate prompt copied. Paste it into your AI tool and add your workflow choices.'
+  },
+  specify: {
+    title: 'Specify thinking prompt',
+    path: 'workshop/03-specify/prompt--thinking-partner.md',
+    index: 0,
+    message: 'Specify prompt copied. Paste it into your AI tool and add the team work you want to inspect.'
+  },
+  draft: {
+    title: 'Encode skill-drafting prompt',
+    path: 'workshop/04-encode/prompt--draft-guidance.md',
+    index: 0,
+    message: 'Drafting prompt copied. Add your team decisions before sending it.'
+  },
+  baseline: {
+    title: 'Evaluate baseline prompt',
+    path: 'workshop/05-evaluate/prompt--run-and-review.md',
+    index: 0,
+    message: 'Baseline prompt copied. Add the stable case before sending it in a fresh conversation.'
+  },
+  guided: {
+    title: 'Evaluate guided prompt',
+    path: 'workshop/05-evaluate/prompt--run-and-review.md',
+    index: 1,
+    message: 'Guided prompt copied. Add the same stable case and the skill before sending it in a second fresh conversation.'
+  }
+};
 
 function escapeHtml(value = '') {
   return value.replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;').replaceAll('"', '&quot;');
@@ -56,7 +103,7 @@ function renderMarkdown(markdown) {
 function showToast(message) {
   toast.textContent = message;
   toast.classList.add('show');
-  window.setTimeout(() => toast.classList.remove('show'), 2600);
+  window.setTimeout(() => toast.classList.remove('show'), 2800);
 }
 
 async function copyText(text, message) {
@@ -78,53 +125,147 @@ function codeBlocks(path) {
 }
 
 function workshopContext() {
-  return `Use this workshop repository as our source:\n${repositoryUrl}\n\nWe are participants in Design Skills for the Agentic Era. We are carrying one real AI-supported workflow through five working states:\n1. Orient: find the real situation and judgment that need attention.\n2. Coordinate: decide who acts, who decides and when authority should shift.\n3. Specify: shape the shared challenge, working relationship and workflow.\n4. Encode: turn recurring method, decisions or judgment into an agent skill.\n5. Evaluate: compare the same case without and with the skill, then decide what to improve.\n\nAsk only for context you need. Keep confirmed evidence, assumptions and open questions separate. Make human authority, intervention and recovery explicit. Use only material we are authorised to share.\n\nOur current state is:\n[Orient / Coordinate / Specify / Encode / Evaluate]\n\nOur workflow or challenge is:\n[add]`;
+  return codeBlocks('tool-setup/prompt--workshop-context.md')[0] || '';
 }
 
-function openResource(path) {
+function showDialog() {
+  if (!dialog.open) dialog.showModal();
+  dialog.scrollTop = 0;
+}
+
+function updateBackButton() {
+  backButton.hidden = resourceHistory.length < 2;
+}
+
+function resolveBundledLink(path, href) {
+  const target = new URL(href, `https://workshop.local/${path}`).pathname.slice(1);
+  if (window.WORKSHOP_CONTENT?.[target]) return target;
+  const readme = `${target.replace(/\/$/, '')}/README.md`;
+  return window.WORKSHOP_CONTENT?.[readme] ? readme : '';
+}
+
+function renderResource(path) {
   const markdown = window.WORKSHOP_CONTENT?.[path];
-  if (!markdown) { showToast('This guidance is not available in the workshop bundle.'); return; }
-  activeResource = path;
+  if (!markdown) { showToast('This guidance is not available in the workshop bundle.'); return false; }
   const clean = markdown.replace(/^---\n[\s\S]*?\n---\n/, '');
-  const title = clean.match(/^#\s+(.+)$/m)?.[1] || 'Workshop guidance';
-  document.querySelector('#resource-title').textContent = title;
-  document.querySelector('#resource-kind').textContent = path.includes('/SKILL.md') ? 'Design guidance' : 'Workshop material';
-  document.querySelector('#resource-source').href = `${repositoryUrl}/blob/main/${path}`;
+  resourceTitle.textContent = clean.match(/^#\s+(.+)$/m)?.[1] || 'Workshop guidance';
+  resourceKind.textContent = path.includes('/SKILL.md') ? 'Design guidance' : 'Workshop material';
+  resourceSource.hidden = false;
+  resourceSource.href = `${repositoryUrl}/blob/main/${path}`;
+  copyResourceButton.textContent = 'Copy this guidance';
+  activeContent = markdown;
+  activeCopyLabel = 'Guidance';
   resourceContent.innerHTML = renderMarkdown(markdown);
   resourceContent.querySelectorAll('a[href]').forEach(link => {
     const href = link.getAttribute('href');
     if (/^(https?:|mailto:|#)/.test(href)) return;
-    const target = new URL(href, `https://workshop.local/${path}`).pathname.slice(1);
-    const bundled = window.WORKSHOP_CONTENT?.[target] ? target : `${target.replace(/\/$/, '')}/README.md`;
-    if (window.WORKSHOP_CONTENT?.[bundled]) {
+    const bundled = resolveBundledLink(path, href);
+    if (bundled) {
       link.href = '#';
-      link.addEventListener('click', event => { event.preventDefault(); openResource(bundled); });
-    } else link.href = `content/${target}`;
+      link.addEventListener('click', event => {
+        event.preventDefault();
+        openResource(bundled, true);
+      });
+    } else {
+      const target = new URL(href, `https://workshop.local/${path}`).pathname.slice(1);
+      link.href = `content/${target}`;
+    }
   });
-  dialog.showModal();
+  updateBackButton();
+  showDialog();
+  return true;
 }
 
-document.addEventListener('click', event => {
+function openResource(path, preserveHistory = false) {
+  if (!preserveHistory) resourceHistory = [];
+  if (resourceHistory.at(-1) !== path) resourceHistory.push(path);
+  if (!renderResource(path)) resourceHistory.pop();
+}
+
+function openPreviousResource() {
+  if (resourceHistory.length < 2) return;
+  resourceHistory.pop();
+  renderResource(resourceHistory.at(-1));
+}
+
+function openPromptPreview({ title, text, path = '', intro = '' }) {
+  resourceHistory = [];
+  resourceTitle.textContent = title;
+  resourceKind.textContent = 'Ready-to-paste AI prompt';
+  resourceSource.hidden = !path;
+  if (path) resourceSource.href = `${repositoryUrl}/blob/main/${path}`;
+  copyResourceButton.textContent = 'Copy prompt';
+  activeContent = text;
+  activeCopyLabel = 'Prompt';
+  resourceContent.innerHTML = `${intro ? `<p class="prompt-intro">${escapeHtml(intro)}</p>` : ''}<pre><code>${escapeHtml(text)}</code></pre>`;
+  updateBackButton();
+  showDialog();
+}
+
+async function handleCopyAction(action) {
+  if (action === 'quickstart') {
+    const text = workshopContext();
+    await copyText(text, 'Workshop context copied. Paste it into a new AI conversation.');
+    openPromptPreview({
+      title: 'Workshop context',
+      text,
+      path: 'tool-setup/prompt--workshop-context.md',
+      intro: 'Paste this once to situate your AI tool. Add the current state, challenge and question before sending it.'
+    });
+    return;
+  }
+
+  const config = promptActions[action];
+  if (!config) return;
+  const text = codeBlocks(config.path)[config.index];
+  if (!text) {
+    showToast('This prompt is not available in the workshop bundle.');
+    return;
+  }
+  await copyText(text, config.message);
+  openPromptPreview({
+    title: config.title,
+    text,
+    path: config.path,
+    intro: 'The prompt is already copied. Review the placeholders, add your team material and paste it into the AI tool you are using.'
+  });
+}
+
+document.addEventListener('click', async event => {
   const resource = event.target.closest('[data-resource]');
   if (resource) openResource(resource.dataset.resource);
   if (event.target.closest('[data-close]')) dialog.close();
-  if (event.target.closest('[data-copy-resource]') && activeResource) copyText(window.WORKSHOP_CONTENT[activeResource], 'Guidance copied. Paste it into your AI tool or shared workspace.');
+  if (event.target.closest('[data-back]')) openPreviousResource();
+  if (event.target.closest('[data-copy-resource]') && activeContent) {
+    await copyText(activeContent, `${activeCopyLabel} copied. Paste it into your AI tool or shared workspace.`);
+  }
   const copyAction = event.target.closest('[data-copy-action]')?.dataset.copyAction;
-  if (copyAction === 'quickstart') copyText(workshopContext(), 'Workshop context copied. Paste it into a new AI conversation.');
-  if (copyAction === 'draft') {
-    const prompt = codeBlocks('workshop/04-encode/prompt--draft-guidance.md')[0];
-    if (prompt) copyText(prompt, 'Drafting prompt copied. Add your team decisions before sending it.');
-    else showToast('The drafting prompt is unavailable. Open the GitHub repository instead.');
-  }
-  if (copyAction === 'baseline' || copyAction === 'guided') {
-    const prompts = codeBlocks('workshop/05-evaluate/prompt--run-and-review.md');
-    const prompt = prompts[copyAction === 'baseline' ? 0 : 1];
-    if (prompt) copyText(prompt, `${copyAction === 'baseline' ? 'Baseline' : 'Guided'} prompt copied. Add the stable case before sending it in a fresh conversation.`);
-    else showToast('The trial prompt is unavailable. Open the Evaluate guide instead.');
-  }
+  if (copyAction) await handleCopyAction(copyAction);
 });
 
 dialog.addEventListener('click', event => { if (event.target === dialog) dialog.close(); });
+dialog.addEventListener('close', () => {
+  activeContent = '';
+  activeCopyLabel = 'Guidance';
+  resourceHistory = [];
+  updateBackButton();
+});
 
 const deskLink = document.querySelector('[data-desk]');
 deskLink.href = location.protocol === 'file:' ? '../workshop/05-evaluate/comparison-desk.html' : 'content/workshop/05-evaluate/comparison-desk.html';
+
+const stateLinks = [...document.querySelectorAll('.state-link')];
+const setCurrentState = id => {
+  stateLinks.forEach(link => {
+    if (link.getAttribute('href') === `#${id}`) link.setAttribute('aria-current', 'step');
+    else link.removeAttribute('aria-current');
+  });
+};
+
+const stateObserver = new IntersectionObserver(entries => {
+  const active = entries.find(entry => entry.isIntersecting);
+  if (active) setCurrentState(active.target.id);
+}, { rootMargin: '-18% 0px -68% 0px', threshold: 0 });
+
+document.querySelectorAll('.stage[id]').forEach(stage => stateObserver.observe(stage));
+stateLinks.forEach(link => link.addEventListener('click', () => setCurrentState(link.getAttribute('href').slice(1))));

@@ -20,6 +20,8 @@ Use Team Canvas 2 to describe how people and AI might address the challenge toge
 
 Use Team Canvas 3 to make the working specification visible as a flow. Then read Canvases 2 and 3 silently, add observations to Canvas 4 and agree what to keep or strengthen.
 
-## Move on with
+Open [prompt--thinking-partner.md](prompt--thinking-partner.md) when the team wants help checking the coherence of the challenge, specification or flow. Use the prompt to surface questions and draft wording, not to replace the team's decisions.
+
+## Leave Specify with
 
 One selected challenge, a working specification, an inspectable flow and one recurring task, decision or judgment the team may carry into Encode.

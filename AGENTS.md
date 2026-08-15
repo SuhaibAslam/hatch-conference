@@ -11,7 +11,7 @@ Read [workshop/00-start-here.md](workshop/00-start-here.md). Ask which workshop 
 | Orient: find the judgment | [workshop/01-orient/guidance--find-the-judgment.md](workshop/01-orient/guidance--find-the-judgment.md) | A recognisable situation and one judgment rule |
 | Coordinate: decide how agency works | [workshop/02-coordinate/guidance--agency-and-control.md](workshop/02-coordinate/guidance--agency-and-control.md) | A clear division of initiative, authority and recovery |
 | Specify: shape the shared work | [workshop/03-specify/00-start-here.md](workshop/03-specify/00-start-here.md) | A selected challenge, working specification, flow and recurring point |
-| Encode: shape an agent skill | [workshop/04-encode/template--agent-skill.md](workshop/04-encode/template--agent-skill.md) and [skills/](skills/) | A valid, retrievable `SKILL.md` and stable trial case |
+| Encode: shape an agent skill | [workshop/04-encode/00-start-here.md](workshop/04-encode/00-start-here.md) and [skills/](skills/) | A valid, retrievable `SKILL.md` and stable trial case |
 | Evaluate: run and review a trial | [workshop/05-evaluate/00-start-here.md](workshop/05-evaluate/00-start-here.md) | Named outputs ready for human evidence review |
 | Improve a useful skill | [skills/create-and-improve-skills/SKILL.md](skills/create-and-improve-skills/SKILL.md) | A tested revision and evaluation record |
 
@@ -26,9 +26,11 @@ Read [workshop/00-start-here.md](workshop/00-start-here.md). Ask which workshop 
 7. Tell the team to review both named outputs side by side in Team Canvas 6, their shared workspace or the conversations where they were returned. Ask whether they want an interactive Comparison Desk. When they do, use [comparison-desk.html](workshop/05-evaluate/comparison-desk.html) if reachable, or create a standalone Desk in their working area when the tool can make files.
 8. End by naming what to keep, what to revise next, and the next case and evidence to watch.
 
+When a participant asks for AI help during Orient, Coordinate or Specify, use the thinking-partner prompt in the matching state folder. Ask for only the missing inputs and return material that can move back into the workbook or canvases. Do not replace the team's judgment or create a finished solution.
+
 ## Quality bar
 
-Good workshop artifacts are concrete enough for another team to review. They show what starts the work, what the system may use, what it may do, what people need to know, how people can intervene, and how work recovers after a problem.
+Good workshop artifacts are concrete enough for the team to inspect and for someone outside the immediate discussion to understand. They show what starts the work, what the system may use, what it may do, what people need to know, how people can intervene, and how work recovers after a problem.
 
 Use the language of the participant's domain. Keep claims calibrated to the material provided. Treat sensitive, confidential and personal material with the participant's stated permissions.
 
