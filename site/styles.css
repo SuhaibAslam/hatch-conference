@@ -159,6 +159,7 @@ a { color: inherit; text-underline-offset: 3px; }
 .dialog-content pre code { padding: 0; background: none; color: inherit; }
 .dialog-content table { width: 100%; border-collapse: collapse; font-size: 12px; }
 .dialog-content th, .dialog-content td { padding: 9px; border: 1px solid var(--line); text-align: left; vertical-align: top; }
+.dialog-content th { background: #ecece8; font-weight: 600; }
 .dialog-foot { display: flex; padding: 16px 26px; align-items: center; justify-content: space-between; gap: 20px; border-top: 1px solid var(--line); }
 .copy-resource { padding: 8px 11px; border: 1px solid var(--ink); background: var(--ink); color: var(--paper); font-size: 11px; cursor: pointer; }
 .dialog-foot a { color: var(--muted); font-size: 10px; }

@@ -84,6 +84,7 @@ for (const target of [...index.matchAll(/href="#([^"]+)"/g)].map(match => match[
 }
 if (!app.includes('content/workshop/05-evaluate/comparison-desk.html')) fail('The hosted Comparison Desk route is missing.');
 if (!app.includes('../workshop/05-evaluate/comparison-desk.html')) fail('The local Comparison Desk route is missing.');
+if (!app.includes('<table><thead><tr>')) fail('Resource tables are missing semantic header rows.');
 
 for (const action of ['quickstart', 'draft', 'baseline', 'guided']) {
   if (!index.includes(`data-copy-action="${action}"`)) fail(`Companion is missing the ${action} copy action.`);

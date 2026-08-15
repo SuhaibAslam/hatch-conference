@@ -29,9 +29,10 @@ function renderMarkdown(markdown) {
       closeList();
       const cells = line.slice(1, -1).split('|').map(cell => cell.trim());
       if (cells.every(cell => /^:?-{3,}:?$/.test(cell))) continue;
-      if (!table) html += '<table><tbody>';
-      table = true;
-      html += `<tr>${cells.map(cell => `<td>${inlineMarkdown(cell)}</td>`).join('')}</tr>`;
+      if (!table) {
+        html += `<table><thead><tr>${cells.map(cell => `<th>${inlineMarkdown(cell)}</th>`).join('')}</tr></thead><tbody>`;
+        table = true;
+      } else html += `<tr>${cells.map(cell => `<td>${inlineMarkdown(cell)}</td>`).join('')}</tr>`;
       continue;
     }
     closeTable();
