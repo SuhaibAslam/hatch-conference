@@ -8,11 +8,11 @@ Read [workshop/00-start-here.md](workshop/00-start-here.md). Ask which workshop 
 
 | Activity | File | Result |
 | --- | --- | --- |
-| Intent: choose the work | [workshop/01-intent/guidance--choose-a-challenge.md](workshop/01-intent/guidance--choose-a-challenge.md) | A concrete shared task when no real workflow is ready |
-| Possibility: decide how agency works | [workshop/02-possibility/guidance--agency-and-control.md](workshop/02-possibility/guidance--agency-and-control.md) | A clear division of initiative, authority and recovery |
-| Definition: specify how the work should operate | [workshop/03-definition/template--working-specification.md](workshop/03-definition/template--working-specification.md) | A people and AI working specification |
-| Action: shape an agent skill | [workshop/04-action/template--agent-skill.md](workshop/04-action/template--agent-skill.md) and [skills/](skills/) | A reusable agent skill |
-| Outcomes: run and review a trial | [workshop/05-outcomes/00-start-here.md](workshop/05-outcomes/00-start-here.md) and [skills/run-skill-trial/SKILL.md](skills/run-skill-trial/SKILL.md) | Named outputs ready for human evidence review |
+| Orient: find the judgment | [workshop/01-orient/guidance--find-the-judgment.md](workshop/01-orient/guidance--find-the-judgment.md) | A recognisable situation and one judgment rule |
+| Coordinate: decide how agency works | [workshop/02-coordinate/guidance--agency-and-control.md](workshop/02-coordinate/guidance--agency-and-control.md) | A clear division of initiative, authority and recovery |
+| Specify: shape the shared work | [workshop/03-specify/00-start-here.md](workshop/03-specify/00-start-here.md) | A selected challenge, working specification, flow and recurring point |
+| Encode: shape an agent skill | [workshop/04-encode/template--agent-skill.md](workshop/04-encode/template--agent-skill.md) and [skills/](skills/) | A valid, retrievable `SKILL.md` and stable trial case |
+| Evaluate: run and review a trial | [workshop/05-evaluate/00-start-here.md](workshop/05-evaluate/00-start-here.md) | Named outputs ready for human evidence review |
 | Improve a useful skill | [skills/create-and-improve-skills/SKILL.md](skills/create-and-improve-skills/SKILL.md) | A tested revision and evaluation record |
 
 ## How to help
@@ -22,8 +22,8 @@ Read [workshop/00-start-here.md](workshop/00-start-here.md). Ask which workshop 
 3. Use the relevant template without adding unnecessary sections.
 4. Keep confirmed evidence, assumptions and open questions separate.
 5. Mark places where a person needs to decide, approve, intervene or recover work.
-6. At Outcomes, read and follow [run-skill-trial](skills/run-skill-trial/SKILL.md). Run the baseline before reading the target skill, then return clear named baseline and guided outputs for human review.
-7. Tell the team to review both named outputs side by side in Team Canvas 6, their shared workspace or the conversation where they were returned. Ask whether they want an interactive Comparison Desk. When they do, use [comparison-desk.html](workshop/05-outcomes/comparison-desk.html) if reachable, or create a standalone Desk in their working area when the tool can make files.
+6. At Evaluate, protect a clean comparison. Follow [run-skill-trial](skills/run-skill-trial/SKILL.md) only when you can create genuinely isolated contexts for baseline and guided runs. Otherwise prepare the 2 fresh-conversation route in [prompt--run-and-review.md](workshop/05-evaluate/prompt--run-and-review.md).
+7. Tell the team to review both named outputs side by side in Team Canvas 6, their shared workspace or the conversations where they were returned. Ask whether they want an interactive Comparison Desk. When they do, use [comparison-desk.html](workshop/05-evaluate/comparison-desk.html) if reachable, or create a standalone Desk in their working area when the tool can make files.
 8. End by naming what to keep, what to revise next, and the next case and evidence to watch.
 
 ## Quality bar

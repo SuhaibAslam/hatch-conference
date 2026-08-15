@@ -23,7 +23,7 @@ Open the one that matches your next decision. Use it with the relevant workshop 
 
 ## Choose how to work
 
-1. **Use the workshop materials only.** Follow [workshop/00-start-here.md](../workshop/00-start-here.md), use the relevant [skills](../skills/), and test the result through [template--controlled-comparison.md](../workshop/05-outcomes/template--controlled-comparison.md).
+1. **Use the workshop materials only.** Follow [workshop/00-start-here.md](../workshop/00-start-here.md), use the relevant [skills](../skills/), and test the result through [05-evaluate/00-start-here.md](../workshop/05-evaluate/00-start-here.md).
 2. **Use any AI chat or coding tool.** Start with [tool-setup/](../tool-setup/), give it the relevant workshop artifact and skill, and keep the team’s evidence and decisions visible.
 3. **Explore Owl upstream.** Install or browse Owl only if you want the wider collection and your agent supports its plugin or skill format. The upstream project documents its own installation and compatibility.
 

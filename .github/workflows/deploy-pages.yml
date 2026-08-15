@@ -42,6 +42,8 @@ jobs:
           touch _site/.nojekyll
           test -f _site/content.generated.js
           test -f _site/content/workshop/00-start-here.md
+          test -f _site/content/workshop/04-encode/template--agent-skill.md
+          test -f _site/content/workshop/05-evaluate/comparison-desk.html
           test -f _site/content/skills/run-skill-trial/SKILL.md
 
       - name: Configure Pages

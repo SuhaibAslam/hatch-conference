@@ -1,10 +1,10 @@
-# Possibility: Agency and Control
+# Coordinate: Agency and Control
 
 Decide how people and AI should share the work before specifying the workflow in detail.
 
 ## Use the Personal Workbook
 
-Map a meaningful workflow step. Decide whether the person leads, the AI leads, or they work together. Bring one disagreement about authority to your team.
+Choose a broader workflow or task, then map three moments where who acts or decides matters. Select an agency mode for each moment and name what should shift that mode. Bring one consequential difference or assumption to the team discussion.
 
 ## Decide together
 

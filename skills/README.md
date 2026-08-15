@@ -1,12 +1,12 @@
 # Workshop Skills
 
-These skills are reference patterns and reusable resources, not a second set of workshop exercises. During Action, your team creates its own agent skill from the work it shaped and reviewed. Open a reference skill only when it helps you resolve a specific question, or keep it for later use. At Outcomes, use **Run skill trial** as the default operational skill.
+These skills are reference patterns and reusable resources, not a second set of workshop exercises. During Encode, your team creates its own agent skill from the work it shaped and reviewed. Open a reference skill only when it helps you resolve a specific question, or keep it for later use. During Evaluate, use **Run skill trial** only when the agent can create genuinely isolated contexts for the two conditions. Otherwise use the 2 fresh-conversation route in the Evaluate guide.
 
 ## Reference patterns
 
 - Consult [Mixed-initiative flow](mixed-initiative-flow/SKILL.md) when the team needs an example of deciding who leads, who approves and how control moves.
 - Consult [Constraint specification](constraint-specification/SKILL.md) when the team needs an example of turning a judgment into clear reusable guidance.
-- At Outcomes, use [Run skill trial](run-skill-trial/SKILL.md). It runs both conditions and prepares the Outcomes review automatically.
+- At Evaluate, use [Run skill trial](run-skill-trial/SKILL.md) when the agent can isolate both conditions. It otherwise prepares the safe 2-conversation route.
 - Consult [Comparative evaluation](comparative-evaluation/SKILL.md) only when the team needs deeper help interpreting evidence after the trial.
 
 Use the other skills when the challenge makes permission, transparency or recovery the main issue.
@@ -19,7 +19,7 @@ Use the other skills when the challenge makes permission, transparency or recove
 | Show the sources, limits, uncertainty and next step | [Transparency patterns](transparency-patterns/SKILL.md) | Making system state and control clear |
 | Plan the response when an input, tool, handoff or output fails | [Failure recovery](failure-recovery/SKILL.md) | Testing recovery and escalation |
 | Compare two outputs fairly and learn from the difference | [Comparative evaluation](comparative-evaluation/SKILL.md) | The controlled comparison |
-| Run both conditions and prepare named outputs for evidence review | [Run skill trial](run-skill-trial/SKILL.md) | Outcomes without manual setup |
+| Run isolated conditions or prepare the 2-conversation route | [Run skill trial](run-skill-trial/SKILL.md) | Evaluate |
 | Turn a repeated judgment into reusable guidance and improve it over time | [Create and improve skills](create-and-improve-skills/SKILL.md) | Continuing the work after the workshop |
 
 ## Using a reference skill

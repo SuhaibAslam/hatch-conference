@@ -13,7 +13,7 @@ https://github.com/SuhaibAslam/hatch-conference
 We are working on one AI-supported workflow. Help us follow workshop/00-start-here.md. Ask concise questions, use the relevant workshop file and skill, and keep confirmed evidence, assumptions and open questions separate. Make human authority, intervention and recovery explicit.
 
 Our current state is:
-[choose: Intent / Possibility / Definition / Action / Outcomes]
+[choose: Orient / Coordinate / Specify / Encode / Evaluate]
 
 Our workflow or challenge is:
 [add]
@@ -56,11 +56,18 @@ Then use the same prompt above without the URL.
 | Codex, Claude Code, Gemini CLI or another coding agent | Open the unpacked repository as the working folder. Ask the agent to read `AGENTS.md` and `workshop/00-start-here.md` before helping with the current state. |
 | Any tool that does not load `SKILL.md` automatically | Open the relevant `SKILL.md`, paste it with the task and workshop file, and ask the tool to follow it. |
 
-## Run the Outcomes trial
+## Run the Evaluate trial
 
-For the default Outcomes route, start a fresh agent conversation when possible and give the agent [run-skill-trial](../skills/run-skill-trial/SKILL.md), the target agent skill, the task and its input material. The agent runs the baseline before reading the target skill, runs the guided version, then returns the named outputs for review in Team Canvas 6, your shared workspace or the conversation itself. It then asks whether your team wants an interactive Comparison Desk. When you do, it can use [comparison-desk.html](../workshop/05-outcomes/comparison-desk.html) whenever that file is reachable, or create a standalone Desk in its working area when it can make files.
+The default route uses 2 fresh AI conversations so the target skill cannot influence the baseline:
 
-When your tool cannot load `SKILL.md` files, paste this with the target agent skill and task:
+1. Open [prompt--run-and-review.md](../workshop/05-evaluate/prompt--run-and-review.md).
+2. Run the baseline prompt in a fresh conversation that has never received the target skill.
+3. Run the guided prompt in a second fresh conversation with the target skill attached or pasted.
+4. Keep the 2 complete outputs visible and review them on Team Canvas 6.
+
+An agent that can create genuinely isolated contexts may use [run-skill-trial](../skills/run-skill-trial/SKILL.md) to handle both runs. A new child agent is suitable only when it does not inherit the target skill or current conversation. When isolation is unavailable, the skill returns the same 2-conversation route.
+
+When your agent can create genuinely isolated contexts, paste this with the target agent skill and task:
 
 ```text
 Read and follow skills/run-skill-trial/SKILL.md.
@@ -74,7 +81,7 @@ Task and input material:
 Required output format:
 [add]
 
-Run the baseline before reading the target agent skill. Then run the guided version and return the baseline and guided outputs with clear labels for our evidence review. Ask whether we want an interactive Comparison Desk. If we do, use workshop/05-outcomes/comparison-desk.html when reachable, or create a simple standalone comparison-desk.html that keeps both outputs side by side, lets us score the four criteria with evidence, and records what changed plus the skill improvement decision. Do not make the Desk or JSON the only handoff.
+Use 2 isolated contexts that do not inherit each other's instructions. Give the baseline context only the task, input material and required output format. Give the guided context the same material plus the target skill. Return both complete outputs with clear labels for our evidence review. If isolated execution is unavailable, return 2 ready-to-paste prompts for us to run in separate fresh conversations. Do not claim a clean baseline from a context that has seen the target skill.
 ```
 
-Keep the task, input material, tool and output format the same. Change only the guidance. A clean baseline requires a fresh conversation where the target skill has not been loaded. Label any other baseline as context-exposed.
+Keep the task, input material, tool and output format the same. Change only whether the skill is present. Label any baseline influenced by the target skill as context-exposed.

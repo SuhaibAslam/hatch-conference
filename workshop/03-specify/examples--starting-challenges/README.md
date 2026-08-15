@@ -1,4 +1,4 @@
-# Intent: Starting Challenge Examples
+# Specify: Starting Challenge Examples
 
 Use one of these only when your team does not have a real workflow or suitable material ready today. Each gives you a contained situation, a task, available material and conditions to design. They are practice material, not examples of a preferred domain or use case.
 

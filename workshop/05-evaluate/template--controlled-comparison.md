@@ -1,6 +1,6 @@
 # Controlled Comparison
 
-Use this template only when your team needs the manual comparison route. Start with [00-start-here.md](00-start-here.md) for the default agent-run route. For a manual comparison, choose one shared place to view both outputs and use the copy-and-paste prompts in [prompt--run-and-review.md](prompt--run-and-review.md).
+Use this template when your team wants a digital comparison record outside Team Canvas 6. Start with [00-start-here.md](00-start-here.md), run the 2 conditions with [prompt--run-and-review.md](prompt--run-and-review.md), then place both named outputs side by side here.
 
 Share the work: one person can work in the tool while teammates challenge the run and keep evidence in view.
 

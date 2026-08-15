@@ -13,7 +13,7 @@ For coding agents that use repository instructions, start with [AGENTS.md](AGENT
 
 ## Workshop website
 
-This repository also deploys a participant-facing workshop companion through GitHub Pages. It follows the full journey from Intent through Outcomes, places design guidance beside the decision it supports, and provides deeper step-by-step support for the Action and Outcomes laptop labs. The files in this repository remain the canonical source; open GitHub when you want to browse, edit or download them directly.
+This repository also deploys a participant-facing workshop companion through GitHub Pages. It follows the full journey from Orient through Evaluate, places design guidance beside the decision it supports, and provides deeper step-by-step support for the Encode and Evaluate laptop labs. The files in this repository remain the canonical source; open GitHub when you want to browse, edit or download them directly.
 
 ## What is here
 

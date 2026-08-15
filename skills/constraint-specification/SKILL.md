@@ -24,7 +24,7 @@ Keep confirmed evidence, assumptions and open questions distinct. That separatio
 
 ## Draft the guidance
 
-Use [template--agent-skill.md](../../workshop/04-action/template--agent-skill.md). Write:
+Use [template--agent-skill.md](../../workshop/04-encode/template--agent-skill.md). Write:
 
 1. A purpose that names the design judgment the skill protects.
 2. Inputs and context that the system may use.
@@ -47,7 +47,7 @@ Check that another person could answer these questions from the skill alone:
 
 ## Workshop use
 
-Use this skill while completing Team Canvas 5. Then run the same task with and without the resulting agent skill, using [template--controlled-comparison.md](../../workshop/05-outcomes/template--controlled-comparison.md).
+Use this skill while completing Team Canvas 5. Then run the same task without and with the resulting agent skill, using [00-start-here.md](../../workshop/05-evaluate/00-start-here.md).
 
 ## Explore further
 

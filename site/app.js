@@ -71,18 +71,13 @@ async function copyText(text, message) {
   showToast(message);
 }
 
-function codeBlock(path) {
+function codeBlocks(path) {
   const source = window.WORKSHOP_CONTENT?.[path] || '';
-  return source.match(/```(?:text)?\n([\s\S]*?)\n```/)?.[1] || '';
+  return [...source.matchAll(/```(?:text|markdown)?\n([\s\S]*?)\n```/g)].map(match => match[1]);
 }
 
 function workshopContext() {
-  return `Use this workshop repository as our source:\n${repositoryUrl}\n\nWe are participants in Design Skills for the Agentic Era. We are carrying one real AI-supported workflow through five stages:\n1. Intent: choose the work and consequence.\n2. Possibility: decide how people and AI share agency.\n3. Definition: shape a working specification and workflow.\n4. Action: shape one recurring task, decision or judgment into an agent skill.\n5. Outcomes: compare the same task without and with the skill, then decide what to improve.\n\nAsk only for context you need. Keep confirmed evidence, assumptions and open questions separate. Make human authority, intervention and recovery explicit. Use only material we are authorised to share.\n\nOur current stage is:\n[Intent / Possibility / Definition / Action / Outcomes]\n\nOur workflow or challenge is:\n[add]`;
-}
-
-function trialInstructions() {
-  const runner = window.WORKSHOP_CONTENT?.['skills/run-skill-trial/SKILL.md'] || '';
-  return `${runner}\n\n---\n\nRun the controlled trial described above.\n\nAgent skill to test:\n[paste or attach]\n\nTask and authorised input material:\n[add]\n\nRequired output format:\n[add]\n\nRun the baseline before reading the agent skill. Then run the same task with the skill applied. Return clearly named baseline and guided outputs. Do not score them; our team will review the evidence and make the skill improvement decision.`;
+  return `Use this workshop repository as our source:\n${repositoryUrl}\n\nWe are participants in Design Skills for the Agentic Era. We are carrying one real AI-supported workflow through five working states:\n1. Orient: find the real situation and judgment that need attention.\n2. Coordinate: decide who acts, who decides and when authority should shift.\n3. Specify: shape the shared challenge, working relationship and workflow.\n4. Encode: turn recurring method, decisions or judgment into an agent skill.\n5. Evaluate: compare the same case without and with the skill, then decide what to improve.\n\nAsk only for context you need. Keep confirmed evidence, assumptions and open questions separate. Make human authority, intervention and recovery explicit. Use only material we are authorised to share.\n\nOur current state is:\n[Orient / Coordinate / Specify / Encode / Evaluate]\n\nOur workflow or challenge is:\n[add]`;
 }
 
 function openResource(path) {
@@ -116,18 +111,19 @@ document.addEventListener('click', event => {
   const copyAction = event.target.closest('[data-copy-action]')?.dataset.copyAction;
   if (copyAction === 'quickstart') copyText(workshopContext(), 'Workshop context copied. Paste it into a new AI conversation.');
   if (copyAction === 'draft') {
-    const prompt = codeBlock('workshop/04-action/prompt--draft-guidance.md');
+    const prompt = codeBlocks('workshop/04-encode/prompt--draft-guidance.md')[0];
     if (prompt) copyText(prompt, 'Drafting prompt copied. Add your team decisions before sending it.');
     else showToast('The drafting prompt is unavailable. Open the GitHub repository instead.');
   }
-  if (copyAction === 'trial') {
-    const runner = window.WORKSHOP_CONTENT?.['skills/run-skill-trial/SKILL.md'];
-    if (runner) copyText(trialInstructions(), 'Controlled-trial instructions copied. Paste them into a fresh AI conversation.');
-    else showToast('The controlled-trial instructions are unavailable. Open the GitHub repository instead.');
+  if (copyAction === 'baseline' || copyAction === 'guided') {
+    const prompts = codeBlocks('workshop/05-evaluate/prompt--run-and-review.md');
+    const prompt = prompts[copyAction === 'baseline' ? 0 : 1];
+    if (prompt) copyText(prompt, `${copyAction === 'baseline' ? 'Baseline' : 'Guided'} prompt copied. Add the stable case before sending it in a fresh conversation.`);
+    else showToast('The trial prompt is unavailable. Open the Evaluate guide instead.');
   }
 });
 
 dialog.addEventListener('click', event => { if (event.target === dialog) dialog.close(); });
 
 const deskLink = document.querySelector('[data-desk]');
-deskLink.href = location.protocol === 'file:' ? '../workshop/05-outcomes/comparison-desk.html' : 'content/workshop/05-outcomes/comparison-desk.html';
+deskLink.href = location.protocol === 'file:' ? '../workshop/05-evaluate/comparison-desk.html' : 'content/workshop/05-evaluate/comparison-desk.html';

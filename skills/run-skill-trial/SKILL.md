@@ -1,13 +1,13 @@
 ---
 name: run-skill-trial
-description: Run an agent skill against the same task with and without the skill, then prepare the named outputs for human evidence review. Offer an optional interactive Comparison Desk when the team wants one and the tool can create or open it. Use whenever a participant asks to test a skill, compare a draft skill with ordinary tool use, evaluate what the guidance changed, or populate the workshop Outcomes comparison without manually managing two runs.
+description: Run an agent skill against the same task in genuinely isolated baseline and guided contexts, or prepare a safe two-conversation route when isolation is unavailable. Use when a participant asks to test a skill, compare a draft skill with ordinary tool use, evaluate what the guidance changed, or populate the workshop Evaluate comparison.
 ---
 
 # Run a Skill Trial
 
 ## Purpose
 
-Run the workshop's controlled comparison for the team. Handle the two-run mechanics so the team can review evidence in Team Canvas 6 or its chosen shared workspace and decide what to revise. Offer the interactive Comparison Desk only when it will help.
+Run the workshop's controlled comparison when the tool can keep the baseline free of the target skill. Otherwise prepare the exact 2-conversation route for the team. Return named outputs for evidence review in Team Canvas 6 or the team's chosen workspace. Offer the interactive Comparison Desk only when it will help.
 
 ## Collect the minimum information
 
@@ -26,32 +26,40 @@ Use the four workshop criteria unless the team has already agreed better ones:
 3. **Clarity and agency:** a person can understand, challenge and act on it.
 4. **Handling uncertainty:** responds appropriately when information is missing, uncertain or difficult.
 
-## Run the trial
+## Choose a valid run route
 
-### 1. Preserve a clean baseline
+### Route A: isolated agent runs
 
-Run the task once **before reading the target skill's instructions**. Use only the task, input material and required output format. Do not add the target skill's rules, terms, examples or reasoning to this run.
+Use this route only when you can create 2 isolated contexts that do not inherit each other's instructions or hidden context.
 
-If the target skill was already loaded into the agent's instructions or earlier context, say that a clean baseline is no longer possible in this conversation. Offer one of these routes:
+1. Run the baseline in a clean context that receives only the task, input material and required output format. It must never receive the target skill's rules, terms, examples or reasoning.
+2. Run the guided condition in a separate clean context that receives the same task, input material and required output format plus the target skill.
+3. Return both complete outputs with the labels **Baseline: without the skill** and **Guided: with the skill**.
 
-- open a fresh chat or agent session for the baseline; or
-- run the comparison with a clearly labelled **context-exposed baseline**.
+Do not treat a child agent as isolated when it inherits the current conversation or target skill.
 
-Never describe a context-exposed baseline as clean.
+### Route B: 2 fresh conversations
 
-### 2. Run the guided condition
+Use this route when genuinely isolated execution is unavailable. Return 2 ready-to-paste prompts:
 
-Read the target skill. Run exactly the same task, input material and required output format with the skill applied. Do not change any other planned variable.
+1. A baseline prompt containing only the task, input material and required output format.
+2. A guided prompt containing the same task, input material and required output format plus the full target skill.
 
-### 3. Prepare the review
+Tell the team to run each prompt in a separate fresh conversation using the same tool and model, then bring the complete named outputs back for review. Do not generate either output in the current context and call the comparison clean.
 
-Present the baseline and guided outputs to the team with clear labels, in the working folder or conversation they can already use. Leave scores and evidence blank for the team to complete.
+### Context-exposed comparisons
 
-After returning the named outputs, ask one concise question: **“Would you like an interactive Comparison Desk for the evidence review? It can take a little longer and needs a file or workspace that your team can open.”**
+If the target skill has already influenced the context used for the baseline, label it **Context-exposed baseline**. The result may still support a workshop discussion, but the team should not treat it as evidence of an uncontaminated without-skill condition.
+
+## Prepare the review
+
+When Route A was possible, present the baseline and guided outputs with clear labels in the working folder or conversation the team can already use. Leave scores and evidence blank for the team to complete. When Route B was required, stop after the 2 prompts and the concise instruction for returning the outputs.
+
+After returning named outputs, ask one concise question: **“Would you like an interactive Comparison Desk for the evidence review? It can take a little longer and needs a file or workspace that your team can open.”**
 
 If the team says no, stop at the named outputs. If the team says yes:
 
-- use the bundled `workshop/05-outcomes/comparison-desk.html` when the team or tool can open that file; or
+- use the bundled `workshop/05-evaluate/comparison-desk.html` when the team or tool can open that file; or
 - when the tool can create files but cannot open the bundled file, create a simple standalone `comparison-desk.html` in the team's working area.
 
 The standalone Desk must be dependency-free and keep the named outputs side by side, provide the four workshop criteria with score and evidence fields, capture what changed, and support the Keep, Revise next, and Next case decision. It must let the team retain the review as Markdown or plain text. Do not score or write evidence for the team. State where the file was created and how the team can open it.
@@ -92,7 +100,7 @@ Tell the team only what they need next:
 1. Keep the named outputs side by side in Team Canvas 6, the shared workspace or the conversation where they were returned.
 2. Cite evidence and score both outputs. Record what became better, what became worse or stayed weak, and what the team learned.
 3. Decide what to keep, what to revise next, and the next case and evidence to watch.
-4. When the team chose an interactive Desk, open the bundled `workshop/05-outcomes/comparison-desk.html` when available, or the standalone Desk you created. They can select **Open trial** for the session file or **Paste trial** for returned JSON.
+4. When the team chose an interactive Desk, open the bundled `workshop/05-evaluate/comparison-desk.html` when available, or the standalone Desk you created. They can select **Open trial** for the session file or **Paste trial** for returned JSON.
 
 The Desk is a local review surface. Do not upload material or create a shared folder unless the team separately chooses to do so.
 
