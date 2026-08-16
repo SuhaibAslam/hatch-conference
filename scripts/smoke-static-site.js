@@ -31,6 +31,7 @@ const routes = [
   '/content/workshop/04-encode/template--agent-skill.md',
   '/content/workshop/04-encode/prompt--draft-guidance.md',
   '/content/workshop/05-evaluate/00-start-here.md',
+  '/content/workshop/05-evaluate/prompt--trial-assistant.md',
   '/content/workshop/05-evaluate/prompt--run-and-review.md',
   '/content/workshop/05-evaluate/comparison-desk.html',
   '/content/workshop/05-evaluate/fallback-comparison-desk.html',

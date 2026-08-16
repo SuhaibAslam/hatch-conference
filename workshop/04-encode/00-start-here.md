@@ -18,7 +18,7 @@ Use [prompt--draft-guidance.md](prompt--draft-guidance.md) after the team decisi
 
 Save the skill in a folder your tool can retrieve. If the AI tool can create files, ask it to create the folder and save `SKILL.md`. Otherwise download or copy the file, then use the tool's supported upload or skill-install route. Ask the tool for its exact route rather than guessing a universal install location.
 
-For technical detail, open the [Agent Skills specification](https://agentskills.io/specification), its [creator guidance](https://agentskills.io/skill-creation/best-practices) or the workshop [reference skills](../../skills/README.md) only when they help resolve a concrete question.
+Explore the workshop [reference skills](../../skills/README.md) when examples would help the team find a useful shape or level of detail. The [Agent Skills specification](https://agentskills.io/specification) and its [creator guidance](https://agentskills.io/skill-creation/best-practices) are available when the team wants technical detail.
 
 ## 4. Prepare Evaluate
 

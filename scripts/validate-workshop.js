@@ -57,6 +57,7 @@ const requiredPaths = [
   'workshop/04-encode/template--agent-skill.md',
   'workshop/04-encode/prompt--draft-guidance.md',
   'workshop/05-evaluate/00-start-here.md',
+  'workshop/05-evaluate/prompt--trial-assistant.md',
   'workshop/05-evaluate/prompt--run-and-review.md',
   'workshop/05-evaluate/comparison-desk.html',
   'workshop/05-evaluate/fallback-comparison-desk.html',
@@ -89,27 +90,30 @@ for (const id of new Set(ids)) {
 for (const target of [...index.matchAll(/href="#([^"]+)"/g)].map(match => match[1])) {
   if (!ids.includes(target)) fail(`site/index.html links to missing section #${target}.`);
 }
-if (!app.includes('content/workshop/05-evaluate/comparison-desk.html')) fail('The hosted Comparison Desk route is missing.');
-if (!app.includes('../workshop/05-evaluate/comparison-desk.html')) fail('The local Comparison Desk route is missing.');
+if (!app.includes('contentFileHref')) fail('The companion does not resolve production and source-preview file routes.');
+if (!app.includes("contentFileHref('workshop/05-evaluate/comparison-desk.html')")) fail('The Comparison Desk route is missing.');
 if (!app.includes('<table><thead><tr>')) fail('Resource tables are missing semantic header rows.');
 if (!index.includes('data-back')) fail('The resource dialog is missing a Back action.');
 if (!app.includes('resourceHistory')) fail('The resource dialog does not preserve nested-resource history.');
 if (!app.includes('data-copy-code')) fail('Rendered code blocks are missing a direct copy affordance.');
 if (!app.includes('guideActions')) fail('State guides are missing embedded primary actions.');
 
-for (const action of ['quickstart', 'orient', 'coordinate', 'specify', 'draft']) {
+for (const action of ['quickstart', 'orient', 'coordinate', 'specify', 'draft', 'evaluate']) {
   if (!index.includes(`data-copy-action="${action}"`)) fail(`Companion is missing the ${action} copy action.`);
   if (!app.includes(action === 'quickstart' ? "action === 'quickstart'" : `${action}: {`)) fail(`site/app.js does not handle the ${action} copy action.`);
 }
-if (!index.includes('data-resource="skills/run-skill-trial/SKILL.md"')) fail('Evaluate does not make Run skill trial the primary AI route.');
+if (!index.includes('data-copy-action="evaluate"')) fail('Evaluate does not provide a ready-to-paste trial action.');
 if (!index.includes('data-resource="workshop/05-evaluate/prompt--run-and-review.md"')) fail('Evaluate is missing the 2-conversation fallback.');
 if (!index.includes('data-resource="skills/README.md"')) fail('Encode is missing the reference-skill route.');
+const evaluateGuide = fs.readFileSync(path.join(root, 'workshop/05-evaluate/00-start-here.md'), 'utf8');
+if (!evaluateGuide.includes('../../skills/run-skill-trial/SKILL.md')) fail('Evaluate guide does not retain the Run skill trial route.');
 
 for (const promptPath of [
   'tool-setup/prompt--workshop-context.md',
   'workshop/01-orient/prompt--thinking-partner.md',
   'workshop/02-coordinate/prompt--thinking-partner.md',
-  'workshop/03-specify/prompt--thinking-partner.md'
+  'workshop/03-specify/prompt--thinking-partner.md',
+  'workshop/05-evaluate/prompt--trial-assistant.md'
 ]) {
   const promptSource = fs.readFileSync(path.join(root, promptPath), 'utf8');
   const blocks = [...promptSource.matchAll(/```text\n([\s\S]*?)\n```/g)].map(match => match[1]);
@@ -151,7 +155,7 @@ if (!comparisonDesk.includes('id="copy-ai-instructions"')) fail('Comparison Desk
 if (!comparisonDesk.includes('skills/run-skill-trial/SKILL.md')) fail('Comparison Desk AI instructions do not point to Run skill trial.');
 
 const fallbackDesk = fs.readFileSync(path.join(root, 'workshop/05-evaluate/fallback-comparison-desk.html'), 'utf8');
-for (const marker of ['Prepared fallback comparison', 'Reveal conditions', 'Baseline, without the skill', 'Guided, with the skill', 'Download review']) {
+for (const marker of ['Prepared fallback comparison', 'Reveal conditions', 'Baseline, without the skill', 'Guided, with the skill', 'Download review', 'Research decision', 'Component standard', 'Meeting preparation', 'Service recovery']) {
   if (!fallbackDesk.includes(marker)) fail(`Prepared fallback comparison is missing: ${marker}.`);
 }
 

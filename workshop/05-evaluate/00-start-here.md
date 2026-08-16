@@ -4,7 +4,9 @@ Your team is testing what its agent skill changes in one real task.
 
 ## Start here
 
-Open [run-skill-trial](../../skills/run-skill-trial/SKILL.md) in an AI agent and ask it to follow the skill. It will create 2 isolated runs when the tool can protect them. Otherwise it will return the safe prompts for 2 fresh conversations. The team protects the comparison and makes the evidence and revision decision.
+Copy the [Evaluate trial prompt](prompt--trial-assistant.md) for a ready-to-paste route through the comparison. It gives the AI tool the workshop context, protects the baseline and guided conditions and adapts to the tool's capabilities.
+
+Open [run-skill-trial](../../skills/run-skill-trial/SKILL.md) when the AI tool can use agent skills directly. It will create 2 isolated runs when the tool can protect them or return the safe prompts for 2 fresh conversations. The team protects the comparison and makes the evidence and revision decision.
 
 ### 1. Prepare one stable case
 
@@ -33,10 +35,10 @@ Use the bundled [Comparison Desk](comparison-desk.html) as the preferred digital
 
 Record what became meaningfully better, what became worse or stayed weak, and what you learned about the skill. Then decide what to keep, what to revise next, and the next case and evidence to watch.
 
-## Only when needed
+## Other useful routes
 
 - Use [template--controlled-comparison.md](template--controlled-comparison.md) when your team wants a digital record of the comparison outside Canvas 6.
-- If a live tool run is unavailable after four minutes, ask the facilitator to open the [prepared fallback comparison](fallback-comparison-desk.html). It uses sample material and keeps the evidence review intact.
+- Open the [prepared fallback comparison](fallback-comparison-desk.html) when the team needs a ready-made case. It uses sample material and keeps the evidence review intact.
 - Use [template--skill-evaluation-plan.md](template--skill-evaluation-plan.md) after the workshop when you want to improve the agent skill over several test cases.
 
 ## Keep material authorised

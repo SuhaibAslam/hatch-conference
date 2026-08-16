@@ -45,6 +45,7 @@ jobs:
           test -f _site/content/workshop/04-encode/template--agent-skill.md
           test -f _site/content/workshop/05-evaluate/comparison-desk.html
           test -f _site/content/workshop/05-evaluate/fallback-comparison-desk.html
+          test -f _site/content/workshop/05-evaluate/prompt--trial-assistant.md
           test -f _site/content/skills/run-skill-trial/SKILL.md
 
       - name: Configure Pages

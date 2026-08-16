@@ -9,45 +9,51 @@
     * { box-sizing:border-box; }
     body { margin:0; background:var(--paper); color:var(--ink); font:400 15px/1.5 Inter, Arial, sans-serif; }
     button, input, select, textarea { font:inherit; }
-    button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible, summary:focus-visible { outline:2px solid var(--ink); outline-offset:3px; }
+    button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible { outline:2px solid var(--ink); outline-offset:3px; }
     .shell { width:min(1180px, calc(100% - 48px)); margin-inline:auto; }
     .masthead { display:flex; min-height:64px; padding:0 max(24px, calc((100vw - 1180px) / 2)); align-items:center; justify-content:space-between; gap:24px; border-bottom:1px solid var(--line); background:rgba(245,245,243,.96); }
     .masthead strong { font-size:13px; font-weight:600; }
     .masthead span { color:var(--muted); font-size:11px; text-transform:uppercase; }
-    .hero { padding:70px 0 48px; }
+    .hero { padding:70px 0 42px; }
     .eyebrow { margin:0 0 12px; color:var(--muted); font-size:10px; font-weight:600; text-transform:uppercase; }
-    h1 { max-width:780px; margin:0; font-size:56px; font-weight:500; line-height:1.02; }
+    h1 { max-width:830px; margin:0; font-size:56px; font-weight:500; line-height:1.02; }
     .lede { display:grid; grid-template-columns:1fr auto; gap:40px; margin-top:28px; align-items:end; }
-    .lede p { max-width:720px; margin:0; color:var(--muted); font-size:17px; }
+    .lede p { max-width:760px; margin:0; color:var(--muted); font-size:17px; }
     .button { display:inline-flex; min-height:42px; padding:10px 14px; align-items:center; justify-content:center; border:1px solid var(--ink); background:var(--white); color:var(--ink); font-size:12px; font-weight:600; cursor:pointer; }
     .button:hover { background:var(--ink); color:var(--paper); }
     .button.primary { background:var(--ink); color:var(--paper); }
     .button.primary:hover { background:#343432; }
-    .brief { display:grid; grid-template-columns:1fr 1fr; border:1px solid var(--line); background:var(--white); }
-    .brief > div { padding:24px; }
-    .brief > div + div { border-left:1px solid var(--line); }
-    .brief h2 { margin:0 0 8px; font-size:20px; font-weight:500; }
-    .brief p { margin:0; color:#4f4f4b; }
-    details { margin:22px 0 46px; border-bottom:1px solid var(--line); }
-    summary { padding:14px 0; font-size:12px; font-weight:600; cursor:pointer; }
-    pre { margin:0 0 22px; overflow:auto; padding:22px; background:var(--ink); color:var(--paper); font:12px/1.55 ui-monospace, SFMono-Regular, Menlo, monospace; white-space:pre-wrap; }
-    .section-head { display:flex; margin:0 0 18px; align-items:end; justify-content:space-between; gap:24px; }
+    .scenario-nav { display:grid; grid-template-columns:repeat(4, 1fr); margin-bottom:38px; border-top:1px solid var(--line); border-left:1px solid var(--line); }
+    .scenario-nav button { min-height:86px; padding:16px; border:0; border-right:1px solid var(--line); border-bottom:1px solid var(--line); background:var(--white); color:var(--muted); text-align:left; cursor:pointer; }
+    .scenario-nav button span { display:block; margin-bottom:8px; font-size:9px; font-weight:600; text-transform:uppercase; }
+    .scenario-nav button strong { display:block; color:var(--ink); font-size:13px; font-weight:500; }
+    .scenario-nav button[aria-selected="true"] { background:var(--ink); color:#aaa9a4; }
+    .scenario-nav button[aria-selected="true"] strong { color:var(--paper); }
+    .context-grid { display:grid; grid-template-columns:.75fr 1.2fr 1.15fr; border-top:1px solid var(--line); border-left:1px solid var(--line); background:var(--white); }
+    .context-card { min-width:0; padding:24px; border-right:1px solid var(--line); border-bottom:1px solid var(--line); }
+    .context-card h2 { margin:0 0 12px; font-size:20px; font-weight:500; }
+    .context-card p, .context-card li { color:#4f4f4b; font-size:13px; }
+    .context-card ul { margin:0; padding-left:18px; }
+    .context-card li { margin-bottom:8px; }
+    .skill-code { max-height:310px; margin:0; overflow:auto; padding:18px; background:var(--ink); color:var(--paper); font:11px/1.55 ui-monospace, SFMono-Regular, Menlo, monospace; white-space:pre-wrap; }
+    .section-head { display:flex; margin:54px 0 18px; align-items:end; justify-content:space-between; gap:24px; }
     .section-head h2 { margin:0; font-size:30px; font-weight:500; }
     .section-head p { max-width:570px; margin:0; color:var(--muted); font-size:13px; }
     .outputs { display:grid; grid-template-columns:1fr 1fr; gap:18px; }
-    .output { min-height:370px; padding:25px; border:1px solid var(--line); background:var(--white); }
+    .output { min-height:470px; padding:25px; border:1px solid var(--line); background:var(--white); }
     .condition { display:block; margin-bottom:28px; color:var(--accent); font-size:10px; font-weight:600; text-transform:uppercase; }
-    .condition strong { color:var(--ink); font-weight:600; }
-    .output h3 { margin:0 0 15px; font-size:20px; font-weight:500; }
-    .output p, .output li { font-size:13px; }
-    .output ul { padding-left:20px; }
-    .output li { margin-bottom:10px; }
+    .output h3 { margin:0 0 20px; font-size:20px; font-weight:500; }
+    .output h4 { margin:22px 0 7px; font-size:10px; font-weight:600; text-transform:uppercase; }
+    .output p, .output li { color:#41413e; font-size:13px; }
+    .output p { margin:0 0 12px; }
+    .output ul { margin:0; padding-left:20px; }
+    .output li { margin-bottom:9px; }
     .review { margin-top:54px; padding:54px 0 70px; border-top:8px solid var(--accent); background:#e8e8e4; }
     table { width:100%; border-collapse:collapse; background:var(--white); font-size:12px; }
     th, td { padding:14px; border:1px solid var(--line); text-align:left; vertical-align:top; }
     th { background:#eeeeea; font-weight:600; }
     th:first-child { width:18%; }
-    select, textarea, input { width:100%; border:1px solid #bdbdb7; background:var(--white); color:var(--ink); }
+    select, textarea { width:100%; border:1px solid #bdbdb7; background:var(--white); color:var(--ink); }
     select { min-height:38px; padding:7px; }
     textarea { min-height:86px; padding:10px; resize:vertical; }
     .decision-grid { display:grid; grid-template-columns:repeat(3, 1fr); margin-top:26px; gap:18px; }
@@ -56,12 +62,18 @@
     .actions { display:flex; margin-top:24px; flex-wrap:wrap; gap:12px; }
     .status { min-height:24px; margin:14px 0 0; color:var(--muted); font-size:12px; }
     footer { display:flex; padding:28px 0 40px; justify-content:space-between; gap:24px; color:var(--muted); font-size:10px; }
+    @media (max-width:900px) {
+      .scenario-nav { grid-template-columns:repeat(2, 1fr); }
+      .context-grid { grid-template-columns:1fr 1fr; }
+      .context-card.skill-card { grid-column:1 / -1; }
+    }
     @media (max-width:760px) {
       .shell { width:min(100% - 28px, 1180px); }
       .hero { padding-top:48px; }
       h1 { font-size:39px; }
-      .lede, .brief, .outputs, .decision-grid { grid-template-columns:1fr; }
-      .brief > div + div { border-top:1px solid var(--line); border-left:0; }
+      .lede, .context-grid, .outputs, .decision-grid { grid-template-columns:1fr; }
+      .scenario-nav { grid-template-columns:1fr 1fr; }
+      .context-card.skill-card { grid-column:auto; }
       .section-head { align-items:start; flex-direction:column; }
       .output { min-height:auto; }
       .table-wrap { overflow-x:auto; }
@@ -76,61 +88,28 @@
       <p class="eyebrow">Evaluate fallback</p>
       <h1>Compare a prepared trial when a live run is blocked.</h1>
       <div class="lede">
-        <p>Review the same task completed without and with a sample skill. Score what you can observe before revealing which condition produced each output.</p>
+        <p>Choose one realistic case. Inspect its task, input and sample skill, then compare the two prepared outputs before revealing which condition produced each one.</p>
         <button class="button primary" id="reveal" type="button" aria-pressed="false">Reveal conditions</button>
       </div>
     </section>
 
     <section class="shell">
-      <div class="brief">
-        <div><p class="eyebrow">Trial task</p><h2>Turn design-review notes into a decision brief.</h2><p>Identify the most consequential issue, show the evidence behind it, separate uncertainty and recommend one next action for a human decision.</p></div>
-        <div><p class="eyebrow">Input</p><h2>Onboarding-flow review</h2><p>Four of 6 participants missed the permission explanation. Two completed the flow after retrying. The team has not yet tested whether shorter copy or a different sequence changes comprehension.</p></div>
+      <nav class="scenario-nav" id="scenario-nav" aria-label="Prepared comparison scenarios"></nav>
+
+      <div class="context-grid">
+        <article class="context-card"><p class="eyebrow">Trial task</p><h2 id="task-title"></h2><p id="task-copy"></p></article>
+        <article class="context-card"><p class="eyebrow">Input material</p><h2 id="input-title"></h2><ul id="input-list"></ul></article>
+        <article class="context-card skill-card"><p class="eyebrow">Agent skill used in one condition</p><h2 id="skill-title"></h2><pre class="skill-code" id="skill-code"></pre></article>
       </div>
-
-      <details>
-        <summary>View the sample skill used in one condition</summary>
-        <pre>---
-name: decision-evidence-brief
-description: Turn review notes into a concise decision brief when a team needs to separate evidence, uncertainty and the next human choice.
----
-
-# Decision Evidence Brief
-
-1. State the decision the team needs to make.
-2. Separate observed evidence from interpretation and missing evidence.
-3. Identify the issue with the most meaningful consequence.
-4. Recommend one next action and explain why it is proportionate to the evidence.
-5. End with the human decision that still needs to be made.
-
-Do not turn an untested explanation into a fact. Preserve meaningful disagreement or uncertainty.</pre>
-      </details>
 
       <div class="section-head">
         <div><p class="eyebrow">Prepared outputs</p><h2>Read both before you score.</h2></div>
-        <p>The condition labels stay hidden until your team has formed an initial view. Reveal them when you are ready to discuss what the skill changed.</p>
+        <p>The identities stay hidden until your team has formed an initial view. Reveal them when you are ready to discuss what the skill changed.</p>
       </div>
 
       <div class="outputs">
-        <article class="output">
-          <span class="condition" data-condition data-generic="Output A" data-revealed="Output A | Baseline, without the skill"><strong>Output A</strong></span>
-          <h3>Onboarding flow recommendation</h3>
-          <p>The permission explanation appears to be the main problem in the onboarding flow. Users may find the copy confusing or too long.</p>
-          <ul>
-            <li>Shorten the permission copy and make the benefit clearer.</li>
-            <li>Add a tooltip or example so users understand why access is needed.</li>
-            <li>Run another usability test after updating the screen.</li>
-          </ul>
-          <p>This should reduce confusion and improve completion.</p>
-        </article>
-        <article class="output">
-          <span class="condition" data-condition data-generic="Output B" data-revealed="Output B | Guided, with the skill"><strong>Output B</strong></span>
-          <h3>Decision brief</h3>
-          <p><strong>Decision:</strong> Choose what to test next before changing the permission step.</p>
-          <p><strong>Observed evidence:</strong> 4 of 6 participants missed the permission explanation. Two later completed the flow after retrying.</p>
-          <p><strong>Interpretation:</strong> The permission step is the clearest current friction. The notes do not show whether wording, sequence or another factor caused it.</p>
-          <p><strong>Recommended next action:</strong> Test 2 small variants, one with shorter copy and one with the explanation moved earlier. Keep the rest of the flow stable and compare comprehension.</p>
-          <p><strong>Human decision:</strong> Decide which explanation the product can accurately promise before either variant is produced.</p>
-        </article>
+        <article class="output"><span class="condition" id="condition-a">Output A</span><div id="output-a"></div></article>
+        <article class="output"><span class="condition" id="condition-b">Output B</span><div id="output-b"></div></article>
       </div>
     </section>
 
@@ -162,6 +141,122 @@ Do not turn an untested explanation into a fact. Preserve meaningful disagreemen
   </main>
   <footer class="shell"><span>Prepared workshop fallback</span><span>Use only the sample material on this page.</span></footer>
   <script>
+    const scenarios = [
+      {
+        short:'Research decision',
+        title:'Onboarding evidence brief',
+        taskTitle:'Turn design-review notes into a decision brief.',
+        task:'Identify the most consequential issue, show the evidence behind it, separate uncertainty and recommend one proportionate next action for a human decision.',
+        inputTitle:'Onboarding-flow review',
+        input:[
+          'Four of 6 participants missed the permission explanation before accepting.',
+          'Two completed the flow after retrying. One believed the product would share a full address book, although the feature only needs availability data.',
+          'One participant looked for a Back action after the permission screen and could not find it.',
+          'The team has not tested whether shorter copy, a different sequence or a clearer recovery route changes comprehension.',
+          'Legal confirmed that permission is required only when a person chooses automatic scheduling.'
+        ],
+        skillTitle:'Decision Evidence Brief',
+        skill:`---\nname: decision-evidence-brief\ndescription: Turn review notes into a concise decision brief that separates evidence, interpretation and the next human choice.\n---\n\n# Decision Evidence Brief\n\n1. State the decision the team needs to make.\n2. Separate observed evidence, interpretation and missing evidence.\n3. Identify the issue with the most meaningful consequence.\n4. Recommend one next action proportionate to the evidence.\n5. End with the human decision that remains.\n\nDo not turn an untested explanation into a fact.`,
+        baseline:{title:'Onboarding flow recommendation',blocks:[
+          {label:'Summary',text:'The permission explanation appears to be the main problem in the onboarding flow. Participants found the request confusing and may not understand why access is needed.'},
+          {label:'Recommendations',items:['Shorten the permission copy and explain the user benefit earlier.','Add an example or tooltip showing what information the feature uses.','Add a visible Back action and run another usability test after updating the screen.']},
+          {label:'Expected result',text:'These changes should reduce confusion, increase trust and improve completion.'}
+        ]},
+        guided:{title:'Decision brief',blocks:[
+          {label:'Decision',text:'Choose what to test before changing the permission step for every user.'},
+          {label:'Observed evidence',text:'Four of 6 participants missed the explanation; one misunderstood the data scope; one could not find a recovery route. Two later completed after retrying.'},
+          {label:'Interpretation and missing evidence',text:'The permission step is the clearest current friction. The notes do not establish whether wording, sequence or missing recovery caused it, and automatic scheduling is not part of every journey.'},
+          {label:'Recommended next action',text:'Test two bounded variants: clearer data-scope copy and a visible Back route. Show the permission request only when automatic scheduling is selected. Keep the remaining flow stable and compare comprehension.'},
+          {label:'Human decision',text:'Decide which data-use explanation the product can accurately promise before either variant is produced.'}
+        ]},
+        first:'baseline'
+      },
+      {
+        short:'Component standard',
+        title:'Inspectable AI recommendation',
+        taskTitle:'Turn three product patterns into one reusable component standard.',
+        task:'Specify the information, states and controls an AI recommendation component must expose so product teams can reuse it without hiding consequential system behaviour.',
+        inputTitle:'Three existing implementations',
+        input:[
+          'Product A shows a recommendation and percentage confidence but no source window or correction route.',
+          'Product B shows a short explanation and thumbs-up or thumbs-down feedback. Rejected recommendations disappear.',
+          'Product C lets people edit inputs but does not show when the underlying data is stale.',
+          'All three teams track click-through. None track correction, later reversal or unavailable recommendations.',
+          'The shared component must work for staffing, content and service-routing recommendations.'
+        ],
+        skillTitle:'Inspectable Recommendation Pattern',
+        skill:`---\nname: inspectable-recommendation-pattern\ndescription: Specify reusable AI recommendation experiences with visible evidence, control and recovery.\n---\n\n# Inspectable Recommendation Pattern\n\nFor every recommendation, define:\n1. the decision it supports and who remains accountable;\n2. the input window, freshness and meaningful uncertainty;\n3. inspect, edit, reject and recover actions;\n4. loading, stale, unavailable, rejected and corrected states;\n5. signals for acceptance, correction and later reversal.\n\nDo not use a confidence number without explaining what it represents.`,
+        baseline:{title:'Shared recommendation card',blocks:[
+          {label:'Core content',items:['Recommendation title and summary.','Confidence score with a short explanation.','Primary action plus thumbs-up and thumbs-down feedback.']},
+          {label:'Consistency',text:'Use the same layout, typography and feedback pattern across all products. Allow each team to customize the label and icon for its use case.'},
+          {label:'Measurement',text:'Track impressions, click-through, acceptance and feedback volume. Review performance monthly and improve recommendations with low engagement.'}
+        ]},
+        guided:{title:'Recommendation component standard',blocks:[
+          {label:'Decision and accountability',text:'Name the decision the recommendation supports and the person or role that confirms consequential actions. The component may prepare a choice but must not imply that approval already happened.'},
+          {label:'Visible basis',items:['Show the input window and when it was last updated.','Describe uncertainty in task language. If a score is shown, explain what it measures.','Make missing or conflicting inputs visible before the primary action.']},
+          {label:'Control and recovery',items:['Provide Inspect inputs, Edit, Reject and Continue without recommendation.','Define loading, stale, unavailable, rejected and corrected states.','Keep a rejected recommendation recoverable until the person leaves the decision flow.']},
+          {label:'Operational evidence',text:'Track acceptance, correction, later reversal, stale-state exposure and unavailable recommendations. Review repeated corrections as a product signal, not merely negative feedback.'}
+        ]},
+        first:'guided'
+      },
+      {
+        short:'Meeting preparation',
+        title:'Decision-ready customer visit',
+        taskTitle:'Turn scattered account notes into a one-page meeting brief.',
+        task:'Prepare a focused customer-visit brief that separates confirmed context from assumptions and makes the decisions, owners and confidentiality boundaries explicit.',
+        inputTitle:'Hospital account notes',
+        input:[
+          'The nursing lead wants fewer duplicate data-entry steps. This was confirmed in the last call.',
+          'A sales note says the procurement director may want a broader pilot, but no customer confirmed this.',
+          'Two unresolved integration questions are assigned to the technical lead. Answers are due next week.',
+          'Patient examples in the research notes may not be copied into the shared brief.',
+          'The team wants to leave the visit with a pilot scope, success signal and next owner.'
+        ],
+        skillTitle:'Decision-Ready Meeting Brief',
+        skill:`---\nname: decision-ready-meeting-brief\ndescription: Prepare a meeting brief when a team needs clear decisions, evidence boundaries and follow-up ownership.\n---\n\n# Decision-Ready Meeting Brief\n\n1. Separate confirmed commitments, open questions and assumptions.\n2. Give every agenda item an intended decision or learning goal.\n3. Exclude material outside the authorised sharing boundary.\n4. Name the owner for unresolved preparation and live follow-up.\n5. End with the decisions, evidence and next owners the meeting should produce.`,
+        baseline:{title:'Hospital visit agenda',blocks:[
+          {label:'Purpose',text:'Discuss current workflow challenges, demonstrate relevant capabilities and agree next steps for a possible pilot.'},
+          {label:'Agenda',items:['Introductions and goals.','Current nursing workflow and duplicate data entry.','Product demonstration and integration discussion.','Pilot opportunities, success measures and next steps.']},
+          {label:'Questions',items:['Which workflows create the most administrative burden?','What would a successful pilot look like?','Who else should be involved in the decision?']}
+        ]},
+        guided:{title:'Decision-ready visit brief',blocks:[
+          {label:'Confirmed context',text:'The nursing lead wants fewer duplicate entry steps. Two integration questions remain open and are owned by the technical lead.'},
+          {label:'Assumption to test',text:'A broader pilot may interest procurement, but this has not been confirmed. Ask rather than presenting it as an account priority.'},
+          {label:'Decision agenda',items:['Confirm the first workflow worth testing and the consequence it should reduce.','Resolve or assign the two integration questions.','Agree one pilot success signal and the person who can validate it.']},
+          {label:'Boundary and close',text:'Do not place patient examples in the shared brief. Leave with a written pilot scope, named success signal, unresolved questions and an owner and date for each next action.'}
+        ]},
+        first:'baseline'
+      },
+      {
+        short:'Service recovery',
+        title:'Bounded customer recovery',
+        taskTitle:'Draft a recovery response after a delayed delivery.',
+        task:'Respond with empathy while keeping the verified order state, available remedies, approval boundary and next update clear.',
+        inputTitle:'Support case 4821',
+        input:[
+          'The parcel missed the Friday delivery window. The carrier scan still shows it at the regional hub.',
+          'The customer contacted support twice and needs the equipment for a Monday event.',
+          'Support may offer expedited replacement or a credit up to EUR 40 without manager approval.',
+          'The original parcel cannot yet be recalled. A delivery address change requires customer confirmation.',
+          'The next carrier update is expected by 15:00 today.'
+        ],
+        skillTitle:'Verified Service Recovery',
+        skill:`---\nname: verified-service-recovery\ndescription: Draft customer recovery responses that distinguish verified state, available remedies and human approval.\n---\n\n# Verified Service Recovery\n\n1. Acknowledge the consequence for the customer.\n2. State only verified order information and what remains unknown.\n3. Offer remedies inside the current policy boundary.\n4. Ask before changing an address or taking a consequential account action.\n5. Name the next update time and a recovery route if that commitment is missed.`,
+        baseline:{title:'Apology and recovery offer',blocks:[
+          {label:'Response',text:'We are very sorry that your delivery has been delayed, especially with your event coming up on Monday. We understand how frustrating this must be after you already contacted us twice.'},
+          {label:'Proposed resolution',text:'We are working with the carrier to get the parcel delivered as soon as possible. We can also arrange a replacement or offer a discount for the inconvenience. Please confirm whether you would prefer a replacement or credit.'},
+          {label:'Close',text:'Thank you for your patience. We will continue monitoring the order and hope to have it resolved shortly.'}
+        ]},
+        guided:{title:'Verified recovery response',blocks:[
+          {label:'Response',text:"I am sorry the equipment missed Friday's delivery window after you contacted us twice. I understand that the Monday event makes the timing consequential."},
+          {label:'Verified state',text:'The latest carrier scan still places the original parcel at the regional hub. We do not yet have a confirmed delivery time, and the original parcel cannot currently be recalled.'},
+          {label:'Available choices',text:'I can arrange an expedited replacement now or apply a credit up to EUR 40. Before changing the delivery address, I need you to confirm the new address and which option you want.'},
+          {label:'Next commitment',text:'The next carrier update is expected by 15:00 today. If no new scan appears then, this case will return to a support specialist to confirm the replacement route with you.'}
+        ]},
+        first:'guided'
+      }
+    ];
+
     const dimensions = [
       ['Task value', 'Does it solve the actual task for the people involved?'],
       ['Method and judgment', 'Does it follow the intended approach and make consequential distinctions?'],
@@ -172,33 +267,78 @@ Do not turn an untested explanation into a fact. Preserve meaningful disagreemen
     const score = (side, index) => `<select aria-label="${side} score for ${dimensions[index][0]}"><option value="">Select</option><option>1</option><option>2</option><option>3</option><option>4</option></select>`;
     criteria.innerHTML = dimensions.map((item, index) => `<tr><th>${item[0]}<br><small>${item[1]}</small></th><td>${score('Output A', index)}</td><td><textarea aria-label="Output A evidence for ${item[0]}"></textarea></td><td>${score('Output B', index)}</td><td><textarea aria-label="Output B evidence for ${item[0]}"></textarea></td></tr>`).join('');
 
+    const nav = document.querySelector('#scenario-nav');
     const reveal = document.querySelector('#reveal');
+    const status = message => { document.querySelector('#status').textContent = message; };
+    const escapeHtml = value => value.replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;').replaceAll('"', '&quot;');
+    let activeScenario = 0;
+
+    nav.innerHTML = scenarios.map((scenario, index) => `<button type="button" data-scenario="${index}" aria-selected="${index === 0}"><span>Scenario ${index + 1}</span><strong>${scenario.short}</strong></button>`).join('');
+
+    function outputHtml(output) {
+      return `<h3>${escapeHtml(output.title)}</h3>${output.blocks.map(block => `<h4>${escapeHtml(block.label)}</h4>${block.text ? `<p>${escapeHtml(block.text)}</p>` : ''}${block.items ? `<ul>${block.items.map(item => `<li>${escapeHtml(item)}</li>`).join('')}</ul>` : ''}`).join('')}`;
+    }
+
+    function resetReview(message = '') {
+      document.querySelectorAll('select, textarea').forEach(field => { field.value = ''; });
+      status(message);
+    }
+
+    function renderScenario(index) {
+      activeScenario = index;
+      const scenario = scenarios[index];
+      nav.querySelectorAll('button').forEach((button, buttonIndex) => button.setAttribute('aria-selected', String(buttonIndex === index)));
+      document.querySelector('#task-title').textContent = scenario.taskTitle;
+      document.querySelector('#task-copy').textContent = scenario.task;
+      document.querySelector('#input-title').textContent = scenario.inputTitle;
+      document.querySelector('#input-list').innerHTML = scenario.input.map(item => `<li>${escapeHtml(item)}</li>`).join('');
+      document.querySelector('#skill-title').textContent = scenario.skillTitle;
+      document.querySelector('#skill-code').textContent = scenario.skill;
+      const first = scenario[scenario.first];
+      const second = scenario[scenario.first === 'baseline' ? 'guided' : 'baseline'];
+      document.querySelector('#output-a').innerHTML = outputHtml(first);
+      document.querySelector('#output-b').innerHTML = outputHtml(second);
+      document.querySelector('#condition-a').textContent = 'Output A';
+      document.querySelector('#condition-b').textContent = 'Output B';
+      reveal.setAttribute('aria-pressed', 'false');
+      reveal.textContent = 'Reveal conditions';
+      resetReview(`Scenario ${index + 1} loaded. Scores and notes cleared.`);
+    }
+
+    nav.addEventListener('click', event => {
+      const button = event.target.closest('[data-scenario]');
+      if (button) renderScenario(Number(button.dataset.scenario));
+    });
+
     reveal.addEventListener('click', () => {
+      const scenario = scenarios[activeScenario];
       const pressed = reveal.getAttribute('aria-pressed') === 'true';
       reveal.setAttribute('aria-pressed', String(!pressed));
       reveal.textContent = pressed ? 'Reveal conditions' : 'Hide conditions';
-      document.querySelectorAll('[data-condition]').forEach(label => { label.textContent = pressed ? label.dataset.generic : label.dataset.revealed; });
+      document.querySelector('#condition-a').textContent = pressed ? 'Output A' : `Output A | ${scenario.first === 'baseline' ? 'Baseline, without the skill' : 'Guided, with the skill'}`;
+      document.querySelector('#condition-b').textContent = pressed ? 'Output B' : `Output B | ${scenario.first === 'baseline' ? 'Guided, with the skill' : 'Baseline, without the skill'}`;
     });
 
-    const fields = () => [...document.querySelectorAll('select, textarea')];
     function reviewMarkdown() {
+      const scenario = scenarios[activeScenario];
       const rows = [...criteria.querySelectorAll('tr')].map((row, index) => {
         const values = [...row.querySelectorAll('select, textarea')].map(field => field.value.trim() || '[not recorded]');
         return `## ${dimensions[index][0]}\n- Output A score: ${values[0]}\n- Output A evidence: ${values[1]}\n- Output B score: ${values[2]}\n- Output B evidence: ${values[3]}`;
       });
-      return `# Prepared fallback comparison review\n\n${rows.join('\n\n')}\n\n## Skill improvement decision\n- Meaningfully better: ${document.querySelector('#better').value.trim() || '[not recorded]'}\n- Worse or still weak: ${document.querySelector('#weak').value.trim() || '[not recorded]'}\n- Revise next: ${document.querySelector('#next').value.trim() || '[not recorded]'}\n`;
+      return `# Prepared fallback comparison review\n\nScenario: ${scenario.title}\nTask: ${scenario.taskTitle}\n\n${rows.join('\n\n')}\n\n## Skill improvement decision\n- Meaningfully better: ${document.querySelector('#better').value.trim() || '[not recorded]'}\n- Worse or still weak: ${document.querySelector('#weak').value.trim() || '[not recorded]'}\n- Revise next: ${document.querySelector('#next').value.trim() || '[not recorded]'}\n`;
     }
-    const status = message => { document.querySelector('#status').textContent = message; };
+
     document.querySelector('#copy').addEventListener('click', async () => { await navigator.clipboard.writeText(reviewMarkdown()); status('Review copied.'); });
     document.querySelector('#download').addEventListener('click', () => {
       const link = document.createElement('a');
       link.href = URL.createObjectURL(new Blob([reviewMarkdown()], { type:'text/markdown' }));
-      link.download = 'prepared-fallback-comparison-review.md';
+      link.download = `prepared-fallback-review-${activeScenario + 1}.md`;
       link.click();
       URL.revokeObjectURL(link.href);
       status('Review downloaded.');
     });
-    document.querySelector('#clear').addEventListener('click', () => { fields().forEach(field => { field.value = ''; }); status('Team notes cleared.'); });
+    document.querySelector('#clear').addEventListener('click', () => resetReview('Team notes cleared.'));
+    renderScenario(0);
   </script>
 </body>
 </html>

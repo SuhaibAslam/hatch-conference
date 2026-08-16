@@ -68,7 +68,7 @@ a { color: inherit; text-underline-offset: 3px; }
 
 .button { display: inline-flex; min-height: 42px; padding: 10px 14px; align-items: center; justify-content: center; border: 1px solid var(--ink); border-radius: 0; background: var(--white); color: var(--ink); font-size: 12px; font-weight: 600; text-align: center; text-decoration: none; cursor: pointer; transition: background .16s, color .16s, border-color .16s, transform .16s; }
 .button:hover, .button:focus-visible { background: var(--ink); color: var(--paper); transform: translateY(-1px); }
-.button-ai { border-color: color-mix(in srgb, var(--stage) 76%, var(--ink)); background: color-mix(in srgb, var(--stage) 76%, var(--ink)); color: var(--white); }
+.button-ai { border-color: var(--stage); background: var(--stage); color: var(--white); }
 .button-ai:hover, .button-ai:focus-visible { border-color: var(--ink); background: var(--ink); color: var(--paper); }
 .button-inverse { border-color: var(--paper); background: var(--paper); color: var(--ink); }
 .button-inverse:hover, .button-inverse:focus-visible { border-color: #d4d4cf; background: #d4d4cf; color: var(--ink); }

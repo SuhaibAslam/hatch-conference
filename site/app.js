@@ -36,6 +36,12 @@ const promptActions = {
     path: 'workshop/04-encode/prompt--draft-guidance.md',
     index: 0,
     message: 'Drafting prompt copied. Add your context before pasting it into your AI tool.'
+  },
+  evaluate: {
+    title: 'Evaluate trial prompt',
+    path: 'workshop/05-evaluate/prompt--trial-assistant.md',
+    index: 0,
+    message: 'Evaluate prompt copied. Add your trial material before pasting it into your AI tool.'
   }
 };
 
@@ -63,7 +69,7 @@ const guideActions = {
   'workshop/05-evaluate/00-start-here.md': {
     heading: 'Start here',
     state: 'evaluate',
-    html: '<button class="button button-ai" type="button" data-resource="skills/run-skill-trial/SKILL.md">Run the skill trial</button>'
+    html: '<button class="button button-ai" type="button" data-copy-action="evaluate">Copy the Evaluate trial prompt</button>'
   }
 };
 
@@ -162,6 +168,11 @@ function resolveBundledLink(path, href) {
   return window.WORKSHOP_CONTENT?.[readme] ? readme : '';
 }
 
+function contentFileHref(target) {
+  const sourcePreview = /\/site\/(?:index\.html)?$/.test(location.pathname);
+  return location.protocol === 'file:' || sourcePreview ? `../${target}` : `content/${target}`;
+}
+
 function insertGuideAction(path) {
   const config = guideActions[path];
   if (!config) return;
@@ -200,7 +211,7 @@ function renderResource(path) {
       });
     } else {
       const target = new URL(href, `https://workshop.local/${path}`).pathname.slice(1);
-      link.href = location.protocol === 'file:' ? `../${target}` : `content/${target}`;
+      link.href = contentFileHref(target);
     }
   });
   updateBackButton();
@@ -293,13 +304,15 @@ dialog.addEventListener('close', () => {
 });
 
 const deskLink = document.querySelector('[data-desk]');
-deskLink.href = location.protocol === 'file:' ? '../workshop/05-evaluate/comparison-desk.html' : 'content/workshop/05-evaluate/comparison-desk.html';
+deskLink.href = contentFileHref('workshop/05-evaluate/comparison-desk.html');
 
 const stateLinks = [...document.querySelectorAll('.state-link')];
+const stages = [...document.querySelectorAll('.stage[id]')];
 const firstStage = document.querySelector('.stage[id]');
 const masthead = document.querySelector('.masthead');
 let navigationTarget = '';
 let navigationReleaseTimer = 0;
+let stateUpdateFrame = 0;
 const setCurrentState = id => {
   stateLinks.forEach(link => {
     if (link.getAttribute('href') === `#${id}`) link.setAttribute('aria-current', 'step');
@@ -308,21 +321,27 @@ const setCurrentState = id => {
 };
 
 const clearCurrentState = () => stateLinks.forEach(link => link.removeAttribute('aria-current'));
-const isBeforeFirstStage = () => window.scrollY < firstStage.offsetTop - masthead.offsetHeight - 32;
+const updateCurrentState = () => {
+  stateUpdateFrame = 0;
+  if (navigationTarget) return;
+  const probe = window.scrollY + masthead.offsetHeight + 24;
+  if (probe < firstStage.offsetTop) { clearCurrentState(); return; }
+  let current = stages[0];
+  for (const stage of stages) {
+    if (stage.offsetTop <= probe) current = stage;
+    else break;
+  }
+  setCurrentState(current.id);
+};
+const scheduleStateUpdate = () => {
+  if (stateUpdateFrame) return;
+  stateUpdateFrame = window.requestAnimationFrame(updateCurrentState);
+};
 const releaseNavigationLock = () => {
   navigationTarget = '';
   window.clearTimeout(navigationReleaseTimer);
-  if (isBeforeFirstStage()) clearCurrentState();
+  scheduleStateUpdate();
 };
-
-const stateObserver = new IntersectionObserver(entries => {
-  if (navigationTarget) return;
-  if (isBeforeFirstStage()) { clearCurrentState(); return; }
-  const active = entries.find(entry => entry.isIntersecting);
-  if (active) setCurrentState(active.target.id);
-}, { rootMargin: '-18% 0px -68% 0px', threshold: 0 });
-
-document.querySelectorAll('.stage[id]').forEach(stage => stateObserver.observe(stage));
 stateLinks.forEach(link => link.addEventListener('click', () => {
   navigationTarget = link.getAttribute('href').slice(1);
   setCurrentState(navigationTarget);
@@ -330,7 +349,6 @@ stateLinks.forEach(link => link.addEventListener('click', () => {
   navigationReleaseTimer = window.setTimeout(releaseNavigationLock, 1400);
 }));
 window.addEventListener('scrollend', releaseNavigationLock);
-window.addEventListener('scroll', () => {
-  if (!navigationTarget && isBeforeFirstStage()) clearCurrentState();
-}, { passive: true });
-if (isBeforeFirstStage()) clearCurrentState();
+window.addEventListener('scroll', scheduleStateUpdate, { passive: true });
+window.addEventListener('resize', scheduleStateUpdate);
+scheduleStateUpdate();
