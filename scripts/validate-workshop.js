@@ -146,9 +146,9 @@ if (!encodePrompt.includes('Ask which AI tool or environment we use')) fail('Enc
 if (!encodePrompt.includes('Do not turn every Canvas 5 field into a separate heading by default.')) fail('Encode drafting prompt does not translate Canvas 5 into a focused skill structure.');
 
 const trialSkill = fs.readFileSync(path.join(root, 'skills/run-skill-trial/SKILL.md'), 'utf8');
-if (!trialSkill.includes('isolated contexts')) fail('Run skill trial does not protect isolated conditions.');
+if (!trialSkill.includes('isolated sub-agent or agent-thread runs')) fail('Run skill trial does not prefer isolated sub-agent or agent-thread conditions.');
 if (!trialSkill.includes('Route B: 2 fresh conversations')) fail('Run skill trial has no safe route when isolation is unavailable.');
-if (!trialSkill.includes('preferred digital review surface')) fail('Run skill trial does not prefer the bundled Comparison Desk.');
+if (!trialSkill.includes('preferred review surface')) fail('Run skill trial does not prefer the bundled Comparison Desk.');
 
 const comparisonDesk = fs.readFileSync(path.join(root, 'workshop/05-evaluate/comparison-desk.html'), 'utf8');
 if (!comparisonDesk.includes('id="copy-ai-instructions"')) fail('Comparison Desk is missing its AI-instructions action.');

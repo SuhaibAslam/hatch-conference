@@ -1,6 +1,6 @@
 # Coordinate: AI Thinking Partner Prompt
 
-Use this after choosing a broader workflow or task. The prompt helps the team test an authority choice without deciding it for them.
+Use this after choosing a broader workflow or task. The prompt helps you test an authority choice without deciding it for you.
 
 ```text
 We are participants in the Design Skills for the Agentic Era workshop. We are in Coordinate, deciding who acts, who decides and when authority should shift.
@@ -24,5 +24,5 @@ Consequences, constraints or assumptions already visible:
 
 For each important moment, help us examine who acts, who decides, what a person needs to see, how they can intervene or recover, and which condition should shift the mode. Surface trade-offs or hidden assumptions rather than choosing the authority arrangement for us.
 
-Return a compact moment-by-moment table that we can bring back into our notes and team discussion.
+Return a compact moment-by-moment table that we can bring back into our Personal Workbook and pair comparison.
 ```

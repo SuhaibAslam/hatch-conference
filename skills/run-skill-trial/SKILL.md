@@ -28,15 +28,15 @@ Use the four workshop criteria unless the team has already agreed better ones:
 
 ## Choose a valid run route
 
-### Route A: isolated agent runs
+### Route A: isolated sub-agent or agent-thread runs
 
-Use this route only when you can create 2 isolated contexts that do not inherit each other's instructions or hidden context.
+Prefer this route when the tool can create 2 isolated sub-agent contexts or agent threads that do not inherit the current conversation, each other's instructions or hidden context.
 
 1. Run the baseline in a clean context that receives only the task, input material and required output format. It must never receive the target skill's rules, terms, examples or reasoning.
 2. Run the guided condition in a separate clean context that receives the same task, input material and required output format plus the target skill.
 3. Return both complete outputs with the labels **Baseline: without the skill** and **Guided: with the skill**.
 
-Do not treat a child agent as isolated when it inherits the current conversation or target skill.
+Do not treat a child agent, sub-agent or thread as isolated when it inherits the current conversation or target skill.
 
 ### Route B: 2 fresh conversations
 
@@ -55,7 +55,7 @@ If the target skill has already influenced the context used for the baseline, la
 
 When Route A was possible, present the baseline and guided outputs with clear labels. Leave scores and evidence blank for the team to complete. When Route B was required, stop after the 2 prompts and the concise instruction for returning the outputs. Continue after the team brings both complete outputs back.
 
-Use the bundled `workshop/05-evaluate/comparison-desk.html` as the preferred digital review surface when the team can open that file. Prepare `comparison-desk-session.json` so the team can select **Open trial** and choose the file. If you return the JSON in chat instead, tell the team to select **Paste trial** and paste the complete fenced block.
+Use the bundled `workshop/05-evaluate/comparison-desk.html` as the preferred review surface. Prepare `comparison-desk-session.json` so the team can select **Open trial** and choose the file. If you return the JSON in chat instead, tell the team to select **Paste trial** and paste the complete fenced block.
 
 When the bundled file is unavailable but the tool can create files, create a simple standalone `comparison-desk.html` beside the returned trial files. When neither digital route is possible, return the named outputs for Team Canvas 6.
 

@@ -4,9 +4,9 @@ Your team is testing what its agent skill changes in one real task.
 
 ## Start here
 
-Copy the [Evaluate trial prompt](prompt--trial-assistant.md) for a ready-to-paste route through the comparison. It gives the AI tool the workshop context, protects the baseline and guided conditions and adapts to the tool's capabilities.
+Ask the AI tool to follow [run-skill-trial](../../skills/run-skill-trial/SKILL.md) whenever it can use agent skills or open the linked instructions. This is the preferred route. It creates 2 genuinely isolated runs through separate sub-agents or agent threads when the tool can protect them. Otherwise, it returns the safe prompts for 2 fresh conversations.
 
-Open [run-skill-trial](../../skills/run-skill-trial/SKILL.md) when the AI tool can use agent skills directly. It will create 2 isolated runs when the tool can protect them or return the safe prompts for 2 fresh conversations. The team protects the comparison and makes the evidence and revision decision.
+Copy the [Evaluate trial prompt](prompt--trial-assistant.md) when you want a ready-to-paste way to start that route. It gives the AI tool the workshop context, points it to `run-skill-trial`, protects the baseline and guided conditions and prepares the Comparison Desk material.
 
 ### 1. Prepare one stable case
 
@@ -21,15 +21,15 @@ Keep the task, input material, tool and requested format the same across both ru
 
 ### 2. Run the 2 conditions
 
-Ask the agent to follow [run-skill-trial](../../skills/run-skill-trial/SKILL.md). When it can create genuinely isolated contexts, it will run both conditions and return complete named outputs. When it cannot, it will give you the baseline and guided prompts from [prompt--run-and-review.md](prompt--run-and-review.md). Run those prompts in 2 fresh conversations using the same tool and model.
+Ask the agent to follow [run-skill-trial](../../skills/run-skill-trial/SKILL.md). When it can create genuinely isolated sub-agent contexts or agent threads, it will run both conditions and return complete named outputs. When it cannot guarantee that separation, it will give you the baseline and guided prompts from [prompt--run-and-review.md](prompt--run-and-review.md). Run those prompts in 2 fresh conversations using the same tool and model.
 
 The 2-conversation route works across ordinary AI chat tools. A run performed after the target skill was already in the same conversation is a **context-exposed baseline**, not a clean baseline.
 
 ### 3. Review both outputs together
 
-Use Team Canvas 6 to keep the baseline and guided outputs visible side by side. Cite the phrase, behaviour or omission that supports each score.
+Use the bundled [Comparison Desk](comparison-desk.html) as the preferred review surface. Select **Open trial** when the agent saved a `comparison-desk-session.json` file. Select **Paste trial** when it returned the same trial data in a fenced JSON block. Keep Team Canvas 6 beside it for the team decision.
 
-Use the bundled [Comparison Desk](comparison-desk.html) as the preferred digital review surface when your team can open it. Select **Open trial** when the agent saved a `comparison-desk-session.json` file. Select **Paste trial** when it returned the same trial data in a fenced JSON block. Team Canvas 6 and the named outputs remain a complete paper route.
+Keep the baseline and guided outputs visible side by side. Cite the phrase, behaviour or omission that supports each score. If the Desk cannot be opened, the named outputs and Team Canvas 6 remain a complete route.
 
 ### 4. Decide the revision
 

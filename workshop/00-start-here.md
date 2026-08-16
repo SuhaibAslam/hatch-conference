@@ -22,7 +22,7 @@ The printed materials and these files play different roles:
 | Workshop moment | Printed work | Repository role |
 | --- | --- | --- |
 | Orient | Personal Workbook pages 1 and 2 | Optional guidance and a thinking-partner prompt for locating a friction and sharpening a judgment rule. |
-| Coordinate | Personal Workbook page 3 and team discussion | Optional agency guidance and a thinking-partner prompt for testing who leads and when authority shifts. |
+| Coordinate | Personal Workbook page 3 and pair comparison | Optional agency guidance and a thinking-partner prompt for testing who leads and when authority shifts. |
 | Specify | Personal Workbook page 4 and Team Canvases 1 to 4 | Optional challenge examples, a digital working-specification template and a thinking-partner prompt. |
 | Encode: team laptop lab | Team Canvas 5 and a team laptop | **Use the repository.** Complete the agent-skill template, then use the drafting prompt when useful. |
 | Evaluate: team laptop lab | Team Canvas 6 and a team laptop | **Use the repository.** Ask an agent to follow the trial skill. It will run isolated conditions or prepare the safe 2-conversation route. |
@@ -33,7 +33,7 @@ Open [01-orient/guidance--find-the-judgment.md](01-orient/guidance--find-the-jud
 
 ## 02 Coordinate | Decide how agency works
 
-Open [02-coordinate/guidance--agency-and-control.md](02-coordinate/guidance--agency-and-control.md) with the Personal Workbook and team discussion. Decide who acts, who decides, what a person needs to know and when authority shifts. Use its thinking-partner prompt to test a choice, not to delegate it.
+Open [02-coordinate/guidance--agency-and-control.md](02-coordinate/guidance--agency-and-control.md) with the Personal Workbook. Map three moments, then compare one authority choice with a partner. Use the thinking-partner prompt to test a choice, not to delegate it.
 
 ## 03 Specify | Shape the challenge and working relationship
 

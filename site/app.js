@@ -52,7 +52,7 @@ const guideActions = {
     html: '<button class="button button-ai" type="button" data-copy-action="orient">Copy an Orient thinking prompt</button>'
   },
   'workshop/02-coordinate/guidance--agency-and-control.md': {
-    heading: 'Decide together',
+    heading: 'Compare one choice with a partner',
     state: 'coordinate',
     html: '<button class="button button-ai" type="button" data-copy-action="coordinate">Copy a Coordinate thinking prompt</button>'
   },
