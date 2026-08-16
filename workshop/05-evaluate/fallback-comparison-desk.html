@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Prepared Fallback Comparison | Design Skills for the Agentic Era</title>
+  <style>
+    :root { --ink:#1a1a1a; --paper:#f5f5f3; --white:#fbfbf9; --muted:#6f6f6a; --line:#d3d3cd; --accent:#777772; }
+    * { box-sizing:border-box; }
+    body { margin:0; background:var(--paper); color:var(--ink); font:400 15px/1.5 Inter, Arial, sans-serif; }
+    button, input, select, textarea { font:inherit; }
+    button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible, summary:focus-visible { outline:2px solid var(--ink); outline-offset:3px; }
+    .shell { width:min(1180px, calc(100% - 48px)); margin-inline:auto; }
+    .masthead { display:flex; min-height:64px; padding:0 max(24px, calc((100vw - 1180px) / 2)); align-items:center; justify-content:space-between; gap:24px; border-bottom:1px solid var(--line); background:rgba(245,245,243,.96); }
+    .masthead strong { font-size:13px; font-weight:600; }
+    .masthead span { color:var(--muted); font-size:11px; text-transform:uppercase; }
+    .hero { padding:70px 0 48px; }
+    .eyebrow { margin:0 0 12px; color:var(--muted); font-size:10px; font-weight:600; text-transform:uppercase; }
+    h1 { max-width:780px; margin:0; font-size:56px; font-weight:500; line-height:1.02; }
+    .lede { display:grid; grid-template-columns:1fr auto; gap:40px; margin-top:28px; align-items:end; }
+    .lede p { max-width:720px; margin:0; color:var(--muted); font-size:17px; }
+    .button { display:inline-flex; min-height:42px; padding:10px 14px; align-items:center; justify-content:center; border:1px solid var(--ink); background:var(--white); color:var(--ink); font-size:12px; font-weight:600; cursor:pointer; }
+    .button:hover { background:var(--ink); color:var(--paper); }
+    .button.primary { background:var(--ink); color:var(--paper); }
+    .button.primary:hover { background:#343432; }
+    .brief { display:grid; grid-template-columns:1fr 1fr; border:1px solid var(--line); background:var(--white); }
+    .brief > div { padding:24px; }
+    .brief > div + div { border-left:1px solid var(--line); }
+    .brief h2 { margin:0 0 8px; font-size:20px; font-weight:500; }
+    .brief p { margin:0; color:#4f4f4b; }
+    details { margin:22px 0 46px; border-bottom:1px solid var(--line); }
+    summary { padding:14px 0; font-size:12px; font-weight:600; cursor:pointer; }
+    pre { margin:0 0 22px; overflow:auto; padding:22px; background:var(--ink); color:var(--paper); font:12px/1.55 ui-monospace, SFMono-Regular, Menlo, monospace; white-space:pre-wrap; }
+    .section-head { display:flex; margin:0 0 18px; align-items:end; justify-content:space-between; gap:24px; }
+    .section-head h2 { margin:0; font-size:30px; font-weight:500; }
+    .section-head p { max-width:570px; margin:0; color:var(--muted); font-size:13px; }
+    .outputs { display:grid; grid-template-columns:1fr 1fr; gap:18px; }
+    .output { min-height:370px; padding:25px; border:1px solid var(--line); background:var(--white); }
+    .condition { display:block; margin-bottom:28px; color:var(--accent); font-size:10px; font-weight:600; text-transform:uppercase; }
+    .condition strong { color:var(--ink); font-weight:600; }
+    .output h3 { margin:0 0 15px; font-size:20px; font-weight:500; }
+    .output p, .output li { font-size:13px; }
+    .output ul { padding-left:20px; }
+    .output li { margin-bottom:10px; }
+    .review { margin-top:54px; padding:54px 0 70px; border-top:8px solid var(--accent); background:#e8e8e4; }
+    table { width:100%; border-collapse:collapse; background:var(--white); font-size:12px; }
+    th, td { padding:14px; border:1px solid var(--line); text-align:left; vertical-align:top; }
+    th { background:#eeeeea; font-weight:600; }
+    th:first-child { width:18%; }
+    select, textarea, input { width:100%; border:1px solid #bdbdb7; background:var(--white); color:var(--ink); }
+    select { min-height:38px; padding:7px; }
+    textarea { min-height:86px; padding:10px; resize:vertical; }
+    .decision-grid { display:grid; grid-template-columns:repeat(3, 1fr); margin-top:26px; gap:18px; }
+    .decision-grid label { display:grid; gap:8px; font-size:11px; font-weight:600; text-transform:uppercase; }
+    .decision-grid textarea { min-height:120px; font-size:13px; font-weight:400; text-transform:none; }
+    .actions { display:flex; margin-top:24px; flex-wrap:wrap; gap:12px; }
+    .status { min-height:24px; margin:14px 0 0; color:var(--muted); font-size:12px; }
+    footer { display:flex; padding:28px 0 40px; justify-content:space-between; gap:24px; color:var(--muted); font-size:10px; }
+    @media (max-width:760px) {
+      .shell { width:min(100% - 28px, 1180px); }
+      .hero { padding-top:48px; }
+      h1 { font-size:39px; }
+      .lede, .brief, .outputs, .decision-grid { grid-template-columns:1fr; }
+      .brief > div + div { border-top:1px solid var(--line); border-left:0; }
+      .section-head { align-items:start; flex-direction:column; }
+      .output { min-height:auto; }
+      .table-wrap { overflow-x:auto; }
+      table { min-width:820px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="masthead"><strong>Design Skills for the Agentic Era</strong><span>Prepared fallback comparison</span></header>
+  <main>
+    <section class="hero shell">
+      <p class="eyebrow">Evaluate fallback</p>
+      <h1>Compare a prepared trial when a live run is blocked.</h1>
+      <div class="lede">
+        <p>Review the same task completed without and with a sample skill. Score what you can observe before revealing which condition produced each output.</p>
+        <button class="button primary" id="reveal" type="button" aria-pressed="false">Reveal conditions</button>
+      </div>
+    </section>
+
+    <section class="shell">
+      <div class="brief">
+        <div><p class="eyebrow">Trial task</p><h2>Turn design-review notes into a decision brief.</h2><p>Identify the most consequential issue, show the evidence behind it, separate uncertainty and recommend one next action for a human decision.</p></div>
+        <div><p class="eyebrow">Input</p><h2>Onboarding-flow review</h2><p>Four of 6 participants missed the permission explanation. Two completed the flow after retrying. The team has not yet tested whether shorter copy or a different sequence changes comprehension.</p></div>
+      </div>
+
+      <details>
+        <summary>View the sample skill used in one condition</summary>
+        <pre>---
+name: decision-evidence-brief
+description: Turn review notes into a concise decision brief when a team needs to separate evidence, uncertainty and the next human choice.
+---
+
+# Decision Evidence Brief
+
+1. State the decision the team needs to make.
+2. Separate observed evidence from interpretation and missing evidence.
+3. Identify the issue with the most meaningful consequence.
+4. Recommend one next action and explain why it is proportionate to the evidence.
+5. End with the human decision that still needs to be made.
+
+Do not turn an untested explanation into a fact. Preserve meaningful disagreement or uncertainty.</pre>
+      </details>
+
+      <div class="section-head">
+        <div><p class="eyebrow">Prepared outputs</p><h2>Read both before you score.</h2></div>
+        <p>The condition labels stay hidden until your team has formed an initial view. Reveal them when you are ready to discuss what the skill changed.</p>
+      </div>
+
+      <div class="outputs">
+        <article class="output">
+          <span class="condition" data-condition data-generic="Output A" data-revealed="Output A | Baseline, without the skill"><strong>Output A</strong></span>
+          <h3>Onboarding flow recommendation</h3>
+          <p>The permission explanation appears to be the main problem in the onboarding flow. Users may find the copy confusing or too long.</p>
+          <ul>
+            <li>Shorten the permission copy and make the benefit clearer.</li>
+            <li>Add a tooltip or example so users understand why access is needed.</li>
+            <li>Run another usability test after updating the screen.</li>
+          </ul>
+          <p>This should reduce confusion and improve completion.</p>
+        </article>
+        <article class="output">
+          <span class="condition" data-condition data-generic="Output B" data-revealed="Output B | Guided, with the skill"><strong>Output B</strong></span>
+          <h3>Decision brief</h3>
+          <p><strong>Decision:</strong> Choose what to test next before changing the permission step.</p>
+          <p><strong>Observed evidence:</strong> 4 of 6 participants missed the permission explanation. Two later completed the flow after retrying.</p>
+          <p><strong>Interpretation:</strong> The permission step is the clearest current friction. The notes do not show whether wording, sequence or another factor caused it.</p>
+          <p><strong>Recommended next action:</strong> Test 2 small variants, one with shorter copy and one with the explanation moved earlier. Keep the rest of the flow stable and compare comprehension.</p>
+          <p><strong>Human decision:</strong> Decide which explanation the product can accurately promise before either variant is produced.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="review">
+      <div class="shell">
+        <div class="section-head">
+          <div><p class="eyebrow">Team review</p><h2>Score, cite and decide.</h2></div>
+          <p>Use observable evidence from each output. A higher score needs a phrase, behaviour, decision or omission behind it.</p>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Review dimension</th><th>Output A score</th><th>Output A evidence</th><th>Output B score</th><th>Output B evidence</th></tr></thead>
+            <tbody id="criteria"></tbody>
+          </table>
+        </div>
+        <div class="decision-grid">
+          <label>What became meaningfully better?<textarea id="better"></textarea></label>
+          <label>What became worse or stayed weak?<textarea id="weak"></textarea></label>
+          <label>What should the skill change next?<textarea id="next"></textarea></label>
+        </div>
+        <div class="actions">
+          <button class="button primary" id="copy" type="button">Copy review</button>
+          <button class="button" id="download" type="button">Download review</button>
+          <button class="button" id="clear" type="button">Clear team notes</button>
+        </div>
+        <p class="status" id="status" role="status" aria-live="polite"></p>
+      </div>
+    </section>
+  </main>
+  <footer class="shell"><span>Prepared workshop fallback</span><span>Use only the sample material on this page.</span></footer>
+  <script>
+    const dimensions = [
+      ['Task value', 'Does it solve the actual task for the people involved?'],
+      ['Method and judgment', 'Does it follow the intended approach and make consequential distinctions?'],
+      ['Clarity and agency', 'Can a person understand, challenge and act on it?'],
+      ['Handling uncertainty', 'Does it respond appropriately when information is missing or uncertain?']
+    ];
+    const criteria = document.querySelector('#criteria');
+    const score = (side, index) => `<select aria-label="${side} score for ${dimensions[index][0]}"><option value="">Select</option><option>1</option><option>2</option><option>3</option><option>4</option></select>`;
+    criteria.innerHTML = dimensions.map((item, index) => `<tr><th>${item[0]}<br><small>${item[1]}</small></th><td>${score('Output A', index)}</td><td><textarea aria-label="Output A evidence for ${item[0]}"></textarea></td><td>${score('Output B', index)}</td><td><textarea aria-label="Output B evidence for ${item[0]}"></textarea></td></tr>`).join('');
+
+    const reveal = document.querySelector('#reveal');
+    reveal.addEventListener('click', () => {
+      const pressed = reveal.getAttribute('aria-pressed') === 'true';
+      reveal.setAttribute('aria-pressed', String(!pressed));
+      reveal.textContent = pressed ? 'Reveal conditions' : 'Hide conditions';
+      document.querySelectorAll('[data-condition]').forEach(label => { label.textContent = pressed ? label.dataset.generic : label.dataset.revealed; });
+    });
+
+    const fields = () => [...document.querySelectorAll('select, textarea')];
+    function reviewMarkdown() {
+      const rows = [...criteria.querySelectorAll('tr')].map((row, index) => {
+        const values = [...row.querySelectorAll('select, textarea')].map(field => field.value.trim() || '[not recorded]');
+        return `## ${dimensions[index][0]}\n- Output A score: ${values[0]}\n- Output A evidence: ${values[1]}\n- Output B score: ${values[2]}\n- Output B evidence: ${values[3]}`;
+      });
+      return `# Prepared fallback comparison review\n\n${rows.join('\n\n')}\n\n## Skill improvement decision\n- Meaningfully better: ${document.querySelector('#better').value.trim() || '[not recorded]'}\n- Worse or still weak: ${document.querySelector('#weak').value.trim() || '[not recorded]'}\n- Revise next: ${document.querySelector('#next').value.trim() || '[not recorded]'}\n`;
+    }
+    const status = message => { document.querySelector('#status').textContent = message; };
+    document.querySelector('#copy').addEventListener('click', async () => { await navigator.clipboard.writeText(reviewMarkdown()); status('Review copied.'); });
+    document.querySelector('#download').addEventListener('click', () => {
+      const link = document.createElement('a');
+      link.href = URL.createObjectURL(new Blob([reviewMarkdown()], { type:'text/markdown' }));
+      link.download = 'prepared-fallback-comparison-review.md';
+      link.click();
+      URL.revokeObjectURL(link.href);
+      status('Review downloaded.');
+    });
+    document.querySelector('#clear').addEventListener('click', () => { fields().forEach(field => { field.value = ''; }); status('Team notes cleared.'); });
+  </script>
+</body>
+</html>

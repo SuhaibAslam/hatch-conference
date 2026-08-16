@@ -16,9 +16,9 @@ Use [template--agent-skill.md](template--agent-skill.md) when the team wants a d
 
 Use [prompt--draft-guidance.md](prompt--draft-guidance.md) after the team decisions are clear. Review every returned instruction together. Start with one concise `SKILL.md`. Add `references/`, `assets/` or `scripts/` only when the skill genuinely needs reusable material that does not belong in the main instructions.
 
-The [Agent Skills specification](https://agentskills.io/specification) defines the portable file format. Its [creator guidance](https://agentskills.io/skill-creation/best-practices) explains how to keep skills focused and testable. Open [reference skills](../../skills/README.md) when a concrete example will help, rather than treating them as required steps.
-
 Save the skill in a folder your tool can retrieve. If the AI tool can create files, ask it to create the folder and save `SKILL.md`. Otherwise download or copy the file, then use the tool's supported upload or skill-install route. Ask the tool for its exact route rather than guessing a universal install location.
+
+For technical detail, open the [Agent Skills specification](https://agentskills.io/specification), its [creator guidance](https://agentskills.io/skill-creation/best-practices) or the workshop [reference skills](../../skills/README.md) only when they help resolve a concrete question.
 
 ## 4. Prepare Evaluate
 

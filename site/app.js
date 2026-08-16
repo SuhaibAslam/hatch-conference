@@ -39,6 +39,34 @@ const promptActions = {
   }
 };
 
+const guideActions = {
+  'workshop/01-orient/guidance--find-the-judgment.md': {
+    heading: 'Sharpen the judgment',
+    state: 'orient',
+    html: '<button class="button button-ai" type="button" data-copy-action="orient">Copy an Orient thinking prompt</button>'
+  },
+  'workshop/02-coordinate/guidance--agency-and-control.md': {
+    heading: 'Decide together',
+    state: 'coordinate',
+    html: '<button class="button button-ai" type="button" data-copy-action="coordinate">Copy a Coordinate thinking prompt</button>'
+  },
+  'workshop/03-specify/00-start-here.md': {
+    heading: '4. Map and review the workflow',
+    state: 'specify',
+    html: '<button class="button button-ai" type="button" data-copy-action="specify">Copy a Specify thinking prompt</button>'
+  },
+  'workshop/04-encode/00-start-here.md': {
+    heading: '3. Draft and inspect the file',
+    state: 'encode',
+    html: '<button class="button button-ai" type="button" data-copy-action="draft">Copy the skill-drafting prompt</button>'
+  },
+  'workshop/05-evaluate/00-start-here.md': {
+    heading: 'Start here',
+    state: 'evaluate',
+    html: '<button class="button button-ai" type="button" data-resource="skills/run-skill-trial/SKILL.md">Run the skill trial</button>'
+  }
+};
+
 function escapeHtml(value = '') {
   return value.replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;').replaceAll('"', '&quot;');
 }
@@ -134,6 +162,16 @@ function resolveBundledLink(path, href) {
   return window.WORKSHOP_CONTENT?.[readme] ? readme : '';
 }
 
+function insertGuideAction(path) {
+  const config = guideActions[path];
+  if (!config) return;
+  const heading = [...resourceContent.querySelectorAll('h2, h3')].find(item => item.textContent.trim() === config.heading);
+  if (!heading) return;
+  let anchor = heading;
+  while (anchor.nextElementSibling && !/^H[123]$/.test(anchor.nextElementSibling.tagName)) anchor = anchor.nextElementSibling;
+  anchor.insertAdjacentHTML('afterend', `<div class="guide-actions ${config.state}">${config.html}</div>`);
+}
+
 function renderResource(path) {
   const markdown = window.WORKSHOP_CONTENT?.[path];
   if (!markdown) { showToast('This guidance is not available in the workshop bundle.'); return false; }
@@ -149,6 +187,7 @@ function renderResource(path) {
   if (path === 'tool-setup/README.md') {
     resourceContent.insertAdjacentHTML('afterbegin', '<div class="guide-actions"><button class="button button-ai" type="button" data-copy-action="quickstart">Copy workshop context</button></div>');
   }
+  insertGuideAction(path);
   resourceContent.querySelectorAll('a[href]').forEach(link => {
     const href = link.getAttribute('href');
     if (/^(https?:|mailto:|#)/.test(href)) return;
@@ -161,7 +200,7 @@ function renderResource(path) {
       });
     } else {
       const target = new URL(href, `https://workshop.local/${path}`).pathname.slice(1);
-      link.href = `content/${target}`;
+      link.href = location.protocol === 'file:' ? `../${target}` : `content/${target}`;
     }
   });
   updateBackButton();
@@ -181,8 +220,9 @@ function openPreviousResource() {
   renderResource(resourceHistory.at(-1));
 }
 
-function openPromptPreview({ title, text, path = '', intro = '' }) {
-  resourceHistory = [];
+function openPromptPreview({ title, text, path = '', intro = '', preserveHistory = false }) {
+  if (!preserveHistory) resourceHistory = [];
+  else resourceHistory.push(`prompt:${path || title}`);
   resourceTitle.textContent = title;
   resourceKind.textContent = 'Ready-to-paste AI prompt';
   resourceSource.hidden = !path;
@@ -195,14 +235,15 @@ function openPromptPreview({ title, text, path = '', intro = '' }) {
   showDialog();
 }
 
-async function handleCopyAction(action) {
+async function handleCopyAction(action, preserveHistory = false) {
   if (action === 'quickstart') {
     const text = workshopContext();
     openPromptPreview({
       title: 'Workshop context',
       text,
       path: 'tool-setup/prompt--workshop-context.md',
-      intro: 'Paste this once to situate your AI tool. Add the current state, challenge and question before sending it.'
+      intro: 'Paste this once to situate your AI tool. Add the current state, challenge and question before sending it.',
+      preserveHistory
     });
     await copyText(text, 'Workshop context copied. Add your context before pasting it into your AI tool.');
     return;
@@ -219,14 +260,15 @@ async function handleCopyAction(action) {
     title: config.title,
     text,
     path: config.path,
-    intro: 'The prompt is already copied. Review the placeholders, add your context and paste it into the AI tool you are using.'
+    intro: 'The prompt is already copied. Review the placeholders, add your context and paste it into the AI tool you are using.',
+    preserveHistory
   });
   await copyText(text, config.message);
 }
 
 document.addEventListener('click', async event => {
   const resource = event.target.closest('[data-resource]');
-  if (resource) openResource(resource.dataset.resource);
+  if (resource) openResource(resource.dataset.resource, dialog.open && dialog.contains(resource));
   if (event.target.closest('[data-close]')) dialog.close();
   if (event.target.closest('[data-back]')) openPreviousResource();
   if (event.target.closest('[data-copy-resource]') && activeContent) {
@@ -238,7 +280,7 @@ document.addEventListener('click', async event => {
     if (text) await copyText(text, 'Copied. Add your context before pasting it into your AI tool.');
   }
   const copyAction = event.target.closest('[data-copy-action]')?.dataset.copyAction;
-  if (copyAction) await handleCopyAction(copyAction);
+  if (copyAction) await handleCopyAction(copyAction, dialog.open && dialog.contains(event.target));
 });
 
 dialog.addEventListener('click', event => { if (event.target === dialog) dialog.close(); });

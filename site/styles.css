@@ -57,10 +57,9 @@ a { color: inherit; text-underline-offset: 3px; }
 .framework li.evaluate { --state: var(--evaluate); }
 .framework strong { display: block; margin-bottom: 11px; color: var(--state); font-size: 18px; font-weight: 600; }
 .framework span { display: block; max-width: 185px; color: #4f4f4b; font-size: 12px; line-height: 1.45; }
-.framework em { display: block; margin-top: 13px; color: var(--muted); font-size: 9px; font-style: normal; font-weight: 600; text-transform: uppercase; }
 
 .tool-onramp { background: var(--ink); color: var(--paper); }
-.onramp-buffer { height: 26px; background: var(--paper); }
+.onramp-buffer { height: 72px; background: var(--paper); }
 .onramp-grid { display: grid; grid-template-columns: 1.05fr 1fr auto; min-height: 170px; gap: 48px; align-items: center; }
 .onramp-grid h2 { margin: 0; font-size: 27px; font-weight: 500; }
 .onramp-grid > p { max-width: 460px; margin: 0; color: #c1c1bb; font-size: 14px; }
@@ -69,7 +68,7 @@ a { color: inherit; text-underline-offset: 3px; }
 
 .button { display: inline-flex; min-height: 42px; padding: 10px 14px; align-items: center; justify-content: center; border: 1px solid var(--ink); border-radius: 0; background: var(--white); color: var(--ink); font-size: 12px; font-weight: 600; text-align: center; text-decoration: none; cursor: pointer; transition: background .16s, color .16s, border-color .16s, transform .16s; }
 .button:hover, .button:focus-visible { background: var(--ink); color: var(--paper); transform: translateY(-1px); }
-.button-ai { border-color: var(--stage); background: var(--stage); color: var(--ink); }
+.button-ai { border-color: color-mix(in srgb, var(--stage) 76%, var(--ink)); background: color-mix(in srgb, var(--stage) 76%, var(--ink)); color: var(--white); }
 .button-ai:hover, .button-ai:focus-visible { border-color: var(--ink); background: var(--ink); color: var(--paper); }
 .button-inverse { border-color: var(--paper); background: var(--paper); color: var(--ink); }
 .button-inverse:hover, .button-inverse:focus-visible { border-color: #d4d4cf; background: #d4d4cf; color: var(--ink); }
@@ -148,19 +147,20 @@ a { color: inherit; text-underline-offset: 3px; }
 
 .resource-dialog { width: min(900px, calc(100% - 32px)); max-height: min(860px, calc(100vh - 32px)); padding: 0; border: 1px solid var(--ink); background: var(--white); color: var(--ink); }
 .resource-dialog::backdrop { background: rgba(26, 26, 26, .66); }
-.dialog-head { position: sticky; top: 0; z-index: 1; display: grid; grid-template-columns: 70px 1fr 70px; padding: 22px 26px; align-items: start; gap: 18px; border-bottom: 1px solid var(--line); background: var(--white); }
-.dialog-title { grid-column: 2; min-width: 0; }
+.dialog-head { position: sticky; top: 0; z-index: 1; display: grid; grid-template-columns: minmax(0, 1fr) auto; padding: 22px 42px; align-items: start; gap: 8px 24px; border-bottom: 1px solid var(--line); background: var(--white); }
+.dialog-title { grid-column: 1; min-width: 0; }
 .dialog-head h2 { margin: 0; font-size: 27px; font-weight: 500; }
 .dialog-back, .dialog-close { padding: 6px 0; border: 0; background: none; color: var(--muted); font-size: 12px; cursor: pointer; }
-.dialog-back { grid-column: 1; text-align: left; }
-.dialog-close { grid-column: 3; text-align: right; }
+.dialog-back { grid-column: 1; grid-row: 1; justify-self: start; text-align: left; }
+.dialog-back:not([hidden]) + .dialog-title { grid-row: 2; }
+.dialog-close { grid-column: 2; grid-row: 1 / span 2; text-align: right; }
 .dialog-back:hover, .dialog-close:hover, .dialog-back:focus-visible, .dialog-close:focus-visible { color: var(--ink); }
 .dialog-content { padding: 42px; }
 .dialog-content > h1 { display: none; }
 .dialog-content h1 { font-size: 36px; }
 .dialog-content h2 { margin: 34px 0 13px; font-size: 22px; font-weight: 500; }
 .dialog-content h3 { margin: 26px 0 10px; font-size: 16px; }
-.dialog-content p, .dialog-content li { max-width: 720px; font-size: 14px; }
+.dialog-content p, .dialog-content li { max-width: none; font-size: 14px; }
 .dialog-content li { margin-bottom: 7px; }
 .dialog-content code { padding: 2px 4px; background: #ecece8; font: 12px/1.4 ui-monospace, monospace; }
 .dialog-content pre { margin: 0; overflow: auto; padding: 48px 18px 18px; background: var(--ink); color: var(--paper); white-space: pre-wrap; }
@@ -168,7 +168,11 @@ a { color: inherit; text-underline-offset: 3px; }
 .code-block { position: relative; margin: 18px 0; }
 .copy-code { position: absolute; z-index: 1; top: 10px; right: 10px; padding: 6px 9px; border: 1px solid #777770; background: #2c2c2a; color: var(--paper); font-size: 10px; cursor: pointer; }
 .copy-code:hover, .copy-code:focus-visible { border-color: var(--paper); background: #3a3a37; }
-.guide-actions { display: flex; margin: 0 0 26px; flex-wrap: wrap; gap: 10px; }
+.guide-actions { --stage: var(--orient); display: flex; margin: 22px 0 30px; flex-wrap: wrap; gap: 10px; }
+.guide-actions.coordinate { --stage: var(--coordinate); }
+.guide-actions.specify { --stage: var(--specify); }
+.guide-actions.encode { --stage: var(--encode); }
+.guide-actions.evaluate { --stage: var(--evaluate); }
 .dialog-content table { width: 100%; border-collapse: collapse; font-size: 12px; }
 .dialog-content th, .dialog-content td { padding: 9px; border: 1px solid var(--line); text-align: left; vertical-align: top; }
 .dialog-content th { background: #ecece8; font-weight: 600; }
@@ -214,7 +218,7 @@ a { color: inherit; text-underline-offset: 3px; }
   .framework li, .framework li + li { display: grid; grid-template-columns: 105px 1fr auto; min-height: 68px; padding: 13px 0; align-items: start; gap: 14px; border-left: 0; border-bottom: 1px solid var(--line); }
   .framework strong { margin: 0; font-size: 15px; }
   .framework span { max-width: none; font-size: 10px; }
-  .framework em { margin: 2px 0 0; font-size: 8px; }
+  .onramp-buffer { height: 44px; }
   .onramp-grid { grid-template-columns: 1fr; gap: 22px; }
   .onramp-actions { grid-column: auto; grid-template-columns: 1fr; }
   .stage, .lab-stage { padding-block: 66px; }
@@ -231,7 +235,7 @@ a { color: inherit; text-underline-offset: 3px; }
   .comparison-pair > div { min-height: 42px; }
   .desk-callout { grid-template-columns: 1fr; gap: 24px; }
   .after-grid, .footer { grid-template-columns: 1fr; gap: 30px; }
-  .dialog-head { grid-template-columns: 54px 1fr 54px; padding-inline: 18px; }
+  .dialog-head { grid-template-columns: minmax(0, 1fr) auto; padding: 18px 20px; }
   .dialog-head h2 { font-size: 22px; }
   .dialog-content { padding: 26px 20px; }
   .dialog-foot { align-items: start; flex-direction: column; }

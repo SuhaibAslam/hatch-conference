@@ -33,6 +33,7 @@ const routes = [
   '/content/workshop/05-evaluate/00-start-here.md',
   '/content/workshop/05-evaluate/prompt--run-and-review.md',
   '/content/workshop/05-evaluate/comparison-desk.html',
+  '/content/workshop/05-evaluate/fallback-comparison-desk.html',
   '/content/skills/create-and-improve-skills/SKILL.md',
   '/content/skills/run-skill-trial/SKILL.md'
 ];

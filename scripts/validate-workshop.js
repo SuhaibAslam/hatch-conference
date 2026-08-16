@@ -59,6 +59,7 @@ const requiredPaths = [
   'workshop/05-evaluate/00-start-here.md',
   'workshop/05-evaluate/prompt--run-and-review.md',
   'workshop/05-evaluate/comparison-desk.html',
+  'workshop/05-evaluate/fallback-comparison-desk.html',
   'skills/create-and-improve-skills/SKILL.md',
   'skills/run-skill-trial/SKILL.md',
   'tool-setup/prompt--workshop-context.md'
@@ -94,6 +95,7 @@ if (!app.includes('<table><thead><tr>')) fail('Resource tables are missing seman
 if (!index.includes('data-back')) fail('The resource dialog is missing a Back action.');
 if (!app.includes('resourceHistory')) fail('The resource dialog does not preserve nested-resource history.');
 if (!app.includes('data-copy-code')) fail('Rendered code blocks are missing a direct copy affordance.');
+if (!app.includes('guideActions')) fail('State guides are missing embedded primary actions.');
 
 for (const action of ['quickstart', 'orient', 'coordinate', 'specify', 'draft']) {
   if (!index.includes(`data-copy-action="${action}"`)) fail(`Companion is missing the ${action} copy action.`);
@@ -131,12 +133,13 @@ for (const marker of ['Task:', 'Input material:', 'Required output format:']) {
 }
 
 const encodePrompt = fs.readFileSync(path.join(root, 'workshop/04-encode/prompt--draft-guidance.md'), 'utf8');
-for (const field of ['Starting point for the skill', 'What the skill should strengthen or protect', 'What the skill needs', 'What the skill should produce', 'Procedure', 'Principles, constraints and decision rules', 'Human decision or review point', 'When information is missing, weak or conflicting', 'Observable evidence that the skill is helping']) {
+for (const field of ['Starting point for the skill', 'What the skill should strengthen or protect', 'What the skill needs', 'What the skill should produce', 'Repeatable procedure', 'Principles, constraints and decision rules', 'Human decision or review point', 'When information is missing, weak or conflicting', 'Observable evidence that the skill is helping']) {
   if (!encodePrompt.includes(field)) fail(`Encode drafting prompt is missing Canvas 5 field: ${field}.`);
 }
 if (!encodePrompt.includes('Return one complete Markdown file named SKILL.md.')) fail('Encode drafting prompt does not request a complete SKILL.md file.');
 if (!encodePrompt.includes('https://agentskills.io/specification')) fail('Encode drafting prompt does not link the Agent Skills specification.');
 if (!encodePrompt.includes('Ask which AI tool or environment we use')) fail('Encode drafting prompt does not provide tool-aware save and install guidance.');
+if (!encodePrompt.includes('Do not turn every Canvas 5 field into a separate heading by default.')) fail('Encode drafting prompt does not translate Canvas 5 into a focused skill structure.');
 
 const trialSkill = fs.readFileSync(path.join(root, 'skills/run-skill-trial/SKILL.md'), 'utf8');
 if (!trialSkill.includes('isolated contexts')) fail('Run skill trial does not protect isolated conditions.');
@@ -146,6 +149,11 @@ if (!trialSkill.includes('preferred digital review surface')) fail('Run skill tr
 const comparisonDesk = fs.readFileSync(path.join(root, 'workshop/05-evaluate/comparison-desk.html'), 'utf8');
 if (!comparisonDesk.includes('id="copy-ai-instructions"')) fail('Comparison Desk is missing its AI-instructions action.');
 if (!comparisonDesk.includes('skills/run-skill-trial/SKILL.md')) fail('Comparison Desk AI instructions do not point to Run skill trial.');
+
+const fallbackDesk = fs.readFileSync(path.join(root, 'workshop/05-evaluate/fallback-comparison-desk.html'), 'utf8');
+for (const marker of ['Prepared fallback comparison', 'Reveal conditions', 'Baseline, without the skill', 'Guided, with the skill', 'Download review']) {
+  if (!fallbackDesk.includes(marker)) fail(`Prepared fallback comparison is missing: ${marker}.`);
+}
 
 for (const skillFile of filesUnder('skills').filter(file => file.endsWith('SKILL.md'))) {
   const source = fs.readFileSync(skillFile, 'utf8');

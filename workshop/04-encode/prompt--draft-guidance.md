@@ -50,24 +50,18 @@ When information is missing, weak or conflicting:
 Observable evidence that the skill is helping:
 [add]
 
-Return one complete Markdown file named SKILL.md. Use this exact structure:
+Return one complete Markdown file named SKILL.md. Start with valid frontmatter:
 
 ---
 name: a short lowercase name with words separated by hyphens
 description: what the skill helps with and the situations, tasks or cues that should bring it into use
 ---
 
-# Skill title
-## Purpose
-## What the skill needs
-## Procedure
-## Principles, constraints and decision rules
-## Human decision or review point
-## What the skill should produce
-## Evidence the skill is helping
-## When information is missing, weak or conflicting
+Shape the body around what an AI agent needs to perform the work. Use the fewest clear sections that fit the task. Do not turn every Canvas 5 field into a separate heading by default. Consolidate related decisions when that makes the instructions easier to follow, while still covering the procedure, important principles and constraints, the human review point, expected output, uncertainty behaviour and evidence criterion somewhere in the file.
 
-Keep the guidance concise and inspectable. Use an ordered procedure only where order matters. Preserve confirmed evidence, assumptions and open questions as separate categories. Do not invent missing team decisions. Mark anything still needed in square brackets.
+Keep the guidance concise and inspectable. Explain why consequential constraints or checkpoints matter. Use an ordered procedure only where order matters. Preserve confirmed evidence, assumptions and open questions as separate categories when those distinctions affect the work. Do not invent missing team decisions. Mark anything still needed in square brackets.
+
+After the file, add a short coverage check that names where each Canvas 5 decision appears or flags what still needs a team decision. Keep this check outside SKILL.md so the skill itself stays focused.
 
 After the SKILL.md file, add a short package check. Recommend references, assets or scripts only when our repeated task genuinely needs material or deterministic behaviour that does not belong in SKILL.md. Do not add extra files for completeness.
 

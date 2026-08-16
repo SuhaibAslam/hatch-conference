@@ -36,7 +36,7 @@ Record what became meaningfully better, what became worse or stayed weak, and wh
 ## Only when needed
 
 - Use [template--controlled-comparison.md](template--controlled-comparison.md) when your team wants a digital record of the comparison outside Canvas 6.
-- If a live tool run is unavailable after four minutes, ask the facilitator for a fallback comparison page.
+- If a live tool run is unavailable after four minutes, ask the facilitator to open the [prepared fallback comparison](fallback-comparison-desk.html). It uses sample material and keeps the evidence review intact.
 - Use [template--skill-evaluation-plan.md](template--skill-evaluation-plan.md) after the workshop when you want to improve the agent skill over several test cases.
 
 ## Keep material authorised
