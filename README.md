@@ -1,5 +1,7 @@
 # Design Skills for the Agentic Era
 
+[![Deploy workshop site](https://github.com/SuhaibAslam/hatch-conference/actions/workflows/deploy-pages.yml/badge.svg)](https://github.com/SuhaibAslam/hatch-conference/actions/workflows/deploy-pages.yml)
+
 Use this repository to work on one real AI-supported workflow. Shape a working specification, map the flow, build one agent skill, and use trial evidence to decide what to improve.
 
 ## Start here
