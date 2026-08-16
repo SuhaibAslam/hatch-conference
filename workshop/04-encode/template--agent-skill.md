@@ -1,6 +1,6 @@
 # Encode: Agent Skill Template
 
-Use this with Team Canvas 5. Agree the content as a team, then keep the result in a file named `SKILL.md`. One person can type while teammates challenge the method, constraints and human review point. For AI help drafting the file, open [prompt--draft-guidance.md](prompt--draft-guidance.md).
+Use this with Team Canvas 5. Agree the content as a team, then keep the result in a file named `SKILL.md`. One person can type while teammates challenge the method, constraints and human review point. For AI help drafting and saving the file, open [prompt--draft-guidance.md](prompt--draft-guidance.md).
 
 Replace every bracketed instruction. Keep the name lowercase with words separated by hyphens. Write the description so an agent can tell when the skill applies.
 
@@ -49,6 +49,10 @@ description: [What the skill helps with and the situations, tasks or cues that s
 
 ## Ready for Evaluate when
 
+- The skill folder name matches the `name` in its `SKILL.md` frontmatter.
+- The `description` says what the skill does and when it should be used.
 - The `SKILL.md` file is saved somewhere the team can retrieve after the break.
 - The team has one stable trial task, authorised input material and required output format.
 - The team can name the evidence it expects to inspect, without assuming the skill will improve the result.
+
+Keep the first package lean. Add `references/`, `assets/` or `scripts/` only when a real repeated use needs them.

@@ -1,12 +1,12 @@
 # Workshop Skills
 
-These skills are reference patterns and reusable resources, not a second set of workshop exercises. During Encode, your team creates its own agent skill from the work it shaped and reviewed. Open a reference skill only when it helps you resolve a specific question, or keep it for later use. During Evaluate, use **Run skill trial** only when the agent can create genuinely isolated contexts for the two conditions. Otherwise use the 2 fresh-conversation route in the Evaluate guide.
+These skills are reference patterns and reusable resources, not a second set of workshop exercises. During Encode, your team creates its own agent skill from the work it shaped and reviewed. Open a reference skill only when it helps you resolve a specific question, or keep it for later use. During Evaluate, start with **Run skill trial**. It chooses the isolated route when possible and prepares the safe 2-conversation route when isolation is unavailable.
 
 ## Reference patterns
 
 - Consult [Mixed-initiative flow](mixed-initiative-flow/SKILL.md) when the team needs an example of deciding who leads, who approves and how control moves.
 - Consult [Constraint specification](constraint-specification/SKILL.md) when the team needs an example of turning a judgment into clear reusable guidance.
-- At Evaluate, use [Run skill trial](run-skill-trial/SKILL.md) when the agent can isolate both conditions. It otherwise prepares the safe 2-conversation route.
+- At Evaluate, start with [Run skill trial](run-skill-trial/SKILL.md). It chooses the valid route and prepares the evidence review.
 - Consult [Comparative evaluation](comparative-evaluation/SKILL.md) only when the team needs deeper help interpreting evidence after the trial.
 
 Use the other skills when the challenge makes permission, transparency or recovery the main issue.

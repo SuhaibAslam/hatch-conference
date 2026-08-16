@@ -36,7 +36,7 @@ Keep the parts of the skill that improved the result. Revise wording that create
 
 ## Workshop use
 
-This is a supporting review skill, not the first live Evaluate step. Start with [00-start-here.md](../../workshop/05-evaluate/00-start-here.md), then use this skill when the team needs deeper help interpreting the evidence in Team Canvas 6 or its shared workspace.
+This is a supporting review skill, not the first live Evaluate step. Start with [00-start-here.md](../../workshop/05-evaluate/00-start-here.md), then use this skill when the team needs deeper help interpreting the evidence in Team Canvas 6 or the Comparison Desk.
 
 ## Explore further
 

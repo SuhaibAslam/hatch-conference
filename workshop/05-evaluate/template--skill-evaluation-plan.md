@@ -36,4 +36,4 @@ Use this after the workshop when an agent skill is worth keeping and improving. 
 
 ## Comparison record
 
-For each case, retain the baseline and guided output, cited evidence, what changed and the skill improvement decision. Use [00-start-here.md](00-start-here.md) for the default route. An agent may use [run-skill-trial](../../skills/run-skill-trial/SKILL.md) only when it can create genuinely isolated contexts for the two runs. Use the bundled Desk or [template--controlled-comparison.md](template--controlled-comparison.md) when a digital review record will help.
+For each case, retain the baseline and guided output, cited evidence, what changed and the skill improvement decision. Use [00-start-here.md](00-start-here.md) for the default route. Ask an agent to follow [run-skill-trial](../../skills/run-skill-trial/SKILL.md); it chooses the isolated route when possible and prepares the safe 2-conversation route otherwise. Use the bundled Desk or [template--controlled-comparison.md](template--controlled-comparison.md) when a digital review record will help.

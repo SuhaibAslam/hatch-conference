@@ -5,9 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="A participant companion for the Design Skills for the Agentic Era workshop.">
   <title>Design Skills for the Agentic Era</title>
-  <link rel="stylesheet" href="styles.css">
-  <script src="content.generated.js" defer></script>
-  <script src="app.js" defer></script>
+  <link rel="stylesheet" href="styles.css?v=4">
+  <script src="content.generated.js?v=4" defer></script>
+  <script src="app.js?v=4" defer></script>
 </head>
 <body>
   <header class="masthead">
@@ -26,9 +26,9 @@
     <section class="hero shell">
       <div class="hero-main">
         <div class="hero-title">
-          <p class="eyebrow">Workshop</p>
+          <p class="eyebrow">Workshop companion</p>
           <h1>Design Skills <span>for the Agentic Era</span></h1>
-          <p class="author">With <a href="https://www.suhaibaslam.com">Suhaib Aslam</a></p>
+          <p class="author"><a href="https://www.suhaibaslam.com">Suhaib Aslam</a></p>
         </div>
         <div class="hero-intro">
           <p>Carry one real AI-supported workflow from a human judgment to guidance your team can test, compare and improve. Use the printed workbook and canvases as your working surfaces.</p>
@@ -36,13 +36,13 @@
         </div>
       </div>
 
-      <div class="framework" aria-label="The five workshop states">
-        <article class="orient"><span>01</span><strong>Orient</strong><small>Find the judgment</small></article>
-        <article class="coordinate"><span>02</span><strong>Coordinate</strong><small>Place authority</small></article>
-        <article class="specify"><span>03</span><strong>Specify</strong><small>Shape the shared work</small></article>
-        <article class="encode"><span>04</span><strong>Encode</strong><small>Create the skill</small><em>Laptop lab</em></article>
-        <article class="evaluate"><span>05</span><strong>Evaluate</strong><small>Test and improve</small><em>Laptop lab</em></article>
-      </div>
+      <ol class="framework" aria-label="The five workshop states">
+        <li class="orient"><strong>Orient</strong><span>to the situation and judgment it demands.</span></li>
+        <li class="coordinate"><strong>Coordinate</strong><span>who acts, decides and when authority shifts.</span></li>
+        <li class="specify"><strong>Specify</strong><span>the challenge, relationship and flow.</span></li>
+        <li class="encode"><strong>Encode</strong><span>recurring method or judgment into guidance.</span><em>Laptop lab</em></li>
+        <li class="evaluate"><strong>Evaluate</strong><span>what changes and what should change next.</span><em>Laptop lab</em></li>
+      </ol>
     </section>
 
     <section class="tool-onramp">
@@ -58,6 +58,7 @@
         </div>
       </div>
     </section>
+    <div class="onramp-buffer" aria-hidden="true"></div>
 
     <section class="stage stage-orient" id="orient">
       <div class="shell stage-grid">
@@ -160,6 +161,7 @@
           <button class="button" type="button" data-resource="workshop/04-encode/00-start-here.md">Open the Encode guide</button>
           <button class="button button-ai" type="button" data-copy-action="draft">Copy the skill-drafting prompt</button>
           <button class="text-link" type="button" data-resource="workshop/04-encode/template--agent-skill.md">Open the SKILL.md template</button>
+          <button class="text-link" type="button" data-resource="skills/README.md">Explore reference skills</button>
         </div>
         <div class="lab-output"><span>Leave Encode with</span><strong>One retrievable SKILL.md file and a trial-ready case.</strong><small>Evaluate tests what changes and what the team should improve.</small></div>
       </div>
@@ -190,27 +192,26 @@
           <article>
             <span class="step-number">02</span>
             <h3>Run the baseline</h3>
-            <p>Give a fresh conversation only the task, authorised input and required output format. Keep the target skill out, then save the complete result.</p>
-            <button class="button button-ai" type="button" data-copy-action="baseline">Copy the baseline prompt</button>
+            <p>Keep the target skill out of the baseline context. The trial guide will run it in an isolated context when possible or prepare a clean prompt for a fresh conversation.</p>
           </article>
           <article>
             <span class="step-number">03</span>
             <h3>Run with the skill, then review</h3>
-            <p>Use a second fresh conversation with the same task, input and format plus the skill. Keep both outputs visible, cite evidence for each score and decide what the skill needs next.</p>
-            <button class="button button-ai" type="button" data-copy-action="guided">Copy the guided prompt</button>
+            <p>Apply the skill to the same task, input and format. Keep both outputs visible, cite evidence for each score and decide what the skill needs next.</p>
           </article>
         </div>
 
         <div class="stage-actions lab-actions" aria-label="Evaluate support">
+          <button class="button button-ai" type="button" data-resource="skills/run-skill-trial/SKILL.md">Run the skill trial</button>
           <button class="button" type="button" data-resource="workshop/05-evaluate/00-start-here.md">Open the Evaluate guide</button>
-          <button class="text-link" type="button" data-resource="skills/run-skill-trial/SKILL.md">Using an agent with isolated runs?</button>
+          <button class="text-link" type="button" data-resource="workshop/05-evaluate/prompt--run-and-review.md">Use the 2-conversation fallback</button>
         </div>
 
         <div class="desk-callout">
           <div>
             <p class="eyebrow">Optional review workspace</p>
             <h3>Use the Comparison Desk when side-by-side scoring will help.</h3>
-            <p>It keeps both outputs, criteria, cited evidence and your revision decision together. You can complete the same review on Team Canvas 6 or in your shared workspace.</p>
+            <p>It keeps both outputs, criteria, cited evidence and your revision decision together. Team Canvas 6 remains the paper route.</p>
           </div>
           <a class="button" data-desk href="../workshop/05-evaluate/comparison-desk.html">Open the Comparison Desk</a>
         </div>

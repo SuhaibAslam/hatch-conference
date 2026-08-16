@@ -4,7 +4,7 @@ Your team is testing what its agent skill changes in one real task.
 
 ## Start here
 
-Follow these four steps in order. The team protects the comparison and makes the evidence and revision decision.
+Open [run-skill-trial](../../skills/run-skill-trial/SKILL.md) in an AI agent and ask it to follow the skill. It will create 2 isolated runs when the tool can protect them. Otherwise it will return the safe prompts for 2 fresh conversations. The team protects the comparison and makes the evidence and revision decision.
 
 ### 1. Prepare one stable case
 
@@ -17,17 +17,17 @@ Keep these four things ready:
 
 Keep the task, input material, tool and requested format the same across both runs.
 
-### 2. Run the 2 conditions in fresh conversations
+### 2. Run the 2 conditions
 
-Open [prompt--run-and-review.md](prompt--run-and-review.md). Run the baseline prompt in a fresh conversation that has not received the skill. Run the guided prompt in a second fresh conversation with the skill attached or pasted. Save both complete outputs with clear labels.
+Ask the agent to follow [run-skill-trial](../../skills/run-skill-trial/SKILL.md). When it can create genuinely isolated contexts, it will run both conditions and return complete named outputs. When it cannot, it will give you the baseline and guided prompts from [prompt--run-and-review.md](prompt--run-and-review.md). Run those prompts in 2 fresh conversations using the same tool and model.
 
-This 2-conversation route works across ordinary AI chat tools. An agent that can create genuinely isolated contexts may follow [run-skill-trial](../../skills/run-skill-trial/SKILL.md) and return both named outputs instead. A run performed after the target skill was already in the same conversation is a **context-exposed baseline**, not a clean baseline.
+The 2-conversation route works across ordinary AI chat tools. A run performed after the target skill was already in the same conversation is a **context-exposed baseline**, not a clean baseline.
 
 ### 3. Review both outputs together
 
-Use Team Canvas 6 and your shared workspace or AI conversation to keep the baseline and guided outputs visible side by side. Cite the phrase, behaviour or omission that supports each score.
+Use Team Canvas 6 to keep the baseline and guided outputs visible side by side. Cite the phrase, behaviour or omission that supports each score.
 
-Use the bundled [comparison-desk.html](comparison-desk.html) only when an interactive workspace will make side-by-side scoring easier. Select **Open trial** when an agent created `comparison-desk-session.json`, or **Paste trial** when it returned the JSON in chat. Team Canvas 6 and the named outputs are sufficient for the workshop.
+Use the bundled [Comparison Desk](comparison-desk.html) as the preferred digital review surface when your team can open it. Select **Open trial** when the agent saved a `comparison-desk-session.json` file. Select **Paste trial** when it returned the same trial data in a fenced JSON block. Team Canvas 6 and the named outputs remain a complete paper route.
 
 ### 4. Decide the revision
 

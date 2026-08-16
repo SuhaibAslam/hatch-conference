@@ -4,10 +4,10 @@ Use any AI tool your team can access. The companion provides a workshop-context 
 
 ## Fastest route
 
-1. Open the participant companion.
-2. Select **Copy workshop context** and paste it into a new AI conversation. The canonical copyable text is also available in [prompt--workshop-context.md](prompt--workshop-context.md).
-3. Add your current state and challenge or workflow.
-4. Return to the companion when you want the focused prompt for the state you are working in.
+1. In the companion, select **Copy workshop context**. In the repository, open [prompt--workshop-context.md](prompt--workshop-context.md) and copy its prompt.
+2. Paste it into a new AI conversation.
+3. Add your current state, challenge or workflow, and the question on which you want help.
+4. Return to the companion when you want the focused guide or prompt for the state you are working in.
 
 The copied context is self-contained. A tool that can open the public repository can read the linked guidance. A tool that cannot open links can still help from the pasted context and the material you add.
 
@@ -47,13 +47,4 @@ A prompt helps with one workshop move. An agent skill is a reusable `SKILL.md` f
 
 During Encode, the team creates its own skill. The files under [skills/](../skills/) are optional patterns, not required exercises.
 
-## Evaluate with a clean comparison
-
-The default route uses 2 fresh AI conversations so the target skill cannot influence the baseline:
-
-1. Copy the baseline prompt from the companion and run it in a fresh conversation that has never received the target skill.
-2. Copy the guided prompt and run it in a second fresh conversation with the target skill attached or pasted.
-3. Keep the task, input material, tool and required output format the same.
-4. Save both complete outputs and review them on Team Canvas 6.
-
-An agent that can create genuinely isolated contexts may follow [run-skill-trial](../skills/run-skill-trial/SKILL.md). When isolation is unavailable, use the 2 fresh-conversation route. Label any baseline influenced by the target skill as context-exposed.
+Open the state guide when you need activity-specific instructions. Encode contains the skill-creation route. Evaluate contains the controlled comparison route.

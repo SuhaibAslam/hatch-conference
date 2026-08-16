@@ -59,6 +59,7 @@ const requiredPaths = [
   'workshop/05-evaluate/00-start-here.md',
   'workshop/05-evaluate/prompt--run-and-review.md',
   'workshop/05-evaluate/comparison-desk.html',
+  'skills/create-and-improve-skills/SKILL.md',
   'skills/run-skill-trial/SKILL.md',
   'tool-setup/prompt--workshop-context.md'
 ];
@@ -92,11 +93,15 @@ if (!app.includes('../workshop/05-evaluate/comparison-desk.html')) fail('The loc
 if (!app.includes('<table><thead><tr>')) fail('Resource tables are missing semantic header rows.');
 if (!index.includes('data-back')) fail('The resource dialog is missing a Back action.');
 if (!app.includes('resourceHistory')) fail('The resource dialog does not preserve nested-resource history.');
+if (!app.includes('data-copy-code')) fail('Rendered code blocks are missing a direct copy affordance.');
 
-for (const action of ['quickstart', 'orient', 'coordinate', 'specify', 'draft', 'baseline', 'guided']) {
+for (const action of ['quickstart', 'orient', 'coordinate', 'specify', 'draft']) {
   if (!index.includes(`data-copy-action="${action}"`)) fail(`Companion is missing the ${action} copy action.`);
   if (!app.includes(action === 'quickstart' ? "action === 'quickstart'" : `${action}: {`)) fail(`site/app.js does not handle the ${action} copy action.`);
 }
+if (!index.includes('data-resource="skills/run-skill-trial/SKILL.md"')) fail('Evaluate does not make Run skill trial the primary AI route.');
+if (!index.includes('data-resource="workshop/05-evaluate/prompt--run-and-review.md"')) fail('Evaluate is missing the 2-conversation fallback.');
+if (!index.includes('data-resource="skills/README.md"')) fail('Encode is missing the reference-skill route.');
 
 for (const promptPath of [
   'tool-setup/prompt--workshop-context.md',
@@ -111,6 +116,7 @@ for (const promptPath of [
   for (const marker of ['Design Skills for the Agentic Era', '[add]']) {
     if (!prompt.includes(marker)) fail(`${promptPath} is missing self-contained prompt marker: ${marker}.`);
   }
+  if (!prompt.includes('https://github.com/SuhaibAslam/hatch-conference/blob/main/')) fail(`${promptPath} is missing canonical repository guidance.`);
   if (!/Use only (the )?material/.test(prompt)) fail(`${promptPath} does not protect the authorised material boundary.`);
 }
 
@@ -129,10 +135,17 @@ for (const field of ['Starting point for the skill', 'What the skill should stre
   if (!encodePrompt.includes(field)) fail(`Encode drafting prompt is missing Canvas 5 field: ${field}.`);
 }
 if (!encodePrompt.includes('Return one complete Markdown file named SKILL.md.')) fail('Encode drafting prompt does not request a complete SKILL.md file.');
+if (!encodePrompt.includes('https://agentskills.io/specification')) fail('Encode drafting prompt does not link the Agent Skills specification.');
+if (!encodePrompt.includes('Ask which AI tool or environment we use')) fail('Encode drafting prompt does not provide tool-aware save and install guidance.');
 
 const trialSkill = fs.readFileSync(path.join(root, 'skills/run-skill-trial/SKILL.md'), 'utf8');
 if (!trialSkill.includes('isolated contexts')) fail('Run skill trial does not protect isolated conditions.');
 if (!trialSkill.includes('Route B: 2 fresh conversations')) fail('Run skill trial has no safe route when isolation is unavailable.');
+if (!trialSkill.includes('preferred digital review surface')) fail('Run skill trial does not prefer the bundled Comparison Desk.');
+
+const comparisonDesk = fs.readFileSync(path.join(root, 'workshop/05-evaluate/comparison-desk.html'), 'utf8');
+if (!comparisonDesk.includes('id="copy-ai-instructions"')) fail('Comparison Desk is missing its AI-instructions action.');
+if (!comparisonDesk.includes('skills/run-skill-trial/SKILL.md')) fail('Comparison Desk AI instructions do not point to Run skill trial.');
 
 for (const skillFile of filesUnder('skills').filter(file => file.endsWith('SKILL.md'))) {
   const source = fs.readFileSync(skillFile, 'utf8');

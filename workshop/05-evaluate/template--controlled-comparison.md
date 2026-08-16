@@ -1,6 +1,6 @@
 # Controlled Comparison
 
-Use this template when your team wants a digital comparison record outside Team Canvas 6. Start with [00-start-here.md](00-start-here.md), run the 2 conditions with [prompt--run-and-review.md](prompt--run-and-review.md), then place both named outputs side by side here.
+Use this template when your team wants a digital comparison record outside Team Canvas 6. Start with [00-start-here.md](00-start-here.md), follow [run-skill-trial](../../skills/run-skill-trial/SKILL.md), then place both named outputs side by side here.
 
 Share the work: one person can work in the tool while teammates challenge the run and keep evidence in view.
 
@@ -11,7 +11,7 @@ Share the work: one person can work in the tool while teammates challenge the ru
 - Tool and model:
 - Required output format:
 - Agent skill:
-- Shared workspace or screen:
+- Review surface:
 
 ## Run 1: Baseline
 

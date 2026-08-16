@@ -22,8 +22,8 @@ Read [workshop/00-start-here.md](workshop/00-start-here.md). Ask which workshop 
 3. Use the relevant template without adding unnecessary sections.
 4. Keep confirmed evidence, assumptions and open questions separate.
 5. Mark places where a person needs to decide, approve, intervene or recover work.
-6. At Evaluate, protect a clean comparison. Follow [run-skill-trial](skills/run-skill-trial/SKILL.md) only when you can create genuinely isolated contexts for baseline and guided runs. Otherwise prepare the 2 fresh-conversation route in [prompt--run-and-review.md](workshop/05-evaluate/prompt--run-and-review.md).
-7. Tell the team to review both named outputs side by side in Team Canvas 6, their shared workspace or the conversations where they were returned. Ask whether they want an interactive Comparison Desk. When they do, use [comparison-desk.html](workshop/05-evaluate/comparison-desk.html) if reachable, or create a standalone Desk in their working area when the tool can make files.
+6. At Evaluate, protect a clean comparison. Follow [run-skill-trial](skills/run-skill-trial/SKILL.md). It should create genuinely isolated baseline and guided runs when possible, or return the safe 2 fresh-conversation route when isolation is unavailable.
+7. Tell the team to review both named outputs side by side in Team Canvas 6 or the bundled [Comparison Desk](workshop/05-evaluate/comparison-desk.html). Prepare its session JSON when a digital review will help. Create a standalone Desk only when the bundled file is unavailable and the tool can create files.
 8. End by naming what to keep, what to revise next, and the next case and evidence to watch.
 
 When a participant asks for AI help during Orient, Coordinate or Specify, use the thinking-partner prompt in the matching state folder. Ask for only the missing inputs and return material that can move back into the workbook or canvases. Do not replace the team's judgment or create a finished solution.

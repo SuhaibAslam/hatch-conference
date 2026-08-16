@@ -24,8 +24,8 @@ The printed materials and these files play different roles:
 | Orient | Personal Workbook pages 1 and 2 | Optional guidance and a thinking-partner prompt for locating a friction and sharpening a judgment rule. |
 | Coordinate | Personal Workbook page 3 and team discussion | Optional agency guidance and a thinking-partner prompt for testing who leads and when authority shifts. |
 | Specify | Personal Workbook page 4 and Team Canvases 1 to 4 | Optional challenge examples, a digital working-specification template and a thinking-partner prompt. |
-| Encode: team laptop lab | Team Canvas 5 and a shared laptop or workspace | **Use the repository.** Complete the agent-skill template, then use the drafting prompt when useful. |
-| Evaluate: team laptop lab | Team Canvas 6 and 2 fresh AI conversations | **Use the repository.** Run the stable case without and with the skill, then use cited evidence to decide the next revision. |
+| Encode: team laptop lab | Team Canvas 5 and a team laptop | **Use the repository.** Complete the agent-skill template, then use the drafting prompt when useful. |
+| Evaluate: team laptop lab | Team Canvas 6 and a team laptop | **Use the repository.** Ask an agent to follow the trial skill. It will run isolated conditions or prepare the safe 2-conversation route. |
 
 ## 01 Orient | Find the judgment
 
@@ -45,7 +45,7 @@ Open [04-encode/00-start-here.md](04-encode/00-start-here.md). Return to Canvase
 
 ## 05 Evaluate | Test and improve
 
-Open [05-evaluate/00-start-here.md](05-evaluate/00-start-here.md). It gives the default tool-neutral route in order: run the baseline in one fresh conversation, run the guided condition in another, review both named outputs in Canvas 6 and decide the revision with evidence. An agent that can create genuinely isolated contexts may follow [run-skill-trial](../skills/run-skill-trial/SKILL.md) instead. Use [comparison-desk.html](05-evaluate/comparison-desk.html) only when an interactive review workspace will help. Use [template--skill-evaluation-plan.md](05-evaluate/template--skill-evaluation-plan.md) when you want to keep improving the guidance after the workshop.
+Open [05-evaluate/00-start-here.md](05-evaluate/00-start-here.md). Ask an agent to follow [run-skill-trial](../skills/run-skill-trial/SKILL.md). It will run genuinely isolated baseline and guided conditions when possible, or prepare the safe 2-conversation route when isolation is unavailable. Review both named outputs in Canvas 6 or the bundled [Comparison Desk](05-evaluate/comparison-desk.html), then decide the revision with cited evidence. Use [template--skill-evaluation-plan.md](05-evaluate/template--skill-evaluation-plan.md) when you want to keep improving the guidance after the workshop.
 
 ## Using an AI tool
 

@@ -29,8 +29,11 @@ const routes = [
   '/content/workshop/03-specify/prompt--thinking-partner.md',
   '/content/workshop/04-encode/00-start-here.md',
   '/content/workshop/04-encode/template--agent-skill.md',
+  '/content/workshop/04-encode/prompt--draft-guidance.md',
   '/content/workshop/05-evaluate/00-start-here.md',
+  '/content/workshop/05-evaluate/prompt--run-and-review.md',
   '/content/workshop/05-evaluate/comparison-desk.html',
+  '/content/skills/create-and-improve-skills/SKILL.md',
   '/content/skills/run-skill-trial/SKILL.md'
 ];
 
