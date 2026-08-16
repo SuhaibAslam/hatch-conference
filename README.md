@@ -15,6 +15,8 @@ For coding agents that use repository instructions, start with [AGENTS.md](AGENT
 
 This repository also deploys a participant-facing workshop companion through GitHub Pages. It follows the full journey from Orient through Evaluate, places design guidance and optional AI thinking prompts beside the decision they support, and provides deeper step-by-step support for the Encode and Evaluate laptop labs. The files in this repository remain the canonical source; open GitHub when you want to browse, edit or download them directly.
 
+Open the production companion at [suhaibaslam.github.io/hatch-conference](https://suhaibaslam.github.io/hatch-conference/).
+
 ## What is here
 
 <!--
